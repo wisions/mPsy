@@ -1,0 +1,71 @@
+
+Controlling `mPsy` experiments from R
+========================================
+
+Contents:
+
+.. contents::
+    :local:
+    :depth: 2
+
+Installation
+------------
+
+You can download mPsy with sample experiment written in R from 
+`here <https://dl.dropboxusercontent.com/u/166463/visionpyg/downloads/mpsy_r.zip>`_.
+
+In what is described on this page, the R environment is used only to specify the timeline of experiment and its parameters.
+Presentation of stimuli still require a working Python installation as descibed in :doc:`index`.
+
+Once you have Python installed, exctract the downloaded mPsy package into an empty directory.
+
+The mPsy-to-R bridge script uses two R packages that might be not installed in your distribution.
+These packages are "rjson" and "httpRequest", please install them using your favorite method.
+
+A simple R experiment
+--------------------------
+
+As stated in the first section the experiment will be essentially running in Python, R will
+be used to remotelly control this experiment. The Python program that will "listen" to the R
+commands is a simple experiment with no stimuli and remote control component included:
+
+.. literalinclude:: c:\Users\juricap\Dropbox\shared evolver\visionpyg_glsl\exp_tut_webremote.py
+    :linenos:
+
+The web remote control is enabled by the following code:
+
+.. literalinclude:: c:\Users\juricap\Dropbox\shared evolver\visionpyg_glsl\exp_tut_webremote.py
+    :lines: 14-19
+
+When the remotely controllable Python experiment is running we can use R to define when and 
+what stimuli appear on the screen. The mPsy Python package will take care of stimulus presentation, 
+subject interaction such as the collecting responses, and transmission of collected information back 
+to the R program.
+
+The R experiment looks as follows:
+
+.. highlight:: r
+.. literalinclude:: c:\Users\juricap\Dropbox\shared evolver\visionpyg_glsl\dots_tut3.r
+    :linenos:
+
+To run the demo experiment first download the file. Next run the "exp_tut_webremote.py" 
+(double click, or use Terminal or cmd.exe and execute by typing "python exp_tut_webremote.py"). 
+A succesfull execution of the Python program results in a blank  black screen 
+(or a black window in case fullscreen option is off). At this point you can go to R, 
+change the working directory to the one containing the file "dots_tut3.r" and run "source('dots_tut3.r')".
+
+The syntax of the R experiment is modelled after the Python examples. Please refer
+to the main tutorial ":doc:`index`" for explanation of commands for stimulus parameter and trial setup.
+
+Recording responses
+~~~~~~~~~~~~~~~~~~~
+Events triggered by mPsy or subject interation are described in the main Python tutorial
+in :doc:`tut_python`.
+
+To catch events in R we regularly check for any messages accumulating in the Python presentation program:
+
+.. literalinclude:: c:\Users\juricap\Dropbox\shared evolver\visionpyg_glsl\dots_tut3.r
+    :lines: 80-100
+
+
+

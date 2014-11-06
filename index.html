@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Modular Psychophysics &mdash; Modular Psychophysics 2.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="Modular Psychophysics 2.0 documentation" href="#" />
+    <link rel="next" title="Psychophysics in “pure” Python" href="tut_python.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="#">
+          <span>Modular Psychophysics 2.0 documentation</span></a></h1>
+        <h2 class="heading"><span>Modular Psychophysics</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        <a class="uplink" href="#">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="tut_python.html">Psychophysics in &#8220;pure&#8221; Python</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="modular-psychophysics">
+<h1>Modular Psychophysics<a class="headerlink" href="#modular-psychophysics" title="Permalink to this headline">¶</a></h1>
+<p>Modular Psychophysics is a minimalist approach to psychophysics using Python.
+It allows one to quickly develop psychophysical experiments.
+Modular Psychophysics differs from other psychophysical frameworks  in three ways</p>
+<ul class="simple">
+<li>the amount of code,</li>
+<li>it is self-contained,</li>
+<li>open to control over networks</li>
+</ul>
+<a class="reference internal image-reference" href="_images/simple.png"><img alt="_images/simple.png" class="align-center" src="_images/simple.png" style="width: 350px;" /></a>
+<p>Modular PsychoPhysics allows one to build experiments out of modules. The framework provides
+modules implementing basic stimuli and modules for control of stimulus and experiment parameters.
+Control of parameters is also possible through a remote control module.</p>
+<p>Modules of mPsy are designed as independent programs. Individual stimuli are independent of this
+package and independent of other stimuli in this package. Any stimulus available in this package
+could in principle be run in any OpenGL program based on Python module pyglet.</p>
+<p>The design principles above make this framework truly modular, and together with compact code base,
+truly portable. Lightweight experiments can be moved between computers and operating systems.
+It is even possible to move certain parts of one experiment, the control of stimulus parameters,
+to a computer independent of the computer presenting stimuli. The two computers can be on different
+operating systems and commands that control stimuli and experiment parameters can be sent
+from any programming language.</p>
+<p>You can find here the following:</p>
+<div class="toctree-wrapper compound">
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Modular Psychophysics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tut_python.html">Psychophysics in &#8220;pure&#8221; Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tut_python.html#the-hello-lattice-experiment">The &#8220;Hello Lattice!&#8221; experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut_python.html#recording-responses">Recording responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut_python.html#randomizing-stimulus-parameters">Randomizing stimulus parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut_python.html#coding-your-own-stimuli">Coding your own Stimuli</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tut_matlab.html">Controlling <cite>mPsy</cite> experiments from MATLAB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tut_matlab.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut_matlab.html#a-simple-matlab-experiment">A simple MATLAB experiment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tut_r.html">Controlling <cite>mPsy</cite> experiments from R</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tut_r.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut_r.html#a-simple-r-experiment">A simple R experiment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Brief Function Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>You can download Modular Psychophysics from <a class="reference external" href="https://dl.dropboxusercontent.com/u/166463/visionpyg/downloads/mpsy_minimal.zip">here</a>.</p>
+<p>Modular Psychophysics requires only <a class="reference external" href="http://python.org">Python</a> to run. The few other essential dependencies are bundled with the package.
+However, we also suggest installing <a class="reference external" href="http://numpy.org">Numerical Python (numpy)</a>. The framework is meant for scientists and therefore
+it is very likely that even the most simple experiment will require some numerical computation.
+Some of the stimuli we use in tutorials use Python&#8217;s Numpy module.</p>
+<p>If you are completely new to Python, and do not want to hit any obstacles while installing Python
+and its scientific packages, I suggest installing the free version of <a class="reference external" href="https://www.enthought.com/products/epd/">Enthought Python Distribution</a>,
+recently rebranded as <a class="reference external" href="https://www.enthought.com/products/epd/free/">Canopy Express</a>.
+For Mac OS users I found this distribution is the only way of getting all scientific packages (especially Matplotlib) working without a problem.</p>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>It&#8217;s best to learn by examples. For some users the examples in this tutorial will be all they need.</p>
+<ul class="simple">
+<li>Psychophysics with mPsy in Python - <a class="reference internal" href="tut_python.html"><em>Psychophysics in &#8220;pure&#8221; Python</em></a></li>
+</ul>
+<p>The tutorial above is meant for Python users, or people interested in becoming one. If you would prefer
+programming the experiment in other languages you can use the &#8220;web remote&#8221; functionality. Working examples
+of controlling mPsy presentation remotely are available for the following languages:</p>
+<ul class="simple">
+<li>MATLAB - <a class="reference internal" href="tut_matlab.html"><em>Controlling mPsy experiments from MATLAB</em></a></li>
+<li>R - <a class="reference internal" href="tut_r.html"><em>Controlling mPsy experiments from R</em></a></li>
+</ul>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        <a class="uplink" href="#">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="tut_python.html">Psychophysics in &#8220;pure&#8221; Python</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2014, Peter Jurica, Sergei Gepshtein.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b2.
+    </div>
+  </body>
+</html>

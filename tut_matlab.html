@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Controlling mPsy experiments from MATLAB &mdash; Modular Psychophysics 2.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="Modular Psychophysics 2.0 documentation" href="index.html" />
+    <link rel="next" title="Controlling mPsy experiments from R" href="tut_r.html" />
+    <link rel="prev" title="Psychophysics in “pure” Python" href="tut_python.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>Modular Psychophysics 2.0 documentation</span></a></h1>
+        <h2 class="heading"><span>Controlling mPsy experiments from MATLAB</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="tut_python.html">Psychophysics in &#8220;pure&#8221; Python</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="tut_r.html">Controlling <cite>mPsy</cite> experiments from R</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="controlling-mpsy-experiments-from-matlab">
+<h1>Controlling <cite>mPsy</cite> experiments from MATLAB<a class="headerlink" href="#controlling-mpsy-experiments-from-matlab" title="Permalink to this headline">¶</a></h1>
+<p>Contents:</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#installation" id="id1">Installation</a></li>
+<li><a class="reference internal" href="#a-simple-matlab-experiment" id="id2">A simple MATLAB experiment</a><ul>
+<li><a class="reference internal" href="#recording-responses" id="id3">Recording responses</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2><a class="toc-backref" href="#id1">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>You can download mPsy with sample experiment written in MATLAB from
+<a class="reference external" href="https://dl.dropboxusercontent.com/u/166463/visionpyg/downloads/mpsy_matlab.zip">here</a>.</p>
+<p>In what is described on this page, MATLAB environment is used only to specify the timeline of experiment and its parameters.
+Presentation of stimuli still require a working Python installation as descibed in <a class="reference internal" href="index.html"><em>Modular Psychophysics</em></a>.</p>
+<p>Once you have Python installed, exctract the downloaded mPsy package into an empty directory.</p>
+</div>
+<div class="section" id="a-simple-matlab-experiment">
+<h2><a class="toc-backref" href="#id2">A simple MATLAB experiment</a><a class="headerlink" href="#a-simple-matlab-experiment" title="Permalink to this headline">¶</a></h2>
+<p>As stated in the first section the experiment will be essentially running in Python, MATLAB will
+be used to remotelly control this experiment. The Python program that will &#8220;listen&#8221; to the MATLAB
+commands is a simple experiment with no stimuli and remote control component included:</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">stimuli</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">fullscreen</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">fullscreen</span><span class="p">:</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">768</span><span class="p">)</span>
+    <span class="n">win</span> <span class="o">=</span> <span class="n">ExpWindow</span><span class="p">(</span><span class="n">fullscreen</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">win</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">win</span><span class="o">.</span><span class="n">height</span>
+    <span class="n">cx</span><span class="p">,</span> <span class="n">cy</span> <span class="o">=</span> <span class="n">win</span><span class="o">.</span><span class="n">width</span> <span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">win</span><span class="o">.</span><span class="n">height</span> <span class="o">//</span><span class="mi">2</span>
+
+    <span class="c"># tell visionpyg about remote control</span>
+    <span class="kn">import</span> <span class="nn">web</span>
+    <span class="n">remote</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">Remote</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
+    <span class="n">win</span><span class="o">.</span><span class="n">set_remote</span><span class="p">(</span><span class="n">remote</span><span class="p">)</span>
+    <span class="c"># capture event by the remote control</span>
+    <span class="n">win</span><span class="o">.</span><span class="n">set_logger</span><span class="p">(</span><span class="n">remote</span><span class="o">.</span><span class="n">event</span><span class="p">)</span>
+    
+    <span class="c"># run experiment</span>
+    <span class="c"># visionpyg takes Trials from the begining of the trials list</span>
+    <span class="c"># if the trials list is eempty visionpyg waits</span>
+    <span class="c"># ESCAPE stops the experiment at any time</span>
+    <span class="n">run</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<p>The web remote control is enabled by the following code:</p>
+<div class="highlight-python"><div class="highlight"><pre>    <span class="c"># tell visionpyg about remote control</span>
+    <span class="kn">import</span> <span class="nn">web</span>
+    <span class="n">remote</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">Remote</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
+    <span class="n">win</span><span class="o">.</span><span class="n">set_remote</span><span class="p">(</span><span class="n">remote</span><span class="p">)</span>
+    <span class="c"># capture event by the remote control</span>
+    <span class="n">win</span><span class="o">.</span><span class="n">set_logger</span><span class="p">(</span><span class="n">remote</span><span class="o">.</span><span class="n">event</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When the remotely controllable Python experiment is running we can use MATLAB to define when and
+what stimuli appear on the screen. The mPsy Python package will take care of stimulus presentation,
+subject interaction such as the collecting responses, and transmission of collected information back
+to the MATLAB program.</p>
+<p>The MATLAB experiment looks as follows:</p>
+<div class="highlight-matlab"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">mimport</span><span class="p">(</span><span class="s">&#39;matlab&#39;</span><span class="p">);</span>
+
+<span class="n">win</span> <span class="p">=</span> <span class="n">grating_info</span><span class="p">();</span>
+<span class="n">cx</span> <span class="p">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">win</span><span class="p">.</span><span class="n">width</span><span class="o">/</span>2<span class="p">);</span>
+<span class="n">cy</span> <span class="p">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">win</span><span class="p">.</span><span class="n">height</span><span class="o">/</span>2<span class="p">);</span>
+
+<span class="c">% prepare grating configuration</span>
+<span class="n">pleft</span> <span class="p">=</span> <span class="n">Params</span><span class="p">(</span><span class="s">&#39;width&#39;</span><span class="p">,</span>400<span class="p">.</span>0<span class="p">,</span><span class="s">&#39;speed&#39;</span><span class="p">,</span>20<span class="p">.</span>0<span class="p">,</span><span class="s">&#39;fs&#39;</span><span class="p">,</span>40<span class="p">.</span>0<span class="p">);</span>
+<span class="c">% p4 will be the same as p3, with speed 40.0</span>
+<span class="n">pright</span> <span class="p">=</span> <span class="n">copy_params</span><span class="p">(</span><span class="n">pleft</span><span class="p">,</span><span class="s">&#39;speed&#39;</span><span class="p">,</span>40<span class="p">.</span>0<span class="p">);</span>
+
+<span class="c">% setup trials</span>
+<span class="n">trials</span> <span class="p">=</span> <span class="p">{};</span>
+
+<span class="n">speeds</span> <span class="p">=</span> 10 <span class="o">+</span> 10<span class="o">*</span><span class="nb">rand</span><span class="p">(</span>6<span class="p">,</span>2<span class="p">);</span>
+
+<span class="c">% setup presentation screens</span>
+<span class="n">stimuli_gratings</span> <span class="p">=</span> <span class="p">{</span> <span class="n">Grating</span><span class="p">([</span><span class="n">cx</span><span class="o">-</span>350<span class="p">,</span><span class="n">cy</span><span class="p">],</span><span class="n">pleft</span><span class="p">),</span> <span class="p">...</span>
+                     <span class="n">Grating</span><span class="p">([</span><span class="n">cx</span><span class="o">+</span>350<span class="p">,</span><span class="n">cy</span><span class="p">],</span><span class="n">pright</span><span class="p">)</span> <span class="p">};</span>
+
+<span class="n">welcome_line</span>  <span class="p">=</span> <span class="p">{</span> <span class="n">Text</span><span class="p">([</span><span class="n">cx</span><span class="p">,</span><span class="n">cy</span><span class="o">-</span>50<span class="p">],</span><span class="n">Params</span><span class="p">(</span><span class="s">&#39;msg&#39;</span><span class="p">,</span><span class="s">&#39;Press SPACE when ready.&#39;</span><span class="p">))</span> <span class="p">};</span>
+<span class="n">farewell_line</span> <span class="p">=</span> <span class="p">{</span> <span class="n">Text</span><span class="p">([</span><span class="n">cx</span><span class="p">,</span><span class="n">cy</span><span class="o">-</span>50<span class="p">],</span><span class="n">Params</span><span class="p">(</span><span class="s">&#39;msg&#39;</span><span class="p">,</span><span class="s">&#39;Game over!&#39;</span><span class="p">))</span> <span class="p">};</span>
+<span class="n">response_line</span> <span class="p">=</span> <span class="p">{</span> <span class="n">Text</span><span class="p">([</span><span class="n">cx</span><span class="p">,</span><span class="n">cy</span><span class="p">],</span><span class="n">Params</span><span class="p">(</span><span class="s">&#39;msg&#39;</span><span class="p">,</span><span class="s">&#39;Which was faster\nLeft or Right&#39;</span><span class="p">))</span> <span class="p">};</span>
+<span class="nb">dot</span> <span class="p">=</span> <span class="p">{</span> <span class="n">Dot</span><span class="p">([</span><span class="n">cx</span><span class="p">,</span><span class="n">cy</span><span class="p">],</span><span class="n">Params</span><span class="p">(</span><span class="s">&#39;c&#39;</span><span class="p">,</span>0<span class="p">.</span>5<span class="p">))</span> <span class="p">};</span>
+
+<span class="c">% setup trials</span>
+<span class="n">trials</span> <span class="p">=</span> <span class="p">{};</span>  
+
+<span class="n">keys_none</span>    <span class="p">=</span> <span class="p">[];</span>
+<span class="n">keys_default</span> <span class="p">=</span> <span class="p">[</span><span class="n">key</span><span class="p">.</span><span class="n">SPACE</span><span class="p">,</span><span class="n">key</span><span class="p">.</span><span class="n">C</span><span class="p">,</span><span class="n">key</span><span class="p">.</span><span class="n">N</span><span class="p">,</span><span class="n">key</span><span class="p">.</span><span class="n">LEFT</span><span class="p">,</span><span class="n">key</span><span class="p">.</span><span class="n">RIGHT</span><span class="p">];</span>
+
+<span class="c">% add a message screen, wait until button press (duration=0 means wait)</span>
+<span class="n">trials</span><span class="p">(</span><span class="k">end</span><span class="o">+</span>1<span class="p">)</span> <span class="p">=</span> <span class="p">{</span> <span class="n">Trial</span><span class="p">(</span><span class="s">&#39;Start&#39;</span><span class="p">,</span><span class="n">welcome_line</span><span class="p">,</span>0<span class="p">,</span><span class="n">keys_default</span><span class="p">)</span> <span class="p">};</span>
+
+<span class="c">% add three Trials each consisting of a Fixation, </span>
+<span class="c">% Stimulus and a Response screemn</span>
+<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> 1<span class="p">:</span>3
+    <span class="n">trials</span> <span class="p">=</span> <span class="p">[</span> <span class="n">trials</span><span class="p">,</span> <span class="p">...</span>
+               <span class="n">Trial</span><span class="p">(</span><span class="s">&#39;Fixation&#39;</span><span class="p">,</span>             <span class="nb">dot</span><span class="p">,</span> 1000<span class="p">,</span> <span class="n">keys_none</span>   <span class="p">),</span> <span class="p">...</span>
+               <span class="n">Trial</span><span class="p">(</span><span class="s">&#39;Gratings&#39;</span><span class="p">,</span><span class="n">stimuli_gratings</span><span class="p">,</span> 1500<span class="p">,</span> <span class="n">keys_none</span>   <span class="p">),</span> <span class="p">...</span>
+               <span class="n">Trial</span><span class="p">(</span><span class="s">&#39;Response&#39;</span><span class="p">,</span>   <span class="n">response_line</span><span class="p">,</span>    0<span class="p">,</span> <span class="n">keys_default</span><span class="p">)</span> <span class="p">];</span>
+<span class="k">end</span>
+
+<span class="n">trials</span><span class="p">{</span><span class="k">end</span><span class="o">+</span>1<span class="p">}</span> <span class="p">=</span> <span class="n">Trial</span><span class="p">(</span><span class="s">&#39;End&#39;</span><span class="p">,</span> <span class="n">farewell_line</span><span class="p">,</span> 0<span class="p">,</span> <span class="n">keys_none</span><span class="p">);</span>
+
+<span class="c">% tell visionpyg about trials</span>
+<span class="n">set_trials</span><span class="p">(</span><span class="n">trials</span><span class="p">);</span>
+
+<span class="c">% watch the events for 10 seconds</span>
+<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> 1<span class="p">:</span>10<span class="p">,</span>
+    <span class="n">pause</span><span class="p">(</span>1<span class="p">.</span>0<span class="p">);</span>
+    <span class="k">events</span> <span class="p">=</span> <span class="n">grating_events</span><span class="p">;</span>
+    <span class="k">for</span> <span class="nb">j</span> <span class="p">=</span> 1<span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="k">events</span><span class="p">),</span>
+        <span class="nb">disp</span><span class="p">(</span><span class="k">events</span><span class="p">{</span><span class="nb">j</span><span class="p">});</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</td></tr></table></div>
+<p>To run the demo experiment first download the file. Next run the &#8220;exp_tut_webremote.py&#8221;
+(double click, or use Terminal or cmd.exe and execute by typing &#8220;python exp_tut_webremote.py&#8221;).
+A succesfull execution of the Python program results in a blank
+black screen (or a black window in case fullscreen option is off).</p>
+<p>At this point you can go to MATLAB, change you current sirectory the directory that contains
+the file &#8220;exp_tut4.m&#8221;, and m-file called &#8220;mimport.m&#8221; and a subdirectoru &#8220;matlab&#8221;.
+In this directory run &#8220;exp_tut4&#8221;.</p>
+<p>The syntax of the MATLAB experiment is modelled after the Python examples. Please refer
+to the main tutorial &#8220;<a class="reference internal" href="index.html"><em>Modular Psychophysics</em></a>&#8221; for explanation of commands for stimulus parameter and trial setup.</p>
+<div class="section" id="recording-responses">
+<h3><a class="toc-backref" href="#id3">Recording responses</a><a class="headerlink" href="#recording-responses" title="Permalink to this headline">¶</a></h3>
+<p>Events triggered by mPsy or subject interation are described in the main Python tutorial
+in <a class="reference internal" href="tut_python.html"><em>Psychophysics in &#8220;pure&#8221; Python</em></a>.</p>
+<p>To catch events in MATLAB we regularly check for any messages accumulating
+in the Python presentation program:</p>
+<div class="highlight-matlab"><div class="highlight"><pre><span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> 1<span class="p">:</span>10<span class="p">,</span>
+    <span class="n">pause</span><span class="p">(</span>1<span class="p">.</span>0<span class="p">);</span>
+    <span class="k">events</span> <span class="p">=</span> <span class="n">grating_events</span><span class="p">;</span>
+    <span class="k">for</span> <span class="nb">j</span> <span class="p">=</span> 1<span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="k">events</span><span class="p">),</span>
+        <span class="nb">disp</span><span class="p">(</span><span class="k">events</span><span class="p">{</span><span class="nb">j</span><span class="p">});</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="tut_python.html">Psychophysics in &#8220;pure&#8221; Python</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="tut_r.html">Controlling <cite>mPsy</cite> experiments from R</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2014, Peter Jurica, Sergei Gepshtein.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b2.
+    </div>
+  </body>
+</html>

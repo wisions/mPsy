@@ -1,0 +1,72 @@
+
+Modular Psychophysics
+=====================
+
+Modular Psychophysics is a minimalist approach to psychophysics using Python.
+It allows one to quickly develop psychophysical experiments. 
+Modular Psychophysics differs from other psychophysical frameworks  in three ways
+
+* the amount of code, 
+* it is self-contained,
+* open to control over networks
+
+.. image:: assets/simple.png
+    :width: 350px
+    :align: center
+    
+Modular PsychoPhysics allows one to build experiments out of modules. The framework provides 
+modules implementing basic stimuli and modules for control of stimulus and experiment parameters.
+Control of parameters is also possible through a remote control module.
+
+Modules of mPsy are designed as independent programs. Individual stimuli are independent of this 
+package and independent of other stimuli in this package. Any stimulus available in this package 
+could in principle be run in any OpenGL program based on Python module pyglet.
+
+The design principles above make this framework truly modular, and together with compact code base, 
+truly portable. Lightweight experiments can be moved between computers and operating systems. 
+It is even possible to move certain parts of one experiment, the control of stimulus parameters, 
+to a computer independent of the computer presenting stimuli. The two computers can be on different 
+operating systems and commands that control stimuli and experiment parameters can be sent 
+from any programming language.
+
+You can find here the following:
+
+.. toctree::
+    :maxdepth: 2
+    
+    self
+    tut_python
+    tut_matlab
+    tut_r
+    reference
+
+
+Installation
+------------
+
+You can download Modular Psychophysics from `here <https://dl.dropboxusercontent.com/u/166463/visionpyg/downloads/mpsy_minimal.zip>`_.
+
+Modular Psychophysics requires only `Python <http://python.org>`_ to run. The few other essential dependencies are bundled with the package.
+However, we also suggest installing `Numerical Python (numpy) <http://numpy.org>`_. The framework is meant for scientists and therefore 
+it is very likely that even the most simple experiment will require some numerical computation.
+Some of the stimuli we use in tutorials use Python's Numpy module.
+
+If you are completely new to Python, and do not want to hit any obstacles while installing Python
+and its scientific packages, I suggest installing the free version of `Enthought Python Distribution <https://www.enthought.com/products/epd/>`_,
+recently rebranded as `Canopy Express <https://www.enthought.com/products/epd/free/>`_. 
+For Mac OS users I found this distribution is the only way of getting all scientific packages (especially Matplotlib) working without a problem.
+
+Getting Started
+---------------
+It's best to learn by examples. For some users the examples in this tutorial will be all they need. 
+
+* Psychophysics with mPsy in Python - :doc:`tut_python`
+
+The tutorial above is meant for Python users, or people interested in becoming one. If you would prefer
+programming the experiment in other languages you can use the "web remote" functionality. Working examples
+of controlling mPsy presentation remotely are available for the following languages:
+
+* MATLAB - :doc:`tut_matlab`
+* R - :doc:`tut_r`
+
+

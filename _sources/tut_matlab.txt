@@ -1,0 +1,70 @@
+
+Controlling `mPsy` experiments from MATLAB
+=============================================
+
+Contents:
+
+.. contents::
+    :local:
+    :depth: 2
+
+Installation
+------------
+
+You can download mPsy with sample experiment written in MATLAB from 
+`here <https://dl.dropboxusercontent.com/u/166463/visionpyg/downloads/mpsy_matlab.zip>`_.
+
+In what is described on this page, MATLAB environment is used only to specify the timeline of experiment and its parameters.
+Presentation of stimuli still require a working Python installation as descibed in :doc:`index`.
+
+Once you have Python installed, exctract the downloaded mPsy package into an empty directory.
+
+A simple MATLAB experiment
+--------------------------
+
+As stated in the first section the experiment will be essentially running in Python, MATLAB will
+be used to remotelly control this experiment. The Python program that will "listen" to the MATLAB
+commands is a simple experiment with no stimuli and remote control component included:
+
+.. literalinclude:: c:\Users\juricap\Dropbox\shared evolver\visionpyg_glsl\exp_tut_webremote.py
+    :linenos:
+
+The web remote control is enabled by the following code:
+
+.. literalinclude:: c:\Users\juricap\Dropbox\shared evolver\visionpyg_glsl\exp_tut_webremote.py
+    :lines: 14-19
+
+When the remotely controllable Python experiment is running we can use MATLAB to define when and 
+what stimuli appear on the screen. The mPsy Python package will take care of stimulus presentation, 
+subject interaction such as the collecting responses, and transmission of collected information back 
+to the MATLAB program.
+
+The MATLAB experiment looks as follows:
+
+.. highlight:: matlab
+.. literalinclude:: c:\Users\juricap\Dropbox\shared evolver\visionpyg_glsl\exp_tut4.m
+    :linenos:
+
+To run the demo experiment first download the file. Next run the "exp_tut_webremote.py" 
+(double click, or use Terminal or cmd.exe and execute by typing "python exp_tut_webremote.py").
+A succesfull execution of the Python program results in a blank 
+black screen (or a black window in case fullscreen option is off).
+
+At this point you can go to MATLAB, change you current sirectory the directory that contains
+the file "exp_tut4.m", and m-file called "mimport.m" and a subdirectoru "matlab". 
+In this directory run "exp_tut4".
+
+The syntax of the MATLAB experiment is modelled after the Python examples. Please refer
+to the main tutorial ":doc:`index`" for explanation of commands for stimulus parameter and trial setup.
+
+Recording responses
+~~~~~~~~~~~~~~~~~~~
+Events triggered by mPsy or subject interation are described in the main Python tutorial
+in :doc:`tut_python`.
+
+To catch events in MATLAB we regularly check for any messages accumulating 
+in the Python presentation program:
+
+.. literalinclude:: c:\Users\juricap\Dropbox\shared evolver\visionpyg_glsl\exp_tut4.m
+    :lines: 51-57
+

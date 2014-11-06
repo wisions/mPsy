@@ -1,0 +1,16 @@
+
+Brief Function Reference
+========================
+
+.. .. autoclass:: stimuli.Grating
+.. .. autoclass:: stimuli.DotLattice
+.. .. autoclass:: stimuli.Dot
+.. .. autoclass:: stimuli.Pill
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
