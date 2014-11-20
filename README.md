@@ -2,7 +2,7 @@
 Modular Psychophysics (mPsy)
 ----------------------------
 
-**mPsy** is a modular approach to design of psychophysical experiments. Experiments can be built out of independent programs and modules. Programs can be in different languages.
+**mPsy** is a modular approach to design of psychophysical experiments. Experiments can be built out of independent programs and modules. Programs can be in different languages. It offers a library of standard stimuli and also tools for building new stimuli, static and dynamic.
 
 <p align="center">
   <img src="https://raw.github.com/juricap/mPsy/gh-pages/_images/0001.png" width="96" height="96">
@@ -14,7 +14,7 @@ Modular Psychophysics (mPsy)
 </p>
 
 **mPsy** is free, open-source, and extremely compact. It embodies a minimalist approach to programming and psychophysics. 
-The core of mPsy is written in Python. It offers a library of standard stimuli and also tools for building new stimuli, static and dynamic. 
+The core of mPsy is written in Python.
 
 The core can be controlled using several languages. For example:
 
