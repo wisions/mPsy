@@ -1,6 +1,7 @@
+<img src="https://raw.github.com/juricap/mPsy/gh-pages/_images/logo_mpsy512_g.png" width="86" heitgh="86" align='right' >
+
 Modular Psychophysics (mPsy)
 ----------------------------
-<img src="https://raw.github.com/juricap/mPsy/gh-pages/_images/logo_mpsy512_g.png" width="128" heitgh="128" align='right' >
 
 mPsy is a modular approach to design of psychophysical experiments. Experiments can be built out of independent programs and modules. Programs can be in different languages.
 
