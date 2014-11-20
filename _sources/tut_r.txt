@@ -23,14 +23,13 @@ The mPsy-to-R bridge script uses two R packages that might be not installed in y
 These packages are "rjson" and "httpRequest", please install them using your favorite method.
 
 A simple R experiment
---------------------------
+---------------------
 
 As stated in the first section the experiment will be essentially running in Python, R will
 be used to remotelly control this experiment. The Python program that will "listen" to the R
 commands is a simple experiment with no stimuli and remote control component included:
 
 .. literalinclude:: c:\Users\juricap\Dropbox\shared evolver\visionpyg_glsl\exp_tut_webremote.py
-    :linenos:
 
 The web remote control is enabled by the following code:
 
@@ -46,7 +45,6 @@ The R experiment looks as follows:
 
 .. highlight:: r
 .. literalinclude:: c:\Users\juricap\Dropbox\shared evolver\visionpyg_glsl\dots_tut3.r
-    :linenos:
 
 To run the demo experiment first download the file. Next run the "exp_tut_webremote.py" 
 (double click, or use Terminal or cmd.exe and execute by typing "python exp_tut_webremote.py"). 
@@ -58,7 +56,8 @@ The syntax of the R experiment is modelled after the Python examples. Please ref
 to the main tutorial ":doc:`index`" for explanation of commands for stimulus parameter and trial setup.
 
 Recording responses
-~~~~~~~~~~~~~~~~~~~
+-------------------
+
 Events triggered by mPsy or subject interation are described in the main Python tutorial
 in :doc:`tut_python`.
 

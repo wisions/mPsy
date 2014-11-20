@@ -1,0 +1,93 @@
+
+.. raw:: html
+
+    <style>
+    img { border-radius: 4px; margin-bottom: 10px; }
+    h2 { clear: right; }
+    </style>
+
+Stimulus Library
+================
+
+Dot Lattice
+-----------
+
+.. image:: assets/stimuli/0001.png
+    :align: right
+    :width: 120px
+
+Dot lattice stimulus is an array of dots, dots are organized along two orientations
+with constant within orientation inter-dot distances.
+
+Dots in this stimulus can be redered as gratings, so that each dot can have its own 
+sptial frequency and orientation.
+
+.. mpsyparams:: stimuli.DotLattice
+
+Random Dot Kinematograms
+------------------------
+
+.. image:: assets/stimuli/0002.png
+    :align: right
+    :width: 120px
+
+Random dot kinematograms (RDK) as visual stimuli composed of randomly scattered and moving points.
+Commonly used  RDK stimulus is composed of two subgroups of points, each can be controlled independently
+in order to study motion perception of coherent groups in noisy (in-coherent) backgrounds.
+
+This stimulus displays only a single group, multiple groups can be obtain by overlaying multiple
+instances of ths stimulus.
+
+.. mpsyparams:: stimuli.RDK
+
+Tiled Image
+-----------
+
+.. image:: assets/stimuli/0003.png
+    :align: right
+    :width: 120px
+
+Tiled image is a stimulus object that enables the presentation of images. 
+Images can be shown unmodified, scaled, rotated, or on tiles obtained by splitting the image 
+by a regular grid. Some properties of tiles can be controlled independently.
+
+.. mpsyparams:: stimuli.Tiles
+
+Grating
+-------
+
+.. image:: assets/stimuli/0004.png
+    :align: right
+    :width: 120px
+
+One of the most elementary vision stimulus, periodic grating with periodically changing contrast. 
+The contrast can be controled (modulated) in space and time. This stimulus has a built in
+gaussian mask, which can be used as a circular aperture.
+
+.. mpsyparams:: stimuli.Grating
+
+Cube
+----
+
+.. image:: assets/stimuli/0007.png
+    :align: right
+    :width: 120px
+
+Cube arbitrarily rotated and scaled in three dimensions. The colors of vertices and faces can 
+be controlled.
+
+.. mpsyparams:: stimuli.Letters
+
+Alphabet Grid for BCI Spelling
+------------------------------
+
+.. image:: assets/stimuli/0005.png
+    :align: right
+    :width: 120px
+
+A grid of letters commonly used in Brain Computer Interface (BCI) research. 
+Letter of alphabet are shown in 6x6 grid, cells of this grid can be periodically highlighted.
+This stimulus sends events on each update of stimulus, so they can be logged for ERP analysis.
+
+.. mpsyparams:: stimuli.Letters
+

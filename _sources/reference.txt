@@ -1,5 +1,5 @@
 
-Brief Function Reference
+Brief function reference
 ========================
 
 .. .. autoclass:: stimuli.Grating

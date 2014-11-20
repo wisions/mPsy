@@ -1,0 +1,75 @@
+
+Creating your own stimuli
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Modular Psychophysics requires that stimulus has a function draw() and a field (or member) called `params`, 
+which is an associative array. Associative array is a fundamental object type that 
+implemented in any language (MATLAB's struct, R's named list etc.).
+
+A minimal Python stimulus definition is as follows:
+
+.. code-block:: python
+
+    from pyglet import text
+
+    class Text:
+        def __init__(self,**params):
+            self.params = Params(\**params)
+            self.text = text.Label(self.params.msg,anchor_x='center',halign='center')
+        def draw(self):
+            self.text.draw()
+
+The example stimlus `Text` is a very simple yet functional example of a text label.
+
+Stimuli in mPsy are independent programs. The stimuli provided in `stimuli.py` module are examples.
+Those examples and the one we created above can be used outside of mPsy. This is useful
+for the development and testing stimuli.
+
+The followong code shows how to quickly setup a window and call *draw* function of an mPsy stimulus.
+
+.. code-block:: python
+
+    from pyglet import text
+
+    class Text:
+        def __init__(self,\**params):
+            print params
+            self.params = Params(\**params)
+            self.text = text.Label(self.params.msg,halign='center',anchor_x='center')
+        def draw(self):
+            self.text.draw()
+
+    if __name__ == "__main__":
+        import sys
+        sys.path[:0] = ['packages.zip']
+
+        from pyglet.gl import *
+        from pyglet.window import key
+        from pyglet import clock, clock, font, graphics, window, text
+
+        class Params:
+            def __init__(self,**kwargs):
+                self.__dict__.update(kwargs)
+            def update(self,**kwargs):
+                self.__dict__.update(kwargs)
+            def __str__(self):
+                return '\n'.join( '%s = %s'%x for x in self.__dict__.items() )
+            def __repr__(self):
+                return 'Params(%s)'%(', '.join( '%s=%s'%x for x in self.__dict__.items() ),)
+            def default(self):
+                return self.__dict__
+
+        win = window.Window()
+        stim = Text(msg='Welcome to Movable Psychophysics.')
+
+        def update(dt):
+            win.clear()
+            glPushMatrix()
+            glTranslatef(320,240,0)
+            stim.draw()
+            glPopMatrix()
+        
+        clock.schedule_interval(update,1/60.0)
+        pyglet.app.run()
+
+

@@ -1,4 +1,29 @@
 
+
+.. raw:: html
+
+    <div class="example-banner" style="height: 150px; width: 900px; margin-left: auto; margin-right: auto;">
+    <svg width="900px" height="150px">
+        <g class="example-anchor">
+        <a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="stimuli.html" xlink:title="Defining a Custom Plugin">
+            <image width="135" height="135" xlink:href="_images/0001.png" xroot="-75" x="-75" y="8" i="0"></image></a>
+        <a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="stimuli.html" xlink:title="Draggable Points Example">
+            <image width="135" height="135" xlink:href="_images/0002.png" xroot="75" x="75" y="8" i="1"></image></a>
+        <a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="stimuli.html" xlink:title="Patches and Paths">
+            <image width="135" height="135" xlink:href="_images/0003.png" xroot="225" x="225" y="8" i="2"></image></a>
+        <a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="stimuli.html" xlink:title="HTML tooltip plugin">
+            <image width="135" height="135" xlink:href="_images/0004.png" xroot="375" x="375" y="8" i="3"></image></a>
+        <a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="stimuli.html" xlink:title="Linked Brushing Example">
+            <image width="135" height="135" xlink:href="_images/0005.png" xroot="525" x="525" y="8" i="4"></image></a>
+        <a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="stimuli.html" xlink:title="Image with Mouse Position">
+            <image width="135" height="135" xlink:href="_images/0006.png" xroot="675" x="675" y="8" i="5"></image></a>
+        <a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="stimuli.html" xlink:title="mpld3 Logo Idea">
+            <image width="135" height="135" xlink:href="_images/0007.png" xroot="825" x="825" y="8" i="6"></image></a>
+        </g>
+    </svg>
+    </div>
+
+
 Modular Psychophysics (mPsy)
 ============================
 

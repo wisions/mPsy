@@ -22,7 +22,6 @@ then present a dot lattice and finally collect a response. The code of the full 
 experiment is as follows:
 
 .. literalinclude:: c:\Users\juricap\Dropbox\shared evolver\visionpyg_glsl\dots_tut1.py
-    :linenos:
 
 To run it simply download the file and execute it. If you are new to Python, I suggest you try 
 creating and running the script from scratch. Create a simple text file, name it "dots_tut1.py", 
@@ -31,7 +30,6 @@ copy the code from the box above and paste it into your text editor. Save the sc
 Now we will walk through the code:
 
 .. literalinclude:: c:\Users\juricap\Dropbox\shared evolver\visionpyg_glsl\dots_tut1.py
-    :linenos:
     :lines: 1-7
 
 The first few lines initialize the library (line 1), initialize the window (lines 3-4) and 
@@ -41,7 +39,6 @@ which will later be used to position stimuli.
 Next we will need to create presentation screens.
 
 .. literalinclude:: c:\Users\juricap\Dropbox\shared evolver\visionpyg_glsl\dots_tut1.py
-    :linenos:
     :lines: 9-13
 
 
@@ -59,7 +56,6 @@ by mPsy presentation module or by stimuli. Three types of events are generated b
 To catch the events we need to create a function that gets called every time an event is triggered:
 
 .. literalinclude:: c:\Users\juricap\Dropbox\shared evolver\visionpyg_glsl\dots_tut2.py
-    :linenos:
     :lines: 4-9
 
 The function and its parameters can have any names, but the number of parameters has to have always the same (four).
@@ -162,75 +158,5 @@ The `trials` list of blocks, as any other list, can be shuffled.
 
     >> trials
     [[1.0, 1.2, 1.1],[1.0, 1.1, 1.2],[1.2, 1.1, 1.0],[1.0, 1.2, 1.1]]
-
-
-Coding your own Stimuli
-~~~~~~~~~~~~~~~~~~~~~~~
-
-Modular Psychophysics is modular and each of its stimuli are independent programs.
-The stimuli providedtrhough `stimuli.py` module are examples. 
-Modular Psychophysics requires that stimulus has a function draw() and a field (or member) called `params`, 
-which is an associative array. Associative array is a fundamental object type that 
-any language has (MATLAB’s struct, R’s named list etc.).
-
-A minimal Python stimulus definition is as follows:
-
-.. code-block:: python
-
-    from pyglet import text
-
-    class Text:
-        def __init__(self,**params):
-            self.params = Params(\**params)
-            self.text = text.Label(self.params.msg,anchor_x='center',halign='center')
-        def draw(self):
-            self.text.draw()
-
-The example stimlus `Text` is a very simple yet functional example of a text label.
-
-.. code-block:: python
-
-    from pyglet import text
-
-    class Text:
-        def __init__(self,\**params):
-            print params
-            self.params = Params(\**params)
-            self.text = text.Label(self.params.msg,halign='center',anchor_x='center')
-        def draw(self):
-            self.text.draw()
-
-    if __name__ == "__main__":
-        import sys
-        sys.path[:0] = ['packages.zip']
-
-        from pyglet.gl import *
-        from pyglet.window import key
-        from pyglet import clock, clock, font, graphics, window, text
-
-        class Params:
-            def __init__(self,**kwargs):
-                self.__dict__.update(kwargs)
-            def update(self,**kwargs):
-                self.__dict__.update(kwargs)
-            def __str__(self):
-                return '\n'.join( '%s = %s'%x for x in self.__dict__.items() )
-            def __repr__(self):
-                return 'Params(%s)'%(', '.join( '%s=%s'%x for x in self.__dict__.items() ),)
-            def default(self):
-                return self.__dict__
-
-        win = window.Window()
-        stim = Text(msg='Welcome to Movable Psychophysics.')
-
-        def update(dt):
-            win.clear()
-            glPushMatrix()
-            glTranslatef(320,240,0)
-            stim.draw()
-            glPopMatrix()
-        
-        clock.schedule_interval(update,1/60.0)
-        pyglet.app.run()
 
 

@@ -24,20 +24,17 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="Modular Psychophysics 2.0 documentation" href="#" />
-    <link rel="next" title="Tutorials for Modular Psychophysics (mPsy)" href="tutorials.html" /> 
+    <link rel="top" title="Modular Psychophysics 2.0 documentation" href="index.html" /> 
   </head>
   <body>
     <div class="header-wrapper">
       <div class="header">
-          <p class="logo"><a href="#">
+          <p class="logo"><a href="index.html">
             <img class="logo" src="_static/logo_mpsy64.png" alt="Logo"/>
           </a></p>
         <div class="headertitle"><a
-          href="#">Modular Psychophysics 2.0 documentation</a></div>
+          href="index.html">Modular Psychophysics 2.0 documentation</a></div>
         <div class="rel">
-          <a href="tutorials.html" title="Tutorials for Modular Psychophysics (mPsy)"
-             accesskey="N">next</a> |
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a>
         </div>
@@ -57,33 +54,14 @@
 <p>mPsy is a modular approach to design of psychophysical experiments.</p>
 <p>It allows one to build experiments out of modules: independent programs in different languages best suited for the different components of your project.</p>
 <p>mPsy is free, open-source, and extremely compact. It embodies a minimalist approach to programming and psychophysics.</p>
+<p>Although mPsy does not depend on such expensive commercial software as MATLAB, you can control mPsy through MATLAB in case you want to start where you are most comfortable now, and then move on to open-source, free software as you learn mPsy.</p>
 <p>The core of mPsy is written in Python. It offers a library of standard stimuli and also tools for building new stimuli, static and dynamic.</p>
-<p>The core can be controlled using several languages. For example:</p>
+<p>The core can be accessed using several languages. For example:</p>
 <ul class="simple">
 <li>the flow of the experiment can be written in MATLAB</li>
 <li>the stimulus in Python (or called from MATLAB without any knowledge of Python)</li>
 <li>and automatic plotting of the data in R.</li>
 </ul>
-<center>
-<table border="0" width="80%" style="text-align: center; border=0; margin: 20px;">
-<tbody>
-<tr>
-<td>
-<a href="https://dl.dropboxusercontent.com/u/166463/visionpyg/downloads/mpsy_minimal.zip"
-   style="text-decoration: none;">
-    <img class="cogex" alt="" border="0" width="160px" height="160px" src="_static/logo_mpsy512_g.png"><br/>
-    <span style="font-size: 32px;">Download</span>
-    </a>
-</td>
-<td>
-<a href="tutorials.html" style="text-decoration: none;">
-    <img class="cogex" alt="" border="0" width="160px" height="160px" src="_static/book2g.png"><br/>
-    <span style="font-size: 32px;">Tutorials</span></a>
-</td>
-</tr>
-</tbody>
-</table>
-</center><p>Although mPsy does not depend on such expensive commercial software as MATLAB, you can control mPsy through MATLAB in case you want to start where you are most comfortable now, and then move on to open-source, free software as you learn mPsy.</p>
 <p>Later on, when you decide to leave MATLAB, you will write the flow of experiment in Python or R and keep the other modules intact.</p>
 <p>mPsy differs from other psychophysical frameworks in three ways:</p>
 <ul class="simple">
@@ -91,49 +69,75 @@
 <li>it is self-contained</li>
 <li>it is open to control over networks</li>
 </ul>
-<p>These and other key features of mPsy are illustrated in a series of <a class="reference internal" href="tutorials.html"><em>Tutorials for Modular Psychophysics (mPsy)</em></a>.</p>
-<div style="display: none;"><div class="toctree-wrapper compound">
+<p>These and other key features of mPsy are illustrated in a series of Tutorials. [link to page &#8216;Tutorials&#8217;]</p>
+<p>STOP THE FRONT PAGE HERE?</p>
+<a class="reference internal image-reference" href="_images/simple.png"><img alt="_images/simple.png" class="align-center" src="_images/simple.png" style="width: 350px;" /></a>
+<p>OLD TEXT. The framework provides modules implementing basic stimuli and modules for control of stimulus and experiment parameters. Control of parameters is also possible through a remote control module.</p>
+<p>Individual stimuli are independent of this
+package and independent of other stimuli in this package. Any stimulus available in this package
+could in principle be run in any OpenGL program based on Python module pyglet.</p>
+<p>Modules of mPsy are designed as independent programs. Individual stimuli are independent of this
+package and independent of other stimuli in this package. Any stimulus available in this package
+could in principle be run in any OpenGL program based on Python module pyglet.</p>
+<p>The design principles above make this framework truly modular, and together with compact code base,
+truly portable. Lightweight experiments can be moved between computers and operating systems.
+It is even possible to move certain parts of one experiment, the control of stimulus parameters,
+to a computer independent of the computer presenting stimuli. The two computers can be on different
+operating systems and commands that control stimuli and experiment parameters can be sent
+from any programming language.</p>
+<p>You can find here the following:</p>
+<div class="toctree-wrapper compound">
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorials.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials.html#getting-started">Getting Started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials.html#advanced-tutorials">Advanced tutorials</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tut_python.html">Control from Python</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Modular Psychophysics (mPsy)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tut_python.html">Psychophysics in &#8220;pure&#8221; Python</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="tut_python.html#the-hello-lattice-experiment">The &#8220;Hello Lattice!&#8221; experiment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut_python.html#recording-responses">Recording responses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut_python.html#randomizing-stimulus-parameters">Randomizing stimulus parameters</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="tut_matlab.html">Control from MATLAB</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="tut_matlab.html">Controlling <cite>mPsy</cite> experiments from MATLAB</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="tut_matlab.html#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut_matlab.html#a-simple-matlab-experiment">A simple MATLAB experiment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut_matlab.html#recording-responses">Recording responses</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="tut_r.html">Control from R</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="tut_r.html">Controlling <cite>mPsy</cite> experiments from R</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="tut_r.html#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut_r.html#a-simple-r-experiment">A simple R experiment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut_r.html#recording-responses">Recording responses</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="stimuli.html">Stimulus library</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="stimuli.html#dot-lattice">Dot Lattice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stimuli.html#random-dot-kinematograms">Random Dot Kinematograms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stimuli.html#tiled-image">Tiled Image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stimuli.html#grating">Grating</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stimuli.html#cube">Cube</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stimuli.html#alphabet-grid-for-bci-spelling">Alphabet Grid for BCI Spelling</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tut_stimuli.html">New stimuli</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference.html">Brief function reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </div>
-</div></div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>You can download Modular Psychophysics from <a class="reference external" href="https://dl.dropboxusercontent.com/u/166463/visionpyg/downloads/mpsy_minimal.zip">here</a>.</p>
+<p>Modular Psychophysics requires only <a class="reference external" href="http://python.org">Python</a> to run. The few other essential dependencies are bundled with the package.
+However, we also suggest installing <a class="reference external" href="http://numpy.org">Numerical Python (numpy)</a>. The framework is meant for scientists and therefore
+it is very likely that even the most simple experiment will require some numerical computation.
+Some of the stimuli we use in tutorials use Python&#8217;s Numpy module.</p>
+<p>If you are completely new to Python, and do not want to hit any obstacles while installing Python
+and its scientific packages, I suggest installing the free version of <a class="reference external" href="https://www.enthought.com/products/epd/">Enthought Python Distribution</a>,
+recently rebranded as <a class="reference external" href="https://www.enthought.com/products/epd/free/">Canopy Express</a>.
+For Mac OS users I found this distribution is the only way of getting all scientific packages (especially Matplotlib) working without a problem.</p>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>It&#8217;s best to learn by examples. For some users the examples in this tutorial will be all they need.</p>
+<ul class="simple">
+<li>Psychophysics with mPsy in Python - <a class="reference internal" href="tut_python.html"><em>Psychophysics in &#8220;pure&#8221; Python</em></a></li>
+</ul>
+<p>The tutorial above is meant for Python users, or people interested in becoming one. If you would prefer
+programming the experiment in other languages you can use the &#8220;web remote&#8221; functionality. Working examples
+of controlling mPsy presentation remotely are available for the following languages:</p>
+<ul class="simple">
+<li>MATLAB - <a class="reference internal" href="tut_matlab.html"><em>Controlling mPsy experiments from MATLAB</em></a></li>
+<li>R - <a class="reference internal" href="tut_r.html"><em>Controlling mPsy experiments from R</em></a></li>
+</ul>
+</div>
+</div>
 
 
           </div>
@@ -143,8 +147,8 @@
         <div class="sidebar">
           <!--<h3>Table Of Contents</h3>-->
           <h3>Contents</h3>
-          <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">Home</a></li>
+          <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_python.html">Control from Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_matlab.html">Control from MATLAB</a></li>
@@ -173,12 +177,10 @@
     <div class="footer-wrapper">
       <div class="footer">
         <div class="left">
-          <a href="tutorials.html" title="Tutorials for Modular Psychophysics (mPsy)"
-             >next</a> |
           <a href="genindex.html" title="General Index"
              >index</a>
             <br/>
-            <a href="_sources/index.txt"
+            <a href="_sources/index_oldtext.txt"
                rel="nofollow">Show Source</a>
         </div>
 

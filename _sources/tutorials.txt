@@ -1,0 +1,35 @@
+
+Tutorials for Modular Psychophysics (mPsy)
+=========================================
+
+Installation
+------------
+
+If you haven't downloaded Modular Psychophysics yes, click on this `link <https://dl.dropboxusercontent.com/u/166463/visionpyg/downloads/mpsy_minimal.zip>`_.
+
+The core of Modular Psychophysics requires only `Python <http://python.org>`_ to run. One other essential dependency is bundled with the package.
+However, we also suggest installing `Numerical Python (numpy) <http://numpy.org>`_.  
+it is very likely that even the most simple experiment will require some numerical computation.
+Some of the stimuli we use in tutorials use Python's Numpy module.
+
+If you are completely new to Python, we suggest installing the free version of `Enthought Python Distribution <https://www.enthought.com/products/epd/>`_,
+recently rebranded as `Canopy Express <https://www.enthought.com/products/epd/free/>`_. 
+For Mac OS users this distribution seems to be one of very few reliable ways of getting all scientific packages (especially matplotlib) working without a problem.
+
+Getting Started
+---------------
+
+Although mPsy's core is written in Python, it can be controlled from other lanuguages.
+Working examples of controlling mPsy presentation remotely are available for the following languages:
+
+* Python - :doc:`tut_python`
+* MATLAB - :doc:`tut_matlab`
+* R - :doc:`tut_r`
+
+Advanced tutorials
+------------------
+
+Her you can find tutorials that show how to extend the core of mPsy.
+
+:doc:`tut_stimuli` (Python)
+

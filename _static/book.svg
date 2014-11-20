@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="book.svg">
+  <defs
+     id="defs4">
+    <filter
+       inkscape:collect="always"
+       id="filter3864">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="6.7771236"
+         id="feGaussianBlur3866" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3795">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="5.0828427"
+         id="feGaussianBlur3797" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.42810008"
+     inkscape:cx="-684.73204"
+     inkscape:cy="897.17582"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1440"
+     inkscape:window-height="848"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g3884">
+      <path
+         inkscape:export-ydpi="48.759998"
+         inkscape:export-xdpi="48.759998"
+         inkscape:export-filename="C:\Users\juricap\Dropbox\vispyg_experiments\website\source\assets\book.png"
+         transform="translate(-58,-62)"
+         d="m 648.39485,652.5614 a 468.99707,468.99707 0 1 1 -937.99414,0 468.99707,468.99707 0 1 1 937.99414,0 z"
+         sodipodi:ry="468.99707"
+         sodipodi:rx="468.99707"
+         sodipodi:cy="652.5614"
+         sodipodi:cx="179.39778"
+         id="path3769"
+         style="fill:#000000;stroke:#000000;stroke-width:7.08661413000000010;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="48.759998"
+         inkscape:export-xdpi="48.759998"
+         inkscape:export-filename="C:\Users\juricap\Dropbox\vispyg_experiments\website\source\assets\book.png"
+         sodipodi:nodetypes="ccccccc"
+         inkscape:connector-curvature="0"
+         d="m 125.32014,836.05977 c -110.898824,-34.54571 -215.33752,7.85129 -323.00628,10.99181 l 0,-460.12036 c 107.501047,0 215.002093,-46.13086 322.50314,0 102.3754,-41.00521 215.00209,0 322.50314,0 l 0,460.12036 C 339.65138,843.91106 235.21268,801.51406 124.31386,836.05977"
+         style="fill:#cccccc;stroke:#4d4d4d;stroke-width:7.08661413;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         id="path2992" />
+      <path
+         inkscape:export-ydpi="48.759998"
+         inkscape:export-xdpi="48.759998"
+         inkscape:export-filename="C:\Users\juricap\Dropbox\vispyg_experiments\website\source\assets\book.png"
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="rect2985"
+         d="m -168.28572,340.93361 c 95.238097,0 184.761908,-42.85714 285.71429,0 l 0,456 c -98.09524,-31.42857 -190.476194,7.14286 -285.71429,10 z"
+         style="fill:#ffffff;stroke:#000000;stroke-width:7.08661413000000010;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <path
+         inkscape:export-ydpi="48.759998"
+         inkscape:export-xdpi="48.759998"
+         inkscape:export-filename="C:\Users\juricap\Dropbox\vispyg_experiments\website\source\assets\book.png"
+         style="fill:#ffffff;stroke:#000000;stroke-width:7.08661413000000010;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         d="m 415.42857,340.93361 c -95.2381,0 -184.76191,-42.85714 -285.71429,0 l 0,456 c 98.09524,-31.42857 190.47619,7.14286 285.71429,10 z"
+         id="path3765"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc" />
+    </g>
+    <image
+       y="522.5578"
+       x="-1021.6294"
+       id="image3781"
+       xlink:href="file:///C:/Users/juricap/Dropbox/vispyg_experiments/website/source/assets/logo_mpsy512.png"
+       height="512"
+       width="512" />
+    <g
+       id="g3876">
+      <rect
+         inkscape:export-ydpi="86.187645"
+         inkscape:export-xdpi="86.187645"
+         inkscape:export-filename="C:\Users\juricap\Dropbox\vispyg_experiments\website\source\assets\book1.png"
+         y="-90.814133"
+         x="-1234.6007"
+         height="534.64746"
+         width="534.64746"
+         id="rect3806"
+         style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.32843447000000040;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <path
+         inkscape:export-ydpi="86.187645"
+         inkscape:export-xdpi="86.187645"
+         inkscape:export-filename="C:\Users\juricap\Dropbox\vispyg_experiments\website\source\assets\book1.png"
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         d="m -966.2598,-54.780185 c -96.0076,13.933119 -213.6012,129.259774 -229.8861,229.886125 16.2849,100.62634 133.8785,215.95299 229.88611,229.88612 96.00763,-13.93313 213.60116,-129.25978 229.8861,-229.88612 C -752.65865,74.479589 -870.25216,-40.847066 -966.2598,-54.780185 z"
+         style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:5.22775649999999990;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
+         id="path3791" />
+      <g
+         inkscape:export-ydpi="86.187645"
+         inkscape:export-xdpi="86.187645"
+         inkscape:export-filename="C:\Users\juricap\Dropbox\vispyg_experiments\website\source\assets\book1.png"
+         transform="matrix(0.42571906,-0.09398635,0.09398635,0.42571906,-546.9649,2.2153406)"
+         id="g3801">
+        <path
+           inkscape:export-ydpi="48.759998"
+           inkscape:export-xdpi="48.759998"
+           inkscape:export-filename="C:\Users\juricap\Dropbox\vispyg_experiments\website\source\assets\book.png"
+           sodipodi:nodetypes="ccccccc"
+           inkscape:connector-curvature="0"
+           d="m -1028.2252,417.5479 c -110.8988,-34.54571 -215.3375,7.85129 -323.0063,10.99181 l 0,-460.120364 c 107.5011,0 215.0021,-46.13086 322.5032,0 102.37537,-41.00521 215.00206,0 322.50311,0 l 0,460.120364 c -107.66876,-3.14052 -212.10746,-45.53752 -323.00631,-10.99181"
+           style="fill:#cccccc;stroke:#4d4d4d;stroke-width:7.08661413;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="path3795" />
+        <path
+           inkscape:export-ydpi="48.759998"
+           inkscape:export-xdpi="48.759998"
+           inkscape:export-filename="C:\Users\juricap\Dropbox\vispyg_experiments\website\source\assets\book.png"
+           sodipodi:nodetypes="ccccc"
+           inkscape:connector-curvature="0"
+           id="path3797"
+           d="m -1321.8311,-77.578264 c 95.2381,0 184.762,-42.857136 285.7143,0 l 0,456.000004 c -98.0952,-31.42857 -190.4762,7.14286 -285.7143,10 z"
+           style="fill:#ffffff;stroke:#000000;stroke-width:7.08661413;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+        <path
+           inkscape:export-ydpi="48.759998"
+           inkscape:export-xdpi="48.759998"
+           inkscape:export-filename="C:\Users\juricap\Dropbox\vispyg_experiments\website\source\assets\book.png"
+           style="fill:#ffffff;stroke:#000000;stroke-width:7.08661413;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m -738.11676,-77.578264 c -95.2381,0 -184.76191,-42.857136 -285.71434,0 l 0,456.000004 c 98.09529,-31.42857 190.47624,7.14286 285.71434,10 z"
+           id="path3799"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccc" />
+      </g>
+    </g>
+    <rect
+       inkscape:export-ydpi="86.187645"
+       inkscape:export-xdpi="86.187645"
+       inkscape:export-filename="C:\Users\juricap\Dropbox\vispyg_experiments\website\source\assets\book1.png"
+       y="-410.85263"
+       x="-566.38849"
+       height="534.64746"
+       width="534.64746"
+       id="rect3808"
+       style="fill:none;stroke:none" />
+    <g
+       id="g3799"
+       inkscape:export-filename="C:\Users\juricap\Dropbox\vispyg_experiments\website\source\assets\book2g.png"
+       inkscape:export-xdpi="86.187645"
+       inkscape:export-ydpi="86.187645">
+      <rect
+         style="fill:none;stroke:none"
+         id="rect3852"
+         width="534.64746"
+         height="534.64746"
+         x="-631.93787"
+         y="-408.49686"
+         inkscape:export-filename="C:\Users\juricap\Dropbox\vispyg_experiments\website\source\assets\book2.png"
+         inkscape:export-xdpi="86.187645"
+         inkscape:export-ydpi="86.187645" />
+      <path
+         id="path3854"
+         style="fill:#808080;fill-opacity:1;fill-rule:nonzero;stroke:#808080;stroke-width:5.2277565;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
+         d="m -363.59698,-372.46291 c -96.0076,13.93312 -213.6012,129.25977 -229.8861,229.88612 16.2849,100.626345 133.8785,215.952995 229.88611,229.886125 96.00763,-13.93313 213.60116,-129.25978 229.8861,-229.886125 -16.28496,-100.62635 -133.87847,-215.953 -229.88611,-229.88612 z"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc"
+         inkscape:export-filename="C:\Users\juricap\Dropbox\vispyg_experiments\website\source\assets\book2.png"
+         inkscape:export-xdpi="86.187645"
+         inkscape:export-ydpi="86.187645" />
+      <g
+         style="filter:url(#filter3795)"
+         id="g3856"
+         transform="matrix(0.42571906,-0.09398635,0.09398635,0.42571906,55.697917,-315.46738)"
+         inkscape:export-filename="C:\Users\juricap\Dropbox\vispyg_experiments\website\source\assets\book2.png"
+         inkscape:export-xdpi="86.187645"
+         inkscape:export-ydpi="86.187645">
+        <path
+           id="path3858"
+           style="fill:#cccccc;stroke:#4d4d4d;stroke-width:7.08661413;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m -1028.2252,417.5479 c -110.8988,-34.54571 -215.3375,7.85129 -323.0063,10.99181 l 0,-460.120364 c 107.5011,0 215.0021,-46.13086 322.5032,0 102.37537,-41.00521 215.00206,0 322.50311,0 l 0,460.120364 c -107.66876,-3.14052 -212.10746,-45.53752 -323.00631,-10.99181"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccccc"
+           inkscape:export-filename="C:\Users\juricap\Dropbox\vispyg_experiments\website\source\assets\book.png"
+           inkscape:export-xdpi="48.759998"
+           inkscape:export-ydpi="48.759998" />
+        <path
+           style="fill:#ffffff;stroke:#000000;stroke-width:7.08661413;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m -1321.8311,-77.578264 c 95.2381,0 184.762,-42.857136 285.7143,0 l 0,456.000004 c -98.0952,-31.42857 -190.4762,7.14286 -285.7143,10 z"
+           id="path3860"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccc"
+           inkscape:export-filename="C:\Users\juricap\Dropbox\vispyg_experiments\website\source\assets\book.png"
+           inkscape:export-xdpi="48.759998"
+           inkscape:export-ydpi="48.759998" />
+        <path
+           sodipodi:nodetypes="ccccc"
+           inkscape:connector-curvature="0"
+           id="path3862"
+           d="m -738.11676,-77.578264 c -95.2381,0 -184.76191,-42.857136 -285.71434,0 l 0,456.000004 c 98.09529,-31.42857 190.47624,7.14286 285.71434,10 z"
+           style="fill:#ffffff;stroke:#000000;stroke-width:7.08661413;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           inkscape:export-filename="C:\Users\juricap\Dropbox\vispyg_experiments\website\source\assets\book.png"
+           inkscape:export-xdpi="48.759998"
+           inkscape:export-ydpi="48.759998" />
+      </g>
+    </g>
+  </g>
+</svg>
