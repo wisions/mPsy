@@ -1,6 +1,6 @@
 
-Controlling `mPsy` experiments from MATLAB
-=============================================
+Control from MATLAB
+===================
 
 Contents:
 
@@ -11,59 +11,45 @@ Contents:
 Installation
 ------------
 
-You can download mPsy with sample experiment written in MATLAB from 
-`here <https://dl.dropboxusercontent.com/u/166463/visionpyg/downloads/mpsy_matlab.zip>`_.
+The standard `distribution <https://dl.dropboxusercontent.com/u/166463/visionpyg/downloads/mpsy_matlab.zip>`_ of mPsy contains a sample experiment in MATLAB.
 
-In what is described on this page, MATLAB environment is used only to specify the timeline of experiment and its parameters.
-Presentation of stimuli still require a working Python installation as descibed in :doc:`index`.
+Here MATLAB is used to define the time line of experiment and its parameters. Presentation of stimuli requires a working installation of Python as described in :doc:`index`. Once Python is installed, extract the archived mPsy package into an empty directory.
 
-Once you have Python installed, exctract the downloaded mPsy package into an empty directory.
+A sample experiment
+-------------------
 
-A simple MATLAB experiment
---------------------------
+Here stimulus presentation is carried by Python. MATLAB is used to control the experiment remotely. Python "listens" to MATLAB commands and executes them.
 
-As stated in the first section the experiment will be essentially running in Python, MATLAB will
-be used to remotelly control this experiment. The Python program that will "listen" to the MATLAB
-commands is a simple experiment with no stimuli and remote control component included:
+The following is a "blank" experiment with no stimuli:
 
-.. literalinclude:: c:\Users\juricap\Dropbox\shared evolver\visionpyg_glsl\exp_tut_webremote.py
+.. literalinclude:: ../../mPsy/examples/exp_tut_webremote.py
 
-The web remote control is enabled by the following code:
+Remote control is enabled by this code:
 
-.. literalinclude:: c:\Users\juricap\Dropbox\shared evolver\visionpyg_glsl\exp_tut_webremote.py
+.. literalinclude:: ../../mPsy/examples/exp_tut_webremote.py
     :lines: 14-19
 
-When the remotely controllable Python experiment is running we can use MATLAB to define when and 
-what stimuli appear on the screen. The mPsy Python package will take care of stimulus presentation, 
-subject interaction such as the collecting responses, and transmission of collected information back 
-to the MATLAB program.
+In a complete experiment, the timing and identity of stimuli is controlled from MATLAB.  Python presents stimuli, collect subject's responses, and makes the collected information available for MATLAB to pick up.
 
-The MATLAB experiment looks as follows:
+The MATLAB side of this experiment looks as follows:
 
 .. highlight:: matlab
-.. literalinclude:: c:\Users\juricap\Dropbox\shared evolver\visionpyg_glsl\exp_tut4.m
+.. literalinclude:: ../../mPsy/examples/matlab/exp_tut4.m
 
-To run the demo experiment first download the file. Next run the "exp_tut_webremote.py" 
-(double click, or use Terminal or cmd.exe and execute by typing "python exp_tut_webremote.py").
-A succesfull execution of the Python program results in a blank 
-black screen (or a black window in case fullscreen option is off).
+To run the demonstration, copy the above into MATLAB. Next run the "exp_tut_webremote.py" 
+(double click the file name or execute it by typing "python exp_tut_webremote.py" in the Terminal). A successfully executed Python program creates an empy  
+black screen (or a black window when `fullscreen` option is off).
 
-At this point you can go to MATLAB, change you current sirectory the directory that contains
-the file "exp_tut4.m", and m-file called "mimport.m" and a subdirectoru "matlab". 
-In this directory run "exp_tut4".
+At this point you can go to MATLAB, change you directory to that containing
+files "exp_tut4.m" and "mimport.m" and also subdirectory "matlab" and run "exp_tut4".
 
-The syntax of the MATLAB experiment is modelled after the Python examples. Please refer
-to the main tutorial ":doc:`index`" for explanation of commands for stimulus parameter and trial setup.
+The syntax of the MATLAB experiment is modelled after the Python examples. Main tutorial ":doc:`index`" explains how to define the parameters of stimuli and the time line of the experiment.
 
 Recording responses
 -------------------
 
-Events triggered by mPsy or subject interation are described in the main Python tutorial
-in :doc:`tut_python`.
+On every event (triggered by mPsy or subject's response) information is added to mPsy event log as described in the main Python tutorial in :doc:`tut_python`. To catch events in MATLAB we regularly check for the messages accumulating on the Python side:
 
-To catch events in MATLAB we regularly check for any messages accumulating 
-in the Python presentation program:
-
-.. literalinclude:: c:\Users\juricap\Dropbox\shared evolver\visionpyg_glsl\exp_tut4.m
+.. literalinclude:: ../../mPsy/examples/matlab/exp_tut4.m
     :lines: 51-57
 

@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="top" title="Modular Psychophysics 2.0 documentation" href="index.html" />
-    <link rel="next" title="Controlling mPsy experiments from MATLAB" href="tut_matlab.html" />
+    <link rel="next" title="Control from MATLAB" href="tut_matlab.html" />
     <link rel="prev" title="Tutorials for Modular Psychophysics (mPsy)" href="tutorials.html" /> 
   </head>
   <body>
@@ -39,7 +39,7 @@
         <div class="rel">
           <a href="tutorials.html" title="Tutorials for Modular Psychophysics (mPsy)"
              accesskey="P">previous</a> |
-          <a href="tut_matlab.html" title="Controlling mPsy experiments from MATLAB"
+          <a href="tut_matlab.html" title="Control from MATLAB"
              accesskey="N">next</a> |
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a>
@@ -71,82 +71,14 @@
 Our aim is to run a simple experiment with three trials. In each trial we will show first a fixation dot,
 then present a dot lattice and finally collect a response. The code of the full &#8220;Hello lattice!&#8221;
 experiment is as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">stimuli</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">fullscreen</span> <span class="o">=</span> <span class="bp">True</span> <span class="c">#False</span>
-<span class="n">win</span> <span class="o">=</span> <span class="n">ExpWindow</span><span class="p">(</span><span class="n">fullscreen</span><span class="p">)</span>
-
-<span class="n">cx</span><span class="p">,</span> <span class="n">cy</span> <span class="o">=</span> <span class="n">win</span><span class="o">.</span><span class="n">width</span> <span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">win</span><span class="o">.</span><span class="n">height</span> <span class="o">//</span><span class="mi">2</span>
-
-<span class="c"># prepare lattice configuration</span>
-<span class="n">p_lattice</span> <span class="o">=</span>  <span class="n">Params</span><span class="p">(</span><span class="n">ap_fs</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">ap_sigma</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">ap_edge</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span>
-                    <span class="n">gamma</span><span class="o">=</span><span class="mf">70.0</span><span class="p">,</span> <span class="n">theta</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
-                    <span class="n">dot_size</span><span class="o">=</span><span class="mf">150.0</span><span class="p">,</span> <span class="n">dot_sigma</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">dot_fs</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
-                    <span class="n">dot_edge</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">dot_c</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">dot_phi</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-
-<span class="c"># setup presentation screens</span>
-<span class="n">stimuli_dots</span> <span class="o">=</span> <span class="p">[</span> <span class="n">DotLattice</span><span class="p">((</span><span class="n">cx</span><span class="p">,</span><span class="n">cy</span><span class="p">),</span><span class="n">p_lattice</span><span class="p">)</span> <span class="p">]</span>
-
-<span class="n">response_screen</span> <span class="o">=</span> <span class="p">[</span> <span class="n">Pill</span><span class="p">((</span><span class="n">cx</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="n">cy</span><span class="p">),</span><span class="n">Params</span><span class="p">(</span><span class="n">th</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">R</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">d</span><span class="o">=</span><span class="mi">3</span><span class="p">)),</span>
-                    <span class="n">Pill</span><span class="p">((</span><span class="n">cx</span>    <span class="p">,</span><span class="n">cy</span><span class="p">),</span><span class="n">Params</span><span class="p">(</span><span class="n">th</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">R</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">d</span><span class="o">=</span><span class="mi">3</span><span class="p">)),</span>
-                    <span class="n">Pill</span><span class="p">((</span><span class="n">cx</span><span class="o">+</span><span class="mi">100</span><span class="p">,</span><span class="n">cy</span><span class="p">),</span><span class="n">Params</span><span class="p">(</span><span class="n">th</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span><span class="n">R</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">d</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span> <span class="p">]</span>
-
-<span class="n">welcome_line</span>  <span class="o">=</span> <span class="p">[</span><span class="n">Text</span><span class="p">((</span><span class="n">cx</span><span class="p">,</span><span class="n">cy</span><span class="o">-</span><span class="mi">50</span><span class="p">),</span><span class="n">Params</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s">&#39;Press SPACE when ready.&#39;</span><span class="p">))]</span>
-<span class="n">farewell_line</span> <span class="o">=</span> <span class="p">[</span><span class="n">Text</span><span class="p">((</span><span class="n">cx</span><span class="p">,</span><span class="n">cy</span><span class="o">-</span><span class="mi">50</span><span class="p">),</span><span class="n">Params</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s">&#39;Game over!&#39;</span><span class="p">))]</span>
-<span class="n">response_line</span> <span class="o">=</span> <span class="p">[</span><span class="n">Text</span><span class="p">((</span><span class="n">cx</span><span class="p">,</span><span class="n">cy</span><span class="p">),</span><span class="n">Params</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s">&#39;Which was faster</span><span class="se">\n</span><span class="s">Left or Right&#39;</span><span class="p">))]</span>
-<span class="n">dot</span> <span class="o">=</span> <span class="p">[</span><span class="n">Dot</span><span class="p">((</span><span class="n">cx</span><span class="p">,</span><span class="n">cy</span><span class="p">),</span><span class="n">Params</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))]</span>
-
-<span class="c"># setup trials</span>
-<span class="n">trials</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="n">keys_none</span>    <span class="o">=</span> <span class="p">[]</span>
-<span class="n">keys_default</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">SPACE</span><span class="p">,</span><span class="n">key</span><span class="o">.</span><span class="n">C</span><span class="p">,</span><span class="n">key</span><span class="o">.</span><span class="n">N</span><span class="p">,</span><span class="n">key</span><span class="o">.</span><span class="n">LEFT</span><span class="p">,</span><span class="n">key</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">]</span>
-
-<span class="c"># add a message screen, wait until button press (duration=0 means wait)</span>
-<span class="n">trials</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">Trial</span><span class="p">(</span><span class="s">&#39;Start&#39;</span><span class="p">,</span><span class="n">welcome_line</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">keys_default</span><span class="p">)</span> <span class="p">]</span>
-<span class="c"># duration 0 means wait for response</span>
-
-<span class="c"># add three Trials each consisting of a Fixation, Stimulus and a Response screem</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="n">trials</span> <span class="o">+=</span> <span class="p">[</span><span class="n">Trial</span><span class="p">(</span><span class="s">&#39;Fixation&#39;</span><span class="p">,</span>             <span class="n">dot</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">keys_none</span><span class="p">),</span>
-               <span class="n">Trial</span><span class="p">(</span><span class="s">&#39;Lattices&#39;</span><span class="p">,</span>    <span class="n">stimuli_dots</span><span class="p">,</span>  <span class="mi">500</span><span class="p">,</span> <span class="n">keys_none</span><span class="p">),</span>
-               <span class="n">Trial</span><span class="p">(</span><span class="s">&#39;Response&#39;</span><span class="p">,</span> <span class="n">response_screen</span><span class="p">,</span>    <span class="mi">0</span><span class="p">,</span> <span class="n">keys_none</span><span class="p">,</span> <span class="n">mouse</span><span class="o">=</span><span class="bp">True</span><span class="p">)]</span> 
-
-<span class="n">trials</span> <span class="o">+=</span> <span class="p">[</span><span class="n">Trial</span><span class="p">(</span><span class="s">&#39;End&#39;</span><span class="p">,</span><span class="n">farewell_line</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">keys_none</span><span class="p">)]</span>
-
-<span class="c"># tell visionpyg about trials</span>
-<span class="n">win</span><span class="o">.</span><span class="n">set_trials</span><span class="p">(</span><span class="n">trials</span><span class="p">)</span>
-
-<span class="c"># run experiment</span>
-<span class="c"># visionpyg takes Trials from the begining of the trials list</span>
-<span class="c"># if the trials list is eempty visionpyg waits</span>
-<span class="c"># ESCAPE stops the experiment at any time</span>
-<span class="n">run</span><span class="p">()</span>
-</pre></div>
-</div>
 <p>To run it simply download the file and execute it. If you are new to Python, I suggest you try
 creating and running the script from scratch. Create a simple text file, name it &#8220;dots_tut1.py&#8221;,
 copy the code from the box above and paste it into your text editor. Save the script and run it.</p>
 <p>Now we will walk through the code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">stimuli</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">fullscreen</span> <span class="o">=</span> <span class="bp">True</span> <span class="c">#False</span>
-<span class="n">win</span> <span class="o">=</span> <span class="n">ExpWindow</span><span class="p">(</span><span class="n">fullscreen</span><span class="p">)</span>
-
-<span class="n">cx</span><span class="p">,</span> <span class="n">cy</span> <span class="o">=</span> <span class="n">win</span><span class="o">.</span><span class="n">width</span> <span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">win</span><span class="o">.</span><span class="n">height</span> <span class="o">//</span><span class="mi">2</span>
-</pre></div>
-</div>
 <p>The first few lines initialize the library (line 1), initialize the window (lines 3-4) and
 create Python variables <tt class="docutils literal"><span class="pre">cx,</span> <span class="pre">cy</span></tt> that will hold the coordinates of the center of the screen,
 which will later be used to position stimuli.</p>
 <p>Next we will need to create presentation screens.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># prepare lattice configuration</span>
-<span class="n">p_lattice</span> <span class="o">=</span>  <span class="n">Params</span><span class="p">(</span><span class="n">ap_fs</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">ap_sigma</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">ap_edge</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span>
-                    <span class="n">gamma</span><span class="o">=</span><span class="mf">70.0</span><span class="p">,</span> <span class="n">theta</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
-                    <span class="n">dot_size</span><span class="o">=</span><span class="mf">150.0</span><span class="p">,</span> <span class="n">dot_sigma</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">dot_fs</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
-                    <span class="n">dot_edge</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">dot_c</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">dot_phi</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-</pre></div>
-</div>
 </div>
 <div class="section" id="recording-responses">
 <h2><a class="toc-backref" href="#id2">Recording responses</a><a class="headerlink" href="#recording-responses" title="Permalink to this headline">¶</a></h2>
@@ -159,13 +91,6 @@ by mPsy presentation module or by stimuli. Three types of events are generated b
 <li>MOUSE event - a mouse button is pressed</li>
 </ul>
 <p>To catch the events we need to create a function that gets called every time an event is triggered:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># create a function that will be triggered by events TRIAL, MOUSE, KEY ...</span>
-<span class="n">log</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;dots2.log&#39;</span><span class="p">,</span><span class="s">&#39;wb&#39;</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">record_event</span><span class="p">(</span><span class="n">event</span><span class="p">,</span><span class="n">time</span><span class="p">,</span><span class="n">trial</span><span class="p">,</span><span class="n">args</span><span class="p">):</span>
-    <span class="k">print</span> <span class="o">&gt;&gt;</span><span class="n">log</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">trial</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">args</span>
-</pre></div>
-</div>
 <p>The function and its parameters can have any names, but the number of parameters has to have always the same (four).
 The contents of the parameters will be:</p>
 <ul>
@@ -279,7 +204,7 @@ or make multiple copies of a list with the <cite>*</cite> operator:</p>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tut_matlab.html">Control from MATLAB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_r.html">Control from R</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stimuli.html">Stimulus library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stimuli.html">Standard stimulus library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_stimuli.html">New stimuli</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference.html">Brief function reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference.html#indices-and-tables">Indices and tables</a></li>
@@ -305,7 +230,7 @@ or make multiple copies of a list with the <cite>*</cite> operator:</p>
         <div class="left">
           <a href="tutorials.html" title="Tutorials for Modular Psychophysics (mPsy)"
              >previous</a> |
-          <a href="tut_matlab.html" title="Controlling mPsy experiments from MATLAB"
+          <a href="tut_matlab.html" title="Control from MATLAB"
              >next</a> |
           <a href="genindex.html" title="General Index"
              >index</a>

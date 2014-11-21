@@ -68,7 +68,7 @@ These and other key features of mPsy are illustrated in a series of :doc:`tutori
     Control from Python <tut_python>
     Control from MATLAB <tut_matlab>
     Control from R <tut_r>
-    Stimulus library <stimuli>
+    Standard stimulus library <stimuli>
     New stimuli <tut_stimuli>
     Function reference <reference>
 

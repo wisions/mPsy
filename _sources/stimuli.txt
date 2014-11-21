@@ -6,65 +6,43 @@
     h2 { clear: right; }
     </style>
 
-Stimulus Library
-================
+Standard stimulus library
+=========================
 
-Dot Lattice
+Here is a number of stimuli deposited to mPsy standard library so far. Each entry is accompanied by snippets of code in Python and MATLAB illustrating [...] 
+
+Luminance grating
+-----------------
+
+.. image:: assets/stimuli/0004.png
+    :align: right
+    :width: 120px
+
+A periodic modulation of luminance.  The modulation is characterized by spatial and temporal frequencies. The stimulus is complete with a mask that can take the form of smooth (Gaussian) or sharp aperture. The grating can be tilted and slanted.
+
+.. mpsyparams:: stimuli.Grating
+
+Random-dot cinematogram (RDC)
+-----------------------------
+
+.. image:: assets/stimuli/0002.png
+    :align: right
+    :width: 120px
+
+An array of randomly positioned dots. A common instantiation of RDC contains two groups of dots, "signal" and "noise," whose properties determine stimulus "coherence."  The instance on the right contains only one group. One may overlay several such stimuli (using different parameters for each) to control coherence or create more complex versions of RDC.
+
+.. mpsyparams:: stimuli.RDK
+
+Dot lattice
 -----------
 
 .. image:: assets/stimuli/0001.png
     :align: right
     :width: 120px
 
-Dot lattice stimulus is an array of dots, dots are organized along two orientations
-with constant within orientation inter-dot distances.
-
-Dots in this stimulus can be redered as gratings, so that each dot can have its own 
-sptial frequency and orientation.
+A periodic array of dots organized along several orientations with a constant inter-dot distance within orientation. The "dots" can be solid disks or Gaussian blobs, or they can have more complex shapes, such as luminance gratings characterized by the same of different spatial frequencies and orientations. 
 
 .. mpsyparams:: stimuli.DotLattice
-
-Random Dot Kinematograms
-------------------------
-
-.. image:: assets/stimuli/0002.png
-    :align: right
-    :width: 120px
-
-Random dot kinematograms (RDK) as visual stimuli composed of randomly scattered and moving points.
-Commonly used  RDK stimulus is composed of two subgroups of points, each can be controlled independently
-in order to study motion perception of coherent groups in noisy (in-coherent) backgrounds.
-
-This stimulus displays only a single group, multiple groups can be obtain by overlaying multiple
-instances of ths stimulus.
-
-.. mpsyparams:: stimuli.RDK
-
-Tiled Image
------------
-
-.. image:: assets/stimuli/0003.png
-    :align: right
-    :width: 120px
-
-Tiled image is a stimulus object that enables the presentation of images. 
-Images can be shown unmodified, scaled, rotated, or on tiles obtained by splitting the image 
-by a regular grid. Some properties of tiles can be controlled independently.
-
-.. mpsyparams:: stimuli.Tiles
-
-Grating
--------
-
-.. image:: assets/stimuli/0004.png
-    :align: right
-    :width: 120px
-
-One of the most elementary vision stimulus, periodic grating with periodically changing contrast. 
-The contrast can be controled (modulated) in space and time. This stimulus has a built in
-gaussian mask, which can be used as a circular aperture.
-
-.. mpsyparams:: stimuli.Grating
 
 Cube
 ----
@@ -73,21 +51,29 @@ Cube
     :align: right
     :width: 120px
 
-Cube arbitrarily rotated and scaled in three dimensions. The colors of vertices and faces can 
-be controlled.
+Cube rotated and scaled in three dimensions. The colors of vertices and faces are controlled independent of one another.
 
 .. mpsyparams:: stimuli.Letters
 
-Alphabet Grid for BCI Spelling
-------------------------------
+Tiled image
+-----------
+
+.. image:: assets/stimuli/0003.png
+    :align: right
+    :width: 120px
+
+An image is divided to rectangular fragments called "tiles." The tiles can remain in place (making up the original image presented on a slanted/tilted plane) or they can be individually scaled or rotated. 
+
+.. mpsyparams:: stimuli.Tiles
+
+Alphabet grid
+-------------
 
 .. image:: assets/stimuli/0005.png
     :align: right
     :width: 120px
 
-A grid of letters commonly used in Brain Computer Interface (BCI) research. 
-Letter of alphabet are shown in 6x6 grid, cells of this grid can be periodically highlighted.
-This stimulus sends events on each update of stimulus, so they can be logged for ERP analysis.
+A grid of letters commonly used in research of Brain Computer Interface (BCI). The letters are shown in a grid of 6x6 cells. The cells can be periodically highlighted. 
 
 .. mpsyparams:: stimuli.Letters
 

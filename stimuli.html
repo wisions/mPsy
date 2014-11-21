@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Stimulus Library &mdash; Modular Psychophysics 2.0 documentation</title>
+    <title>Standard stimulus library &mdash; Modular Psychophysics 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="top" title="Modular Psychophysics 2.0 documentation" href="index.html" />
-    <link rel="next" title="Creating your own stimuli" href="tut_stimuli.html" />
+    <link rel="next" title="Creating your own stimuli in Python" href="tut_stimuli.html" />
     <link rel="prev" title="Controlling mPsy experiments from R" href="tut_r.html" /> 
   </head>
   <body>
@@ -39,7 +39,7 @@
         <div class="rel">
           <a href="tut_r.html" title="Controlling mPsy experiments from R"
              accesskey="P">previous</a> |
-          <a href="tut_stimuli.html" title="Creating your own stimuli"
+          <a href="tut_stimuli.html" title="Creating your own stimuli in Python"
              accesskey="N">next</a> |
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a>
@@ -58,51 +58,38 @@
   <style>
 img { border-radius: 4px; margin-bottom: 10px; }
 h2 { clear: right; }
-</style><div class="section" id="stimulus-library">
-<h1>Stimulus Library<a class="headerlink" href="#stimulus-library" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="dot-lattice">
-<h2>Dot Lattice<a class="headerlink" href="#dot-lattice" title="Permalink to this headline">¶</a></h2>
-<a class="reference internal image-reference" href="_images/0001.png"><img alt="_images/0001.png" class="align-right" src="_images/0001.png" style="width: 120px;" /></a>
-<p>Dot lattice stimulus is an array of dots, dots are organized along two orientations
-with constant within orientation inter-dot distances.</p>
-<p>Dots in this stimulus can be redered as gratings, so that each dot can have its own
-sptial frequency and orientation.</p>
-<p><b>Automatically generated stimulus parameters for "stimuli.DotLattice" will be here.</b></p></div>
-<div class="section" id="random-dot-kinematograms">
-<h2>Random Dot Kinematograms<a class="headerlink" href="#random-dot-kinematograms" title="Permalink to this headline">¶</a></h2>
-<a class="reference internal image-reference" href="_images/0002.png"><img alt="_images/0002.png" class="align-right" src="_images/0002.png" style="width: 120px;" /></a>
-<p>Random dot kinematograms (RDK) as visual stimuli composed of randomly scattered and moving points.
-Commonly used  RDK stimulus is composed of two subgroups of points, each can be controlled independently
-in order to study motion perception of coherent groups in noisy (in-coherent) backgrounds.</p>
-<p>This stimulus displays only a single group, multiple groups can be obtain by overlaying multiple
-instances of ths stimulus.</p>
-<p><b>Automatically generated stimulus parameters for "stimuli.RDK" will be here.</b></p></div>
-<div class="section" id="tiled-image">
-<h2>Tiled Image<a class="headerlink" href="#tiled-image" title="Permalink to this headline">¶</a></h2>
-<a class="reference internal image-reference" href="_images/0003.png"><img alt="_images/0003.png" class="align-right" src="_images/0003.png" style="width: 120px;" /></a>
-<p>Tiled image is a stimulus object that enables the presentation of images.
-Images can be shown unmodified, scaled, rotated, or on tiles obtained by splitting the image
-by a regular grid. Some properties of tiles can be controlled independently.</p>
-<p><b>Automatically generated stimulus parameters for "stimuli.Tiles" will be here.</b></p></div>
-<div class="section" id="grating">
-<h2>Grating<a class="headerlink" href="#grating" title="Permalink to this headline">¶</a></h2>
+</style><div class="section" id="standard-stimulus-library">
+<h1>Standard stimulus library<a class="headerlink" href="#standard-stimulus-library" title="Permalink to this headline">¶</a></h1>
+<p>Here is a number of stimuli deposited to mPsy standard library so far. Each entry is accompanied by snippets of code in Python and MATLAB illustrating [...]</p>
+<div class="section" id="luminance-grating">
+<h2>Luminance grating<a class="headerlink" href="#luminance-grating" title="Permalink to this headline">¶</a></h2>
 <a class="reference internal image-reference" href="_images/0004.png"><img alt="_images/0004.png" class="align-right" src="_images/0004.png" style="width: 120px;" /></a>
-<p>One of the most elementary vision stimulus, periodic grating with periodically changing contrast.
-The contrast can be controled (modulated) in space and time. This stimulus has a built in
-gaussian mask, which can be used as a circular aperture.</p>
+<p>A periodic modulation of luminance.  The modulation is characterized by spatial and temporal frequencies. The stimulus is complete with a mask that can take the form of smooth (Gaussian) or sharp aperture. The grating can be tilted and slanted.</p>
 <p><b>Automatically generated stimulus parameters for "stimuli.Grating" will be here.</b></p></div>
+<div class="section" id="random-dot-cinematogram-rdc">
+<h2>Random-dot cinematogram (RDC)<a class="headerlink" href="#random-dot-cinematogram-rdc" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/0002.png"><img alt="_images/0002.png" class="align-right" src="_images/0002.png" style="width: 120px;" /></a>
+<p>An array of randomly positioned dots. A common instantiation of RDC contains two groups of dots, &#8220;signal&#8221; and &#8220;noise,&#8221; whose properties determine stimulus &#8220;coherence.&#8221;  The instance on the right contains only one group. One may overlay several such stimuli (using different parameters for each) to control coherence or create more complex versions of RDC.</p>
+<p><b>Automatically generated stimulus parameters for "stimuli.RDK" will be here.</b></p></div>
+<div class="section" id="dot-lattice">
+<h2>Dot lattice<a class="headerlink" href="#dot-lattice" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/0001.png"><img alt="_images/0001.png" class="align-right" src="_images/0001.png" style="width: 120px;" /></a>
+<p>A periodic array of dots organized along several orientations with a constant inter-dot distance within orientation. The &#8220;dots&#8221; can be solid disks or Gaussian blobs, or they can have more complex shapes, such as luminance gratings characterized by the same of different spatial frequencies and orientations.</p>
+<p><b>Automatically generated stimulus parameters for "stimuli.DotLattice" will be here.</b></p></div>
 <div class="section" id="cube">
 <h2>Cube<a class="headerlink" href="#cube" title="Permalink to this headline">¶</a></h2>
 <a class="reference internal image-reference" href="_images/0007.png"><img alt="_images/0007.png" class="align-right" src="_images/0007.png" style="width: 120px;" /></a>
-<p>Cube arbitrarily rotated and scaled in three dimensions. The colors of vertices and faces can
-be controlled.</p>
+<p>Cube rotated and scaled in three dimensions. The colors of vertices and faces are controlled independent of one another.</p>
 <p><b>Automatically generated stimulus parameters for "stimuli.Letters" will be here.</b></p></div>
-<div class="section" id="alphabet-grid-for-bci-spelling">
-<h2>Alphabet Grid for BCI Spelling<a class="headerlink" href="#alphabet-grid-for-bci-spelling" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tiled-image">
+<h2>Tiled image<a class="headerlink" href="#tiled-image" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/0003.png"><img alt="_images/0003.png" class="align-right" src="_images/0003.png" style="width: 120px;" /></a>
+<p>An image is divided to rectangular fragments called &#8220;tiles.&#8221; The tiles can remain in place (making up the original image presented on a slanted/tilted plane) or they can be individually scaled or rotated.</p>
+<p><b>Automatically generated stimulus parameters for "stimuli.Tiles" will be here.</b></p></div>
+<div class="section" id="alphabet-grid">
+<h2>Alphabet grid<a class="headerlink" href="#alphabet-grid" title="Permalink to this headline">¶</a></h2>
 <a class="reference internal image-reference" href="_images/0005.png"><img alt="_images/0005.png" class="align-right" src="_images/0005.png" style="width: 120px;" /></a>
-<p>A grid of letters commonly used in Brain Computer Interface (BCI) research.
-Letter of alphabet are shown in 6x6 grid, cells of this grid can be periodically highlighted.
-This stimulus sends events on each update of stimulus, so they can be logged for ERP analysis.</p>
+<p>A grid of letters commonly used in research of Brain Computer Interface (BCI). The letters are shown in a grid of 6x6 cells. The cells can be periodically highlighted.</p>
 <p><b>Automatically generated stimulus parameters for "stimuli.Letters" will be here.</b></p></div>
 </div>
 
@@ -120,13 +107,13 @@ This stimulus sends events on each update of stimulus, so they can be logged for
 <li class="toctree-l1"><a class="reference internal" href="tut_python.html">Control from Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_matlab.html">Control from MATLAB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_r.html">Control from R</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Stimulus library</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#dot-lattice">Dot Lattice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#random-dot-kinematograms">Random Dot Kinematograms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#tiled-image">Tiled Image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#grating">Grating</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Standard stimulus library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#luminance-grating">Luminance grating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#random-dot-cinematogram-rdc">Random-dot cinematogram (RDC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dot-lattice">Dot lattice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#cube">Cube</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#alphabet-grid-for-bci-spelling">Alphabet Grid for BCI Spelling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tiled-image">Tiled image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#alphabet-grid">Alphabet grid</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tut_stimuli.html">New stimuli</a></li>
@@ -154,7 +141,7 @@ This stimulus sends events on each update of stimulus, so they can be logged for
         <div class="left">
           <a href="tut_r.html" title="Controlling mPsy experiments from R"
              >previous</a> |
-          <a href="tut_stimuli.html" title="Creating your own stimuli"
+          <a href="tut_stimuli.html" title="Creating your own stimuli in Python"
              >next</a> |
           <a href="genindex.html" title="General Index"
              >index</a>

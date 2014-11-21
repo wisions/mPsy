@@ -7,14 +7,12 @@ Installation
 
 If you haven't downloaded Modular Psychophysics yes, click on this `link <https://dl.dropboxusercontent.com/u/166463/visionpyg/downloads/mpsy_minimal.zip>`_.
 
-The core of Modular Psychophysics requires only `Python <http://python.org>`_ to run. One other essential dependency is bundled with the package.
-However, we also suggest installing `Numerical Python (numpy) <http://numpy.org>`_.  
-it is very likely that even the most simple experiment will require some numerical computation.
+The core of Modular Psychophysics requires only `Python <http://python.org>`_ to run. One other essential dependency (`pyglet <http://www.pyglet.org/>`_) is bundled with the package. However, we also suggest installing `Numerical Python <http://numpy.org>`_ (`numpy <http://numpy.org>`_). It is very likely that even the simplest experiment will require some numerical computation.
 Some of the stimuli we use in tutorials use Python's Numpy module.
 
-If you are completely new to Python, we suggest installing the free version of `Enthought Python Distribution <https://www.enthought.com/products/epd/>`_,
+If you are completely new to Python, we suggest installing the free version of `Enthought Python Distribution <https://www.enthought.com/products/epd/>`_ 
 recently rebranded as `Canopy Express <https://www.enthought.com/products/epd/free/>`_. 
-For Mac OS users this distribution seems to be one of very few reliable ways of getting all scientific packages (especially matplotlib) working without a problem.
+For Mac OS, this distribution is one of the few reliable ways to obtain all scientific packages (including matplotlib) and make them work without further effort.
 
 Getting Started
 ---------------

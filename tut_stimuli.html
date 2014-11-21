@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Creating your own stimuli &mdash; Modular Psychophysics 2.0 documentation</title>
+    <title>Creating your own stimuli in Python &mdash; Modular Psychophysics 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,7 +26,7 @@
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="top" title="Modular Psychophysics 2.0 documentation" href="index.html" />
     <link rel="next" title="Brief function reference" href="reference.html" />
-    <link rel="prev" title="Stimulus Library" href="stimuli.html" /> 
+    <link rel="prev" title="Standard stimulus library" href="stimuli.html" /> 
   </head>
   <body>
     <div class="header-wrapper">
@@ -37,7 +37,7 @@
         <div class="headertitle"><a
           href="index.html">Modular Psychophysics 2.0 documentation</a></div>
         <div class="rel">
-          <a href="stimuli.html" title="Stimulus Library"
+          <a href="stimuli.html" title="Standard stimulus library"
              accesskey="P">previous</a> |
           <a href="reference.html" title="Brief function reference"
              accesskey="N">next</a> |
@@ -55,12 +55,10 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="creating-your-own-stimuli">
-<h1>Creating your own stimuli<a class="headerlink" href="#creating-your-own-stimuli" title="Permalink to this headline">¶</a></h1>
-<p>Modular Psychophysics requires that stimulus has a function draw() and a field (or member) called <cite>params</cite>,
-which is an associative array. Associative array is a fundamental object type that
-implemented in any language (MATLAB&#8217;s struct, R&#8217;s named list etc.).</p>
-<p>A minimal Python stimulus definition is as follows:</p>
+  <div class="section" id="creating-your-own-stimuli-in-python">
+<h1>Creating your own stimuli in Python<a class="headerlink" href="#creating-your-own-stimuli-in-python" title="Permalink to this headline">¶</a></h1>
+<p>Every mPsy stimulus has two mandatory elements: function <cite>draw()</cite> and field <cite>params</cite>.  The latter is an associative array: a fundamental object type of [any] language, such as <cite>struct</cite> in MATLAB and <cite>named list</cite> in R.</p>
+<p>A definition of stimulus in mPsy is illustrated just below using stimulus <cite>Text</cite>,  a simple yet functional example of text label:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">pyglet</span> <span class="kn">import</span> <span class="n">text</span>
 
 <span class="k">class</span> <span class="nc">Text</span><span class="p">:</span>
@@ -71,11 +69,8 @@ implemented in any language (MATLAB&#8217;s struct, R&#8217;s named list etc.).<
         <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>The example stimlus <cite>Text</cite> is a very simple yet functional example of a text label.</p>
-<p>Stimuli in mPsy are independent programs. The stimuli provided in <cite>stimuli.py</cite> module are examples.
-Those examples and the one we created above can be used outside of mPsy. This is useful
-for the development and testing stimuli.</p>
-<p>The followong code shows how to quickly setup a window and call <em>draw</em> function of an mPsy stimulus.</p>
+<p>Each mPsy stimulus [is an independent program], for which several examples appear module <cite>stimuli.py</cite>. The examples in <cite>stimuli.py</cite> (and the one above) can be used outside of mPsy, which is useful for the developing your own stimuli.</p>
+<p>The following code shows how to set up a window and call the <cite>draw()</cite> function for an mPsy stimulus.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">pyglet</span> <span class="kn">import</span> <span class="n">text</span>
 
 <span class="k">class</span> <span class="nc">Text</span><span class="p">:</span>
@@ -136,7 +131,7 @@ for the development and testing stimuli.</p>
 <li class="toctree-l1"><a class="reference internal" href="tut_python.html">Control from Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_matlab.html">Control from MATLAB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_r.html">Control from R</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stimuli.html">Stimulus library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stimuli.html">Standard stimulus library</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">New stimuli</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference.html">Brief function reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference.html#indices-and-tables">Indices and tables</a></li>
@@ -160,7 +155,7 @@ for the development and testing stimuli.</p>
     <div class="footer-wrapper">
       <div class="footer">
         <div class="left">
-          <a href="stimuli.html" title="Stimulus Library"
+          <a href="stimuli.html" title="Standard stimulus library"
              >previous</a> |
           <a href="reference.html" title="Brief function reference"
              >next</a> |

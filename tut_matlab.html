@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Controlling mPsy experiments from MATLAB &mdash; Modular Psychophysics 2.0 documentation</title>
+    <title>Control from MATLAB &mdash; Modular Psychophysics 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -55,29 +55,25 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="controlling-mpsy-experiments-from-matlab">
-<h1>Controlling <cite>mPsy</cite> experiments from MATLAB<a class="headerlink" href="#controlling-mpsy-experiments-from-matlab" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="control-from-matlab">
+<h1>Control from MATLAB<a class="headerlink" href="#control-from-matlab" title="Permalink to this headline">¶</a></h1>
 <p>Contents:</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><a class="reference internal" href="#installation" id="id1">Installation</a></li>
-<li><a class="reference internal" href="#a-simple-matlab-experiment" id="id2">A simple MATLAB experiment</a></li>
+<li><a class="reference internal" href="#a-sample-experiment" id="id2">A sample experiment</a></li>
 <li><a class="reference internal" href="#recording-responses" id="id3">Recording responses</a></li>
 </ul>
 </div>
 <div class="section" id="installation">
 <h2><a class="toc-backref" href="#id1">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>You can download mPsy with sample experiment written in MATLAB from
-<a class="reference external" href="https://dl.dropboxusercontent.com/u/166463/visionpyg/downloads/mpsy_matlab.zip">here</a>.</p>
-<p>In what is described on this page, MATLAB environment is used only to specify the timeline of experiment and its parameters.
-Presentation of stimuli still require a working Python installation as descibed in <a class="reference internal" href="index.html"><em>Modular Psychophysics (mPsy)</em></a>.</p>
-<p>Once you have Python installed, exctract the downloaded mPsy package into an empty directory.</p>
+<p>The standard <a class="reference external" href="https://dl.dropboxusercontent.com/u/166463/visionpyg/downloads/mpsy_matlab.zip">distribution</a> of mPsy contains a sample experiment in MATLAB.</p>
+<p>Here MATLAB is used to define the time line of experiment and its parameters. Presentation of stimuli requires a working installation of Python as described in <a class="reference internal" href="index.html"><em>Modular Psychophysics (mPsy)</em></a>. Once Python is installed, extract the archived mPsy package into an empty directory.</p>
 </div>
-<div class="section" id="a-simple-matlab-experiment">
-<h2><a class="toc-backref" href="#id2">A simple MATLAB experiment</a><a class="headerlink" href="#a-simple-matlab-experiment" title="Permalink to this headline">¶</a></h2>
-<p>As stated in the first section the experiment will be essentially running in Python, MATLAB will
-be used to remotelly control this experiment. The Python program that will &#8220;listen&#8221; to the MATLAB
-commands is a simple experiment with no stimuli and remote control component included:</p>
+<div class="section" id="a-sample-experiment">
+<h2><a class="toc-backref" href="#id2">A sample experiment</a><a class="headerlink" href="#a-sample-experiment" title="Permalink to this headline">¶</a></h2>
+<p>Here stimulus presentation is carried by Python. MATLAB is used to control the experiment remotely. Python &#8220;listens&#8221; to MATLAB commands and executes them.</p>
+<p>The following is a &#8220;blank&#8221; experiment with no stimuli:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">stimuli</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
@@ -107,7 +103,7 @@ commands is a simple experiment with no stimuli and remote control component inc
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>The web remote control is enabled by the following code:</p>
+<p>Remote control is enabled by this code:</p>
 <div class="highlight-python"><div class="highlight"><pre>    <span class="c"># tell visionpyg about remote control</span>
     <span class="kn">import</span> <span class="nn">web</span>
     <span class="n">remote</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">Remote</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
@@ -116,11 +112,8 @@ commands is a simple experiment with no stimuli and remote control component inc
     <span class="n">win</span><span class="o">.</span><span class="n">set_logger</span><span class="p">(</span><span class="n">remote</span><span class="o">.</span><span class="n">event</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>When the remotely controllable Python experiment is running we can use MATLAB to define when and
-what stimuli appear on the screen. The mPsy Python package will take care of stimulus presentation,
-subject interaction such as the collecting responses, and transmission of collected information back
-to the MATLAB program.</p>
-<p>The MATLAB experiment looks as follows:</p>
+<p>In a complete experiment, the timing and identity of stimuli is controlled from MATLAB.  Python presents stimuli, collect subject&#8217;s responses, and makes the collected information available for MATLAB to pick up.</p>
+<p>The MATLAB side of this experiment looks as follows:</p>
 <div class="highlight-matlab"><div class="highlight"><pre><span class="n">mimport</span><span class="p">(</span><span class="s">&#39;matlab&#39;</span><span class="p">);</span>
 
 <span class="n">win</span> <span class="p">=</span> <span class="n">grating_info</span><span class="p">();</span>
@@ -179,22 +172,16 @@ to the MATLAB program.</p>
 <span class="k">end</span>
 </pre></div>
 </div>
-<p>To run the demo experiment first download the file. Next run the &#8220;exp_tut_webremote.py&#8221;
-(double click, or use Terminal or cmd.exe and execute by typing &#8220;python exp_tut_webremote.py&#8221;).
-A succesfull execution of the Python program results in a blank
-black screen (or a black window in case fullscreen option is off).</p>
-<p>At this point you can go to MATLAB, change you current sirectory the directory that contains
-the file &#8220;exp_tut4.m&#8221;, and m-file called &#8220;mimport.m&#8221; and a subdirectoru &#8220;matlab&#8221;.
-In this directory run &#8220;exp_tut4&#8221;.</p>
-<p>The syntax of the MATLAB experiment is modelled after the Python examples. Please refer
-to the main tutorial &#8220;<a class="reference internal" href="index.html"><em>Modular Psychophysics (mPsy)</em></a>&#8221; for explanation of commands for stimulus parameter and trial setup.</p>
+<p>To run the demonstration, copy the above into MATLAB. Next run the &#8220;exp_tut_webremote.py&#8221;
+(double click the file name or execute it by typing &#8220;python exp_tut_webremote.py&#8221; in the Terminal). A successfully executed Python program creates an empy
+black screen (or a black window when <cite>fullscreen</cite> option is off).</p>
+<p>At this point you can go to MATLAB, change you directory to that containing
+files &#8220;exp_tut4.m&#8221; and &#8220;mimport.m&#8221; and also subdirectory &#8220;matlab&#8221; and run &#8220;exp_tut4&#8221;.</p>
+<p>The syntax of the MATLAB experiment is modelled after the Python examples. Main tutorial &#8220;<a class="reference internal" href="index.html"><em>Modular Psychophysics (mPsy)</em></a>&#8221; explains how to define the parameters of stimuli and the time line of the experiment.</p>
 </div>
 <div class="section" id="recording-responses">
 <h2><a class="toc-backref" href="#id3">Recording responses</a><a class="headerlink" href="#recording-responses" title="Permalink to this headline">¶</a></h2>
-<p>Events triggered by mPsy or subject interation are described in the main Python tutorial
-in <a class="reference internal" href="tut_python.html"><em>Psychophysics in &#8220;pure&#8221; Python</em></a>.</p>
-<p>To catch events in MATLAB we regularly check for any messages accumulating
-in the Python presentation program:</p>
+<p>On every event (triggered by mPsy or subject&#8217;s response) information is added to mPsy event log as described in the main Python tutorial in <a class="reference internal" href="tut_python.html"><em>Psychophysics in &#8220;pure&#8221; Python</em></a>. To catch events in MATLAB we regularly check for the messages accumulating on the Python side:</p>
 <div class="highlight-matlab"><div class="highlight"><pre><span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span>
     <span class="n">pause</span><span class="p">(</span><span class="mf">1.0</span><span class="p">);</span>
     <span class="k">events</span> <span class="p">=</span> <span class="n">grating_events</span><span class="p">;</span>
@@ -221,12 +208,12 @@ in the Python presentation program:</p>
 <li class="toctree-l1"><a class="reference internal" href="tut_python.html">Control from Python</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Control from MATLAB</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#a-simple-matlab-experiment">A simple MATLAB experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-sample-experiment">A sample experiment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#recording-responses">Recording responses</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tut_r.html">Control from R</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stimuli.html">Stimulus library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stimuli.html">Standard stimulus library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_stimuli.html">New stimuli</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference.html">Brief function reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference.html#indices-and-tables">Indices and tables</a></li>
