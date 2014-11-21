@@ -72,7 +72,9 @@ These and other key features of mPsy are illustrated in a series of :doc:`tutori
     New stimuli <tut_stimuli>
     Function reference <reference>
 
+	We gratefully acknowledge 
+	
 .. raw:: html
-    
+	
     </div>
 

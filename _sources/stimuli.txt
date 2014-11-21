@@ -9,7 +9,8 @@
 Standard stimulus library
 =========================
 
-Here is a number of stimuli deposited to mPsy standard library so far. Each entry is accompanied by snippets of code in Python and MATLAB illustrating [...] 
+Here is a number of stimuli deposited to mPsy standard library so far.
+.. Each entry is accompanied by snippets of code in Python and MATLAB illustrating [...] 
 
 Luminance grating
 -----------------
