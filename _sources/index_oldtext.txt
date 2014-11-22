@@ -68,7 +68,7 @@ You can find here the following:
 Installation
 ------------
 
-You can download Modular Psychophysics from `here <https://dl.dropboxusercontent.com/u/166463/visionpyg/downloads/mpsy_minimal.zip>`_.
+You can download Modular Psychophysics from `here <https://dl.dropboxusercontent.com/u/166463/mpsy/download/mpsy_minimal.zip>`_.
 
 Modular Psychophysics requires only `Python <http://python.org>`_ to run. The few other essential dependencies are bundled with the package.
 However, we also suggest installing `Numerical Python (numpy) <http://numpy.org>`_. The framework is meant for scientists and therefore 

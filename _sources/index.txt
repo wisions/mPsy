@@ -27,7 +27,7 @@ The core can be controlled using several languages. For example:
     <tbody>
     <tr>
     <td>
-    <a href="https://dl.dropboxusercontent.com/u/166463/visionpyg/downloads/mpsy_minimal.zip"
+    <a href="https://dl.dropboxusercontent.com/u/166463/mpsy/download/mpsy_minimal.zip"
        style="text-decoration: none;">
         <img class="cogex" alt="" border="0" width="160px" height="160px" src="_static/logo_mpsy512_g.png"><br/>
         <span style="font-size: 32px;">Download</span>

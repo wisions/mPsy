@@ -5,7 +5,7 @@ Tutorials for Modular Psychophysics (mPsy)
 Installation
 ------------
 
-If you haven't downloaded Modular Psychophysics yes, click on this `link <https://dl.dropboxusercontent.com/u/166463/visionpyg/downloads/mpsy_minimal.zip>`_.
+If you haven't downloaded Modular Psychophysics yes, click on this `link <https://dl.dropboxusercontent.com/u/166463/mpsy/download/mpsy_minimal.zip>`_.
 
 The core of Modular Psychophysics requires only `Python <http://python.org>`_ to run. One other essential dependency (`pyglet <http://www.pyglet.org/>`_) is bundled with the package. However, we also suggest installing `Numerical Python <http://numpy.org>`_ (`numpy <http://numpy.org>`_). It is very likely that even the simplest experiment will require some numerical computation.
 Some of the stimuli we use in tutorials use Python's Numpy module.

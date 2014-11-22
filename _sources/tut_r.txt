@@ -12,7 +12,7 @@ Installation
 ------------
 
 You can download mPsy with sample experiment written in R from 
-`here <https://dl.dropboxusercontent.com/u/166463/visionpyg/downloads/mpsy_r.zip>`_.
+`here <https://dl.dropboxusercontent.com/u/166463/mpsy/download/mpsy_r.zip>`_.
 
 In what is described on this page, the R environment is used only to specify the timeline of experiment and its parameters.
 Presentation of stimuli still require a working Python installation as descibed in :doc:`index`.

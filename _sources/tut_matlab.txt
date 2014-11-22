@@ -11,7 +11,7 @@ Contents:
 Installation
 ------------
 
-The standard `distribution <https://dl.dropboxusercontent.com/u/166463/visionpyg/downloads/mpsy_matlab.zip>`_ of mPsy contains a sample experiment in MATLAB.
+The standard `distribution <https://dl.dropboxusercontent.com/u/166463/mpsy/download/mpsy_matlab.zip>`_ of mPsy contains a sample experiment in MATLAB.
 
 Here MATLAB is used to define the time line of experiment and its parameters. Presentation of stimuli requires a working installation of Python as described in :doc:`index`. Once Python is installed, extract the archived mPsy package into an empty directory.
 
@@ -51,5 +51,5 @@ Recording responses
 On every event (triggered by mPsy or subject's response) information is added to mPsy event log as described in the main Python tutorial in :doc:`tut_python`. To catch events in MATLAB we regularly check for the messages accumulating on the Python side:
 
 .. literalinclude:: ../../mPsy/examples/matlab/exp_tut4.m
-    :lines: 51-57
+    :lines: 56-63
 

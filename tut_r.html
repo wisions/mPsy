@@ -68,7 +68,7 @@
 <div class="section" id="installation">
 <h2><a class="toc-backref" href="#id1">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>You can download mPsy with sample experiment written in R from
-<a class="reference external" href="https://dl.dropboxusercontent.com/u/166463/visionpyg/downloads/mpsy_r.zip">here</a>.</p>
+<a class="reference external" href="https://dl.dropboxusercontent.com/u/166463/mpsy/download/mpsy_r.zip">here</a>.</p>
 <p>In what is described on this page, the R environment is used only to specify the timeline of experiment and its parameters.
 Presentation of stimuli still require a working Python installation as descibed in <a class="reference internal" href="index.html"><em>Modular Psychophysics (mPsy)</em></a>.</p>
 <p>Once you have Python installed, exctract the downloaded mPsy package into an empty directory.</p>
@@ -92,7 +92,7 @@ commands is a simple experiment with no stimuli and remote control component inc
     <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">win</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">win</span><span class="o">.</span><span class="n">height</span>
     <span class="n">cx</span><span class="p">,</span> <span class="n">cy</span> <span class="o">=</span> <span class="n">win</span><span class="o">.</span><span class="n">width</span> <span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">win</span><span class="o">.</span><span class="n">height</span> <span class="o">//</span><span class="mi">2</span>
 
-    <span class="c"># tell visionpyg about remote control</span>
+    <span class="c"># tell mPsy about remote control</span>
     <span class="kn">import</span> <span class="nn">web</span>
     <span class="n">remote</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">Remote</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
     <span class="n">win</span><span class="o">.</span><span class="n">set_remote</span><span class="p">(</span><span class="n">remote</span><span class="p">)</span>
@@ -100,8 +100,8 @@ commands is a simple experiment with no stimuli and remote control component inc
     <span class="n">win</span><span class="o">.</span><span class="n">set_logger</span><span class="p">(</span><span class="n">remote</span><span class="o">.</span><span class="n">event</span><span class="p">)</span>
     
     <span class="c"># run experiment</span>
-    <span class="c"># visionpyg takes Trials from the begining of the trials list</span>
-    <span class="c"># if the trials list is eempty visionpyg waits</span>
+    <span class="c"># mPsy takes Trials from the begining of the trials list</span>
+    <span class="c"># if the trials list is eempty mPsy waits</span>
     <span class="c"># ESCAPE stops the experiment at any time</span>
     <span class="n">run</span><span class="p">()</span>
 
@@ -110,7 +110,7 @@ commands is a simple experiment with no stimuli and remote control component inc
 </pre></div>
 </div>
 <p>The web remote control is enabled by the following code:</p>
-<div class="highlight-python"><div class="highlight"><pre>    <span class="c"># tell visionpyg about remote control</span>
+<div class="highlight-python"><div class="highlight"><pre>    <span class="c"># tell mPsy about remote control</span>
     <span class="kn">import</span> <span class="nn">web</span>
     <span class="n">remote</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">Remote</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
     <span class="n">win</span><span class="o">.</span><span class="n">set_remote</span><span class="p">(</span><span class="n">remote</span><span class="p">)</span>
@@ -123,10 +123,10 @@ what stimuli appear on the screen. The mPsy Python package will take care of sti
 subject interaction such as the collecting responses, and transmission of collected information back
 to the R program.</p>
 <p>The R experiment looks as follows:</p>
-<div class="highlight-r"><div class="highlight"><pre>source<span class="p">(</span><span class="s">&#39;visionpyg.r&#39;</span><span class="p">)</span>
+<div class="highlight-r"><div class="highlight"><pre>source<span class="p">(</span><span class="s">&#39;mPsy.r&#39;</span><span class="p">)</span>
 
 <span class="c1"># EXPERIMENT</span>
-win <span class="o">&lt;-</span> grating_info<span class="p">()</span>
+win <span class="o">&lt;-</span> mpsy_info<span class="p">()</span>
 cx <span class="o">&lt;-</span> round<span class="p">(</span>win<span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="o">/</span><span class="m">2</span><span class="p">)</span>
 cy <span class="o">&lt;-</span> round<span class="p">(</span>win<span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="o">/</span><span class="m">2</span><span class="p">)</span>
 
@@ -143,22 +143,22 @@ stimuli_dots <span class="o">=</span> list<span class="p">(</span> DotLattice<sp
 <span class="c1"># we make a function that will generate proper response choice</span>
 response_screen <span class="o">=</span> <span class="kr">function</span><span class="p">(</span>t1<span class="p">,</span>t2<span class="p">,</span>t3<span class="p">,</span>t4<span class="p">)</span>
 <span class="p">{</span>
-    list<span class="p">(</span> Pill<span class="p">(</span>c<span class="p">(</span>cx<span class="o">+</span><span class="m">100</span><span class="p">,</span>cy<span class="o">+</span><span class="m">100</span><span class="p">),</span>Params<span class="p">(</span>th<span class="o">=</span>t1<span class="p">,</span>R<span class="o">=</span><span class="m">55</span><span class="p">,</span>d<span class="o">=</span><span class="m">5</span><span class="p">)),</span>
-          Pill<span class="p">(</span>c<span class="p">(</span>cx<span class="o">+</span><span class="m">100</span><span class="p">,</span>cy<span class="o">-</span><span class="m">100</span><span class="p">),</span>Params<span class="p">(</span>th<span class="o">=</span>t2<span class="p">,</span>R<span class="o">=</span><span class="m">55</span><span class="p">,</span>d<span class="o">=</span><span class="m">5</span><span class="p">)),</span>
-          Pill<span class="p">(</span>c<span class="p">(</span>cx<span class="o">-</span><span class="m">100</span><span class="p">,</span>cy<span class="o">-</span><span class="m">100</span><span class="p">),</span>Params<span class="p">(</span>th<span class="o">=</span>t3<span class="p">,</span>R<span class="o">=</span><span class="m">55</span><span class="p">,</span>d<span class="o">=</span><span class="m">5</span><span class="p">)),</span>
-          Pill<span class="p">(</span>c<span class="p">(</span>cx<span class="o">-</span><span class="m">100</span><span class="p">,</span>cy<span class="o">+</span><span class="m">100</span><span class="p">),</span>Params<span class="p">(</span>th<span class="o">=</span>t4<span class="p">,</span>R<span class="o">=</span><span class="m">55</span><span class="p">,</span>d<span class="o">=</span><span class="m">5</span><span class="p">))</span> <span class="p">)</span>
+    list<span class="p">(</span> Pill<span class="p">(</span>c<span class="p">(</span>cx<span class="m">+100</span><span class="p">,</span>cy<span class="m">+100</span><span class="p">),</span>Params<span class="p">(</span>th<span class="o">=</span>t1<span class="p">,</span>R<span class="o">=</span><span class="m">55</span><span class="p">,</span>d<span class="o">=</span><span class="m">5</span><span class="p">)),</span>
+          Pill<span class="p">(</span>c<span class="p">(</span>cx<span class="m">+100</span><span class="p">,</span>cy<span class="m">-100</span><span class="p">),</span>Params<span class="p">(</span>th<span class="o">=</span>t2<span class="p">,</span>R<span class="o">=</span><span class="m">55</span><span class="p">,</span>d<span class="o">=</span><span class="m">5</span><span class="p">)),</span>
+          Pill<span class="p">(</span>c<span class="p">(</span>cx<span class="m">-100</span><span class="p">,</span>cy<span class="m">-100</span><span class="p">),</span>Params<span class="p">(</span>th<span class="o">=</span>t3<span class="p">,</span>R<span class="o">=</span><span class="m">55</span><span class="p">,</span>d<span class="o">=</span><span class="m">5</span><span class="p">)),</span>
+          Pill<span class="p">(</span>c<span class="p">(</span>cx<span class="m">-100</span><span class="p">,</span>cy<span class="m">+100</span><span class="p">),</span>Params<span class="p">(</span>th<span class="o">=</span>t4<span class="p">,</span>R<span class="o">=</span><span class="m">55</span><span class="p">,</span>d<span class="o">=</span><span class="m">5</span><span class="p">))</span> <span class="p">)</span>
 <span class="p">}</span>
 
 theta <span class="o">=</span> <span class="kr">function</span><span class="p">(</span>p<span class="p">)</span>
 <span class="p">{</span>
     t <span class="o">=</span> as.double<span class="p">(</span>p<span class="p">[</span><span class="s">&#39;theta&#39;</span><span class="p">])</span>
     g <span class="o">=</span> as.double<span class="p">(</span>p<span class="p">[</span><span class="s">&#39;gamma&#39;</span><span class="p">])</span>
-    bvec <span class="o">=</span> r<span class="o">*</span>exp<span class="p">(</span><span class="m">1</span>i<span class="o">*</span>g<span class="p">)</span>
-    c<span class="p">(</span>t<span class="p">,</span>t<span class="o">+</span>g<span class="p">,</span>t<span class="o">+</span>angle<span class="p">(</span>bvec<span class="o">+</span><span class="m">1</span><span class="p">),</span>t<span class="o">+</span>angle<span class="p">(</span>bvec<span class="o">-</span><span class="m">1</span><span class="p">))</span>
+    bvec <span class="o">=</span> r<span class="o">*</span>exp<span class="p">(</span><span class="m">1i</span><span class="o">*</span>g<span class="p">)</span>
+    c<span class="p">(</span>t<span class="p">,</span>t<span class="o">+</span>g<span class="p">,</span>t<span class="o">+</span>angle<span class="p">(</span>bvec<span class="m">+1</span><span class="p">),</span>t<span class="o">+</span>angle<span class="p">(</span>bvec<span class="m">-1</span><span class="p">))</span>
 <span class="p">}</span>
 
-welcome_line  <span class="o">=</span> list<span class="p">(</span> Text<span class="p">(</span>c<span class="p">(</span>cx<span class="p">,</span>cy<span class="o">-</span><span class="m">50</span><span class="p">),</span>Params<span class="p">(</span>msg<span class="o">=</span><span class="s">&#39;Press SPACE when ready.&#39;</span><span class="p">))</span> <span class="p">)</span>
-farewell_line <span class="o">=</span> list<span class="p">(</span> Text<span class="p">(</span>c<span class="p">(</span>cx<span class="p">,</span>cy<span class="o">-</span><span class="m">50</span><span class="p">),</span>Params<span class="p">(</span>msg<span class="o">=</span><span class="s">&#39;Thank you for participation!&#39;</span><span class="p">))</span> <span class="p">)</span>
+welcome_line  <span class="o">=</span> list<span class="p">(</span> Text<span class="p">(</span>c<span class="p">(</span>cx<span class="p">,</span>cy<span class="m">-50</span><span class="p">),</span>Params<span class="p">(</span>msg<span class="o">=</span><span class="s">&#39;Press SPACE when ready.&#39;</span><span class="p">))</span> <span class="p">)</span>
+farewell_line <span class="o">=</span> list<span class="p">(</span> Text<span class="p">(</span>c<span class="p">(</span>cx<span class="p">,</span>cy<span class="m">-50</span><span class="p">),</span>Params<span class="p">(</span>msg<span class="o">=</span><span class="s">&#39;Thank you for participation!&#39;</span><span class="p">))</span> <span class="p">)</span>
 dot <span class="o">=</span> list<span class="p">(</span> Dot<span class="p">(</span>c<span class="p">(</span>cx<span class="p">,</span>cy<span class="p">),</span>Params<span class="p">(</span>c<span class="o">=</span><span class="m">0.5</span><span class="p">))</span> <span class="p">)</span>
 
 keys_none     <span class="o">=</span> list<span class="p">()</span>
@@ -171,13 +171,13 @@ trials <span class="o">&lt;-</span> list<span class="p">(</span> Trial<span clas
 
 <span class="c1"># prepare 6*5 ratios</span>
 ratios <span class="o">=</span> c<span class="p">()</span>
-<span class="kr">for</span> <span class="p">(</span>i in <span class="m">1</span>:<span class="m">1</span><span class="p">)</span> ratios <span class="o">=</span> c<span class="p">(</span>ratios<span class="p">,</span>c<span class="p">(</span><span class="m">1.0</span><span class="p">,</span><span class="m">1.1</span><span class="p">,</span><span class="m">1.2</span><span class="p">,</span><span class="m">1.3</span><span class="p">,</span><span class="m">1.4</span><span class="p">))</span>
+<span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="m">1</span><span class="p">)</span> ratios <span class="o">=</span> c<span class="p">(</span>ratios<span class="p">,</span>c<span class="p">(</span><span class="m">1.0</span><span class="p">,</span><span class="m">1.1</span><span class="p">,</span><span class="m">1.2</span><span class="p">,</span><span class="m">1.3</span><span class="p">,</span><span class="m">1.4</span><span class="p">))</span>
 <span class="c1"># and shuffle them</span>
 ratios <span class="o">=</span> sample<span class="p">(</span>ratios<span class="p">)</span>
 gamma <span class="o">=</span> rads<span class="p">(</span><span class="m">90.0</span><span class="p">)</span>
 
 <span class="c1"># add three Trials each consisting of a Fixation, Stimulus and a Response screen</span>
-<span class="kr">for</span> <span class="p">(</span>r in ratios<span class="p">)</span>
+<span class="kr">for</span> <span class="p">(</span>r <span class="kr">in</span> ratios<span class="p">)</span>
 <span class="p">{</span>
     <span class="c1"># generate a new lattice, rotated by a random angle</span>
     th <span class="o">=</span> <span class="m">2</span><span class="o">*</span>pi<span class="o">*</span>runif<span class="p">(</span><span class="m">1</span><span class="p">)</span>
@@ -198,26 +198,26 @@ gamma <span class="o">=</span> rads<span class="p">(</span><span class="m">90.0<
 
 trials <span class="o">&lt;-</span> c<span class="p">(</span> trials<span class="p">,</span> list<span class="p">(</span>Trial<span class="p">(</span><span class="s">&#39;End&#39;</span><span class="p">,</span>farewell_line<span class="p">,</span><span class="m">0</span><span class="p">,</span>keys_none<span class="p">))</span> <span class="p">)</span>
 
-<span class="c1"># tell visionpyg about trials</span>
+<span class="c1"># tell mPsy about trials</span>
 set_trials<span class="p">(</span>trials<span class="p">)</span>
 
 <span class="c1"># watch the events for 10 seconds</span>
-<span class="kr">for</span> <span class="p">(</span>i in <span class="m">1</span>:<span class="m">10</span><span class="p">)</span>
+<span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)</span>
 <span class="p">{</span>
     Sys.sleep<span class="p">(</span><span class="m">1.0</span><span class="p">)</span>
-    events <span class="o">=</span> grating_events<span class="p">()</span>
+    events <span class="o">=</span> mpsy_events<span class="p">()</span>
     <span class="kr">if</span> <span class="p">(</span>length<span class="p">(</span>events<span class="p">)</span> <span class="o">&gt;</span> <span class="m">0</span><span class="p">)</span>
-        <span class="kr">for</span> <span class="p">(</span>j in <span class="m">1</span>:length<span class="p">(</span>events<span class="p">))</span>
+        <span class="kr">for</span> <span class="p">(</span>j <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>length<span class="p">(</span>events<span class="p">))</span>
         <span class="p">{</span>
             ev <span class="o">=</span> events<span class="p">[[</span>j<span class="p">]]</span>
             <span class="kr">if</span> <span class="p">(</span>ev<span class="p">[[</span><span class="m">1</span><span class="p">]]</span><span class="o">==</span><span class="s">&#39;TRIAL&#39;</span> <span class="o">&amp;&amp;</span> ev<span class="p">[[</span><span class="m">3</span><span class="p">]][</span><span class="s">&#39;name&#39;</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;Lattices&#39;</span><span class="p">)</span>
             <span class="p">{</span>
                 th <span class="o">=</span> ev<span class="p">[[</span><span class="m">3</span><span class="p">]][[</span><span class="s">&#39;stimuli&#39;</span><span class="p">]][[</span><span class="m">1</span><span class="p">]][</span><span class="s">&#39;params&#39;</span><span class="p">][[</span><span class="m">1</span><span class="p">]][</span><span class="s">&#39;theta&#39;</span><span class="p">]</span>
-                cat<span class="p">(</span>sprintf<span class="p">(</span><span class="s">&quot;Event: \&quot;</span><span class="o">%</span>s\<span class="s">&quot; triggered at %0.3f, theta = %0.2f\n&quot;</span><span class="p">,</span>
+                cat<span class="p">(</span>sprintf<span class="p">(</span><span class="s">&quot;Event: \&quot;%s\&quot; triggered at %0.3f, theta = %0.2f\n&quot;</span><span class="p">,</span>
                             ev<span class="p">[[</span><span class="m">1</span><span class="p">]],</span>ev<span class="p">[[</span><span class="m">2</span><span class="p">]],</span>th<span class="p">))</span>
             <span class="p">}</span>
             <span class="kr">else</span>
-                cat<span class="p">(</span>sprintf<span class="p">(</span><span class="s">&quot;Event: \&quot;</span><span class="o">%</span>s\<span class="s">&quot; triggered at %0.3f, response &#39;%s&#39;\n&quot;</span><span class="p">,</span>
+                cat<span class="p">(</span>sprintf<span class="p">(</span><span class="s">&quot;Event: \&quot;%s\&quot; triggered at %0.3f, response &#39;%s&#39;\n&quot;</span><span class="p">,</span>
                             ev<span class="p">[[</span><span class="m">1</span><span class="p">]],</span>ev<span class="p">[[</span><span class="m">2</span><span class="p">]],</span>toJSON<span class="p">(</span>ev<span class="p">[[</span><span class="m">4</span><span class="p">]])))</span>
         <span class="p">}</span>
 <span class="p">}</span>
@@ -237,22 +237,22 @@ to the main tutorial &#8220;<a class="reference internal" href="index.html"><em>
 in <a class="reference internal" href="tut_python.html"><em>Psychophysics in &#8220;pure&#8221; Python</em></a>.</p>
 <p>To catch events in R we regularly check for any messages accumulating in the Python presentation program:</p>
 <div class="highlight-r"><div class="highlight"><pre><span class="c1"># watch the events for 10 seconds</span>
-<span class="kr">for</span> <span class="p">(</span>i in <span class="m">1</span>:<span class="m">10</span><span class="p">)</span>
+<span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)</span>
 <span class="p">{</span>
     Sys.sleep<span class="p">(</span><span class="m">1.0</span><span class="p">)</span>
-    events <span class="o">=</span> grating_events<span class="p">()</span>
+    events <span class="o">=</span> mpsy_events<span class="p">()</span>
     <span class="kr">if</span> <span class="p">(</span>length<span class="p">(</span>events<span class="p">)</span> <span class="o">&gt;</span> <span class="m">0</span><span class="p">)</span>
-        <span class="kr">for</span> <span class="p">(</span>j in <span class="m">1</span>:length<span class="p">(</span>events<span class="p">))</span>
+        <span class="kr">for</span> <span class="p">(</span>j <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>length<span class="p">(</span>events<span class="p">))</span>
         <span class="p">{</span>
             ev <span class="o">=</span> events<span class="p">[[</span>j<span class="p">]]</span>
             <span class="kr">if</span> <span class="p">(</span>ev<span class="p">[[</span><span class="m">1</span><span class="p">]]</span><span class="o">==</span><span class="s">&#39;TRIAL&#39;</span> <span class="o">&amp;&amp;</span> ev<span class="p">[[</span><span class="m">3</span><span class="p">]][</span><span class="s">&#39;name&#39;</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;Lattices&#39;</span><span class="p">)</span>
             <span class="p">{</span>
                 th <span class="o">=</span> ev<span class="p">[[</span><span class="m">3</span><span class="p">]][[</span><span class="s">&#39;stimuli&#39;</span><span class="p">]][[</span><span class="m">1</span><span class="p">]][</span><span class="s">&#39;params&#39;</span><span class="p">][[</span><span class="m">1</span><span class="p">]][</span><span class="s">&#39;theta&#39;</span><span class="p">]</span>
-                cat<span class="p">(</span>sprintf<span class="p">(</span><span class="s">&quot;Event: \&quot;</span><span class="o">%</span>s\<span class="s">&quot; triggered at %0.3f, theta = %0.2f\n&quot;</span><span class="p">,</span>
+                cat<span class="p">(</span>sprintf<span class="p">(</span><span class="s">&quot;Event: \&quot;%s\&quot; triggered at %0.3f, theta = %0.2f\n&quot;</span><span class="p">,</span>
                             ev<span class="p">[[</span><span class="m">1</span><span class="p">]],</span>ev<span class="p">[[</span><span class="m">2</span><span class="p">]],</span>th<span class="p">))</span>
             <span class="p">}</span>
             <span class="kr">else</span>
-                cat<span class="p">(</span>sprintf<span class="p">(</span><span class="s">&quot;Event: \&quot;</span><span class="o">%</span>s\<span class="s">&quot; triggered at %0.3f, response &#39;%s&#39;\n&quot;</span><span class="p">,</span>
+                cat<span class="p">(</span>sprintf<span class="p">(</span><span class="s">&quot;Event: \&quot;%s\&quot; triggered at %0.3f, response &#39;%s&#39;\n&quot;</span><span class="p">,</span>
                             ev<span class="p">[[</span><span class="m">1</span><span class="p">]],</span>ev<span class="p">[[</span><span class="m">2</span><span class="p">]],</span>toJSON<span class="p">(</span>ev<span class="p">[[</span><span class="m">4</span><span class="p">]])))</span>
         <span class="p">}</span>
 <span class="p">}</span>
@@ -319,7 +319,7 @@ in <a class="reference internal" href="tut_python.html"><em>Psychophysics in &#8
           
     <div class="footer">
         &copy; Copyright 2014, Peter Jurica, Sergei Gepshtein.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
         </div>
         <div class="clearer"></div>

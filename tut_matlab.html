@@ -67,7 +67,7 @@
 </div>
 <div class="section" id="installation">
 <h2><a class="toc-backref" href="#id1">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>The standard <a class="reference external" href="https://dl.dropboxusercontent.com/u/166463/visionpyg/downloads/mpsy_matlab.zip">distribution</a> of mPsy contains a sample experiment in MATLAB.</p>
+<p>The standard <a class="reference external" href="https://dl.dropboxusercontent.com/u/166463/mpsy/download/mpsy_matlab.zip">distribution</a> of mPsy contains a sample experiment in MATLAB.</p>
 <p>Here MATLAB is used to define the time line of experiment and its parameters. Presentation of stimuli requires a working installation of Python as described in <a class="reference internal" href="index.html"><em>Modular Psychophysics (mPsy)</em></a>. Once Python is installed, extract the archived mPsy package into an empty directory.</p>
 </div>
 <div class="section" id="a-sample-experiment">
@@ -86,7 +86,7 @@
     <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">win</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">win</span><span class="o">.</span><span class="n">height</span>
     <span class="n">cx</span><span class="p">,</span> <span class="n">cy</span> <span class="o">=</span> <span class="n">win</span><span class="o">.</span><span class="n">width</span> <span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">win</span><span class="o">.</span><span class="n">height</span> <span class="o">//</span><span class="mi">2</span>
 
-    <span class="c"># tell visionpyg about remote control</span>
+    <span class="c"># tell mPsy about remote control</span>
     <span class="kn">import</span> <span class="nn">web</span>
     <span class="n">remote</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">Remote</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
     <span class="n">win</span><span class="o">.</span><span class="n">set_remote</span><span class="p">(</span><span class="n">remote</span><span class="p">)</span>
@@ -94,8 +94,8 @@
     <span class="n">win</span><span class="o">.</span><span class="n">set_logger</span><span class="p">(</span><span class="n">remote</span><span class="o">.</span><span class="n">event</span><span class="p">)</span>
     
     <span class="c"># run experiment</span>
-    <span class="c"># visionpyg takes Trials from the begining of the trials list</span>
-    <span class="c"># if the trials list is eempty visionpyg waits</span>
+    <span class="c"># mPsy takes Trials from the begining of the trials list</span>
+    <span class="c"># if the trials list is eempty mPsy waits</span>
     <span class="c"># ESCAPE stops the experiment at any time</span>
     <span class="n">run</span><span class="p">()</span>
 
@@ -104,7 +104,7 @@
 </pre></div>
 </div>
 <p>Remote control is enabled by this code:</p>
-<div class="highlight-python"><div class="highlight"><pre>    <span class="c"># tell visionpyg about remote control</span>
+<div class="highlight-python"><div class="highlight"><pre>    <span class="c"># tell mPsy about remote control</span>
     <span class="kn">import</span> <span class="nn">web</span>
     <span class="n">remote</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">Remote</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
     <span class="n">win</span><span class="o">.</span><span class="n">set_remote</span><span class="p">(</span><span class="n">remote</span><span class="p">)</span>
@@ -116,28 +116,34 @@
 <p>The MATLAB side of this experiment looks as follows:</p>
 <div class="highlight-matlab"><div class="highlight"><pre><span class="n">mimport</span><span class="p">(</span><span class="s">&#39;matlab&#39;</span><span class="p">);</span>
 
-<span class="n">win</span> <span class="p">=</span> <span class="n">grating_info</span><span class="p">();</span>
-<span class="n">cx</span> <span class="p">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">win</span><span class="p">.</span><span class="n">width</span><span class="o">/</span>2<span class="p">);</span>
-<span class="n">cy</span> <span class="p">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">win</span><span class="p">.</span><span class="n">height</span><span class="o">/</span>2<span class="p">);</span>
+<span class="k">if</span> <span class="o">~</span><span class="n">mpsy_alive</span><span class="p">()</span>
+    <span class="n">mpsy_start_safe</span><span class="p">();</span>
+<span class="k">end</span>
+
+<span class="n">win</span> <span class="p">=</span> <span class="n">mpsy_info</span><span class="p">();</span>
+<span class="n">cx</span> <span class="p">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">win</span><span class="p">.</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">cy</span> <span class="p">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">win</span><span class="p">.</span><span class="n">height</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
+
+<span class="n">set_background</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]);</span>
 
 <span class="c">% prepare grating configuration</span>
-<span class="n">pleft</span> <span class="p">=</span> <span class="n">Params</span><span class="p">(</span><span class="s">&#39;width&#39;</span><span class="p">,</span>400<span class="p">.</span>0<span class="p">,</span><span class="s">&#39;speed&#39;</span><span class="p">,</span>20<span class="p">.</span>0<span class="p">,</span><span class="s">&#39;fs&#39;</span><span class="p">,</span>40<span class="p">.</span>0<span class="p">);</span>
+<span class="n">pleft</span> <span class="p">=</span> <span class="n">Params</span><span class="p">(</span><span class="s">&#39;width&#39;</span><span class="p">,</span><span class="mf">400.0</span><span class="p">,</span><span class="s">&#39;speed&#39;</span><span class="p">,</span><span class="mf">20.0</span><span class="p">,</span><span class="s">&#39;fs&#39;</span><span class="p">,</span><span class="mf">40.0</span><span class="p">);</span>
 <span class="c">% p4 will be the same as p3, with speed 40.0</span>
-<span class="n">pright</span> <span class="p">=</span> <span class="n">copy_params</span><span class="p">(</span><span class="n">pleft</span><span class="p">,</span><span class="s">&#39;speed&#39;</span><span class="p">,</span>40<span class="p">.</span>0<span class="p">);</span>
+<span class="n">pright</span> <span class="p">=</span> <span class="n">copy_params</span><span class="p">(</span><span class="n">pleft</span><span class="p">,</span><span class="s">&#39;speed&#39;</span><span class="p">,</span><span class="mf">40.0</span><span class="p">);</span>
 
 <span class="c">% setup trials</span>
 <span class="n">trials</span> <span class="p">=</span> <span class="p">{};</span>
 
-<span class="n">speeds</span> <span class="p">=</span> 10 <span class="o">+</span> 10<span class="o">*</span><span class="nb">rand</span><span class="p">(</span>6<span class="p">,</span>2<span class="p">);</span>
+<span class="n">speeds</span> <span class="p">=</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">10</span><span class="o">*</span><span class="nb">rand</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
 
 <span class="c">% setup presentation screens</span>
-<span class="n">stimuli_gratings</span> <span class="p">=</span> <span class="p">{</span> <span class="n">Grating</span><span class="p">([</span><span class="n">cx</span><span class="o">-</span>350<span class="p">,</span><span class="n">cy</span><span class="p">],</span><span class="n">pleft</span><span class="p">),</span> <span class="p">...</span>
-                     <span class="n">Grating</span><span class="p">([</span><span class="n">cx</span><span class="o">+</span>350<span class="p">,</span><span class="n">cy</span><span class="p">],</span><span class="n">pright</span><span class="p">)</span> <span class="p">};</span>
+<span class="n">stimuli_gratings</span> <span class="p">=</span> <span class="p">{</span> <span class="n">Grating</span><span class="p">([</span><span class="n">cx</span><span class="o">-</span><span class="mi">350</span><span class="p">,</span><span class="n">cy</span><span class="p">],</span><span class="n">pleft</span><span class="p">),</span> <span class="c">...</span>
+                     <span class="n">Grating</span><span class="p">([</span><span class="n">cx</span><span class="o">+</span><span class="mi">350</span><span class="p">,</span><span class="n">cy</span><span class="p">],</span><span class="n">pright</span><span class="p">)</span> <span class="p">};</span>
 
-<span class="n">welcome_line</span>  <span class="p">=</span> <span class="p">{</span> <span class="n">Text</span><span class="p">([</span><span class="n">cx</span><span class="p">,</span><span class="n">cy</span><span class="o">-</span>50<span class="p">],</span><span class="n">Params</span><span class="p">(</span><span class="s">&#39;msg&#39;</span><span class="p">,</span><span class="s">&#39;Press SPACE when ready.&#39;</span><span class="p">))</span> <span class="p">};</span>
-<span class="n">farewell_line</span> <span class="p">=</span> <span class="p">{</span> <span class="n">Text</span><span class="p">([</span><span class="n">cx</span><span class="p">,</span><span class="n">cy</span><span class="o">-</span>50<span class="p">],</span><span class="n">Params</span><span class="p">(</span><span class="s">&#39;msg&#39;</span><span class="p">,</span><span class="s">&#39;Game over!&#39;</span><span class="p">))</span> <span class="p">};</span>
+<span class="n">welcome_line</span>  <span class="p">=</span> <span class="p">{</span> <span class="n">Text</span><span class="p">([</span><span class="n">cx</span><span class="p">,</span><span class="n">cy</span><span class="o">-</span><span class="mi">50</span><span class="p">],</span><span class="n">Params</span><span class="p">(</span><span class="s">&#39;msg&#39;</span><span class="p">,</span><span class="s">&#39;Press SPACE when ready.&#39;</span><span class="p">))</span> <span class="p">};</span>
+<span class="n">farewell_line</span> <span class="p">=</span> <span class="p">{</span> <span class="n">Text</span><span class="p">([</span><span class="n">cx</span><span class="p">,</span><span class="n">cy</span><span class="o">-</span><span class="mi">50</span><span class="p">],</span><span class="n">Params</span><span class="p">(</span><span class="s">&#39;msg&#39;</span><span class="p">,</span><span class="s">&#39;Game over!&#39;</span><span class="p">))</span> <span class="p">};</span>
 <span class="n">response_line</span> <span class="p">=</span> <span class="p">{</span> <span class="n">Text</span><span class="p">([</span><span class="n">cx</span><span class="p">,</span><span class="n">cy</span><span class="p">],</span><span class="n">Params</span><span class="p">(</span><span class="s">&#39;msg&#39;</span><span class="p">,</span><span class="s">&#39;Which was faster\nLeft or Right&#39;</span><span class="p">))</span> <span class="p">};</span>
-<span class="nb">dot</span> <span class="p">=</span> <span class="p">{</span> <span class="n">Dot</span><span class="p">([</span><span class="n">cx</span><span class="p">,</span><span class="n">cy</span><span class="p">],</span><span class="n">Params</span><span class="p">(</span><span class="s">&#39;c&#39;</span><span class="p">,</span>0<span class="p">.</span>5<span class="p">))</span> <span class="p">};</span>
+<span class="nb">dot</span> <span class="p">=</span> <span class="p">{</span> <span class="n">Dot</span><span class="p">([</span><span class="n">cx</span><span class="p">,</span><span class="n">cy</span><span class="p">],</span><span class="n">Params</span><span class="p">(</span><span class="s">&#39;c&#39;</span><span class="p">,</span><span class="mf">0.5</span><span class="p">))</span> <span class="p">};</span>
 
 <span class="c">% setup trials</span>
 <span class="n">trials</span> <span class="p">=</span> <span class="p">{};</span>  
@@ -146,27 +152,27 @@
 <span class="n">keys_default</span> <span class="p">=</span> <span class="p">[</span><span class="n">key</span><span class="p">.</span><span class="n">SPACE</span><span class="p">,</span><span class="n">key</span><span class="p">.</span><span class="n">C</span><span class="p">,</span><span class="n">key</span><span class="p">.</span><span class="n">N</span><span class="p">,</span><span class="n">key</span><span class="p">.</span><span class="n">LEFT</span><span class="p">,</span><span class="n">key</span><span class="p">.</span><span class="n">RIGHT</span><span class="p">];</span>
 
 <span class="c">% add a message screen, wait until button press (duration=0 means wait)</span>
-<span class="n">trials</span><span class="p">(</span><span class="k">end</span><span class="o">+</span>1<span class="p">)</span> <span class="p">=</span> <span class="p">{</span> <span class="n">Trial</span><span class="p">(</span><span class="s">&#39;Start&#39;</span><span class="p">,</span><span class="n">welcome_line</span><span class="p">,</span>0<span class="p">,</span><span class="n">keys_default</span><span class="p">)</span> <span class="p">};</span>
+<span class="n">trials</span><span class="p">(</span><span class="k">end</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="p">{</span> <span class="n">Trial</span><span class="p">(</span><span class="s">&#39;Start&#39;</span><span class="p">,</span><span class="n">welcome_line</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">keys_default</span><span class="p">)</span> <span class="p">};</span>
 
 <span class="c">% add three Trials each consisting of a Fixation, </span>
 <span class="c">% Stimulus and a Response screemn</span>
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> 1<span class="p">:</span>3
-    <span class="n">trials</span> <span class="p">=</span> <span class="p">[</span> <span class="n">trials</span><span class="p">,</span> <span class="p">...</span>
-               <span class="n">Trial</span><span class="p">(</span><span class="s">&#39;Fixation&#39;</span><span class="p">,</span>             <span class="nb">dot</span><span class="p">,</span> 1000<span class="p">,</span> <span class="n">keys_none</span>   <span class="p">),</span> <span class="p">...</span>
-               <span class="n">Trial</span><span class="p">(</span><span class="s">&#39;Gratings&#39;</span><span class="p">,</span><span class="n">stimuli_gratings</span><span class="p">,</span> 1500<span class="p">,</span> <span class="n">keys_none</span>   <span class="p">),</span> <span class="p">...</span>
-               <span class="n">Trial</span><span class="p">(</span><span class="s">&#39;Response&#39;</span><span class="p">,</span>   <span class="n">response_line</span><span class="p">,</span>    0<span class="p">,</span> <span class="n">keys_default</span><span class="p">)</span> <span class="p">];</span>
+<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span>
+    <span class="n">trials</span> <span class="p">=</span> <span class="p">[</span> <span class="n">trials</span><span class="p">,</span> <span class="c">...</span>
+               <span class="n">Trial</span><span class="p">(</span><span class="s">&#39;Fixation&#39;</span><span class="p">,</span>             <span class="nb">dot</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">keys_none</span>   <span class="p">),</span> <span class="c">...</span>
+               <span class="n">Trial</span><span class="p">(</span><span class="s">&#39;Gratings&#39;</span><span class="p">,</span><span class="n">stimuli_gratings</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="n">keys_none</span>   <span class="p">),</span> <span class="c">...</span>
+               <span class="n">Trial</span><span class="p">(</span><span class="s">&#39;Response&#39;</span><span class="p">,</span>   <span class="n">response_line</span><span class="p">,</span>    <span class="mi">0</span><span class="p">,</span> <span class="n">keys_default</span><span class="p">)</span> <span class="p">];</span>
 <span class="k">end</span>
 
-<span class="n">trials</span><span class="p">{</span><span class="k">end</span><span class="o">+</span>1<span class="p">}</span> <span class="p">=</span> <span class="n">Trial</span><span class="p">(</span><span class="s">&#39;End&#39;</span><span class="p">,</span> <span class="n">farewell_line</span><span class="p">,</span> 0<span class="p">,</span> <span class="n">keys_none</span><span class="p">);</span>
+<span class="n">trials</span><span class="p">{</span><span class="k">end</span><span class="o">+</span><span class="mi">1</span><span class="p">}</span> <span class="p">=</span> <span class="n">Trial</span><span class="p">(</span><span class="s">&#39;End&#39;</span><span class="p">,</span> <span class="n">farewell_line</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">keys_none</span><span class="p">);</span>
 
-<span class="c">% tell visionpyg about trials</span>
+<span class="c">% tell mPsy about trials</span>
 <span class="n">set_trials</span><span class="p">(</span><span class="n">trials</span><span class="p">);</span>
 
 <span class="c">% watch the events for 10 seconds</span>
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> 1<span class="p">:</span>10<span class="p">,</span>
-    <span class="n">pause</span><span class="p">(</span>1<span class="p">.</span>0<span class="p">);</span>
-    <span class="k">events</span> <span class="p">=</span> <span class="n">grating_events</span><span class="p">;</span>
-    <span class="k">for</span> <span class="nb">j</span> <span class="p">=</span> 1<span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="k">events</span><span class="p">),</span>
+<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">pause</span><span class="p">(</span><span class="mf">1.0</span><span class="p">);</span>
+    <span class="k">events</span> <span class="p">=</span> <span class="n">mpsy_events</span><span class="p">;</span>
+    <span class="k">for</span> <span class="nb">j</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="k">events</span><span class="p">),</span>
         <span class="nb">disp</span><span class="p">(</span><span class="k">events</span><span class="p">{</span><span class="nb">j</span><span class="p">});</span>
     <span class="k">end</span>
 <span class="k">end</span>
@@ -182,10 +188,11 @@ files &#8220;exp_tut4.m&#8221; and &#8220;mimport.m&#8221; and also subdirectory
 <div class="section" id="recording-responses">
 <h2><a class="toc-backref" href="#id3">Recording responses</a><a class="headerlink" href="#recording-responses" title="Permalink to this headline">¶</a></h2>
 <p>On every event (triggered by mPsy or subject&#8217;s response) information is added to mPsy event log as described in the main Python tutorial in <a class="reference internal" href="tut_python.html"><em>Psychophysics in &#8220;pure&#8221; Python</em></a>. To catch events in MATLAB we regularly check for the messages accumulating on the Python side:</p>
-<div class="highlight-matlab"><div class="highlight"><pre><span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> 1<span class="p">:</span>10<span class="p">,</span>
-    <span class="n">pause</span><span class="p">(</span>1<span class="p">.</span>0<span class="p">);</span>
-    <span class="k">events</span> <span class="p">=</span> <span class="n">grating_events</span><span class="p">;</span>
-    <span class="k">for</span> <span class="nb">j</span> <span class="p">=</span> 1<span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="k">events</span><span class="p">),</span>
+<div class="highlight-matlab"><div class="highlight"><pre><span class="c">% watch the events for 10 seconds</span>
+<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">pause</span><span class="p">(</span><span class="mf">1.0</span><span class="p">);</span>
+    <span class="k">events</span> <span class="p">=</span> <span class="n">mpsy_events</span><span class="p">;</span>
+    <span class="k">for</span> <span class="nb">j</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="k">events</span><span class="p">),</span>
         <span class="nb">disp</span><span class="p">(</span><span class="k">events</span><span class="p">{</span><span class="nb">j</span><span class="p">});</span>
     <span class="k">end</span>
 <span class="k">end</span>
@@ -252,7 +259,7 @@ files &#8220;exp_tut4.m&#8221; and &#8220;mimport.m&#8221; and also subdirectory
           
     <div class="footer">
         &copy; Copyright 2014, Peter Jurica, Sergei Gepshtein.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
         </div>
         <div class="clearer"></div>
