@@ -21,7 +21,7 @@ Our aim is to run a simple experiment with three trials. In each trial we will s
 then present a dot lattice and finally collect a response. The code of the full "Hello lattice!"
 experiment is as follows:
 
-.. literalinclude:: c:\Users\juricap\Dropbox\shared evolver\visionpyg_glsl\dots_tut1.py
+.. literalinclude:: ../../mPsy/examples/dots_tut1.py
 
 To run it simply download the file and execute it. If you are new to Python, I suggest you try 
 creating and running the script from scratch. Create a simple text file, name it "dots_tut1.py", 
@@ -29,7 +29,7 @@ copy the code from the box above and paste it into your text editor. Save the sc
 
 Now we will walk through the code:
 
-.. literalinclude:: c:\Users\juricap\Dropbox\shared evolver\visionpyg_glsl\dots_tut1.py
+.. literalinclude:: ../../mPsy/examples/dots_tut1.py
     :lines: 1-7
 
 The first few lines initialize the library (line 1), initialize the window (lines 3-4) and 
@@ -38,7 +38,7 @@ which will later be used to position stimuli.
 
 Next we will need to create presentation screens.
 
-.. literalinclude:: c:\Users\juricap\Dropbox\shared evolver\visionpyg_glsl\dots_tut1.py
+.. literalinclude:: ../../mPsy/examples/dots_tut1.py
     :lines: 9-13
 
 
@@ -55,7 +55,7 @@ by mPsy presentation module or by stimuli. Three types of events are generated b
 
 To catch the events we need to create a function that gets called every time an event is triggered:
 
-.. literalinclude:: c:\Users\juricap\Dropbox\shared evolver\visionpyg_glsl\dots_tut2.py
+.. literalinclude:: ../../mPsy/examples/dots_tut2.py
     :lines: 4-9
 
 The function and its parameters can have any names, but the number of parameters has to have always the same (four).

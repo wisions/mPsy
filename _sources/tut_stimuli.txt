@@ -2,7 +2,7 @@
 Creating your own stimuli in Python
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Every mPsy stimulus has two mandatory elements: function `draw()` and field `params`.  The latter is an associative array: a fundamental object type of [any] language, such as `struct` in MATLAB and `named list` in R.
+Every mPsy stimulus contains at least two elements: function `draw()` and field `params`.  The latter is an associative array: a fundamental object type such as `struct` in MATLAB and `named list` in R.
 
 A definition of stimulus in mPsy is illustrated just below using stimulus `Text`,  a simple yet functional example of text label:
 

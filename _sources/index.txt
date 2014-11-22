@@ -56,6 +56,9 @@ mPsy differs from other psychophysical frameworks in three ways:
 
 These and other key features of mPsy are illustrated in a series of :doc:`tutorials`.
 
+We gratefully acknowledge the financial support to this project from NSF, NIH, and Arthur Woodrow Foundation.
+	
+	
 .. raw:: html
     
     <div style="display: none;">
@@ -72,7 +75,6 @@ These and other key features of mPsy are illustrated in a series of :doc:`tutori
     New stimuli <tut_stimuli>
     Function reference <reference>
 
-	We gratefully acknowledge 
 	
 .. raw:: html
 	
