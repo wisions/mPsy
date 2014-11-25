@@ -2,53 +2,26 @@
 Modular Psychophysics (mPsy)
 ============================
 
-mPsy is a modular approach to design of psychophysical experiments. 
+What is mPsy?
 
-It allows one to build experiments out of modules: independent programs in different languages best suited for the different components of your project. 
+  It is a collection of tools that implements a modular approach to psychophysics. 
 
-mPsy is free, open-source, and extremely compact. It embodies a minimalist approach to programming and psychophysics. 
+  It lets you write parts of experiment in different languages best suited for each part.
+  
+  It is free, open-source, and extremely compact. Its core is written in Python. 
+  
+  It embodies a minimalist approach to coding and psychophysics. 
+  
+  It allows one to run experiments locally or over networks.
 
-The core of mPsy is written in Python. It offers a library of standard stimuli and also tools for building new stimuli, static and dynamic. 
+For example, the timeline of your experiment can be scripted in MATLAB, calling the stimuli written in Python on every trial (without any knowledge of Python), followed by automatic plotting of data in R. 
 
-The core can be controlled using several languages. For example:
+.. It offers a standard library of stimuli and also the tools for building new stimuli. 
 
-* the flow of the experiment can be written in MATLAB
-* the stimulus in Python (or called from MATLAB without any knowledge of Python)
-* and automatic plotting of the data in R. 
-
-.. |slogo| image:: assets/logo_mpsy512.png
-.. |slog2| image:: assets/logo_mpsy512_g.png
-.. |sdocs| image:: assets/book1.png
-
-.. raw:: html
-
-    <center>
-    <table border="0" width="80%" style="text-align: center; border=0; margin: 20px;">
-    <tbody>
-    <tr>
-    <td>
-    <a href="https://dl.dropboxusercontent.com/u/166463/mpsy/download/mpsy_minimal.zip"
-       style="text-decoration: none;">
-        <img class="cogex" alt="" border="0" width="160px" height="160px" src="_static/logo_mpsy512_g.png"><br/>
-        <span style="font-size: 32px;">Download</span>
-        </a>
-    </td>
-    <td>
-    <a href="tutorials.html" style="text-decoration: none;">
-        <img class="cogex" alt="" border="0" width="160px" height="160px" src="_static/book2g.png"><br/>
-        <span style="font-size: 32px;">Tutorials</span></a>
-    </td>
-    </tr>
-    </tbody>
-    </table>
-    </center>
+mPsy offers freedom. It saves you from dependence on such expensive commercial software as MATLAB. Still, you may control mPsy from MATLAB if you want to start where you are most comfortable now, and then move on to the open-source, free software as you learn mPsy.
 
 
-Although mPsy does not depend on such expensive commercial software as MATLAB, you can control mPsy through MATLAB in case you want to start where you are most comfortable now, and then move on to open-source, free software as you learn mPsy.
-
-Later on, when you decide to leave MATLAB, you will write the flow of experiment in Python or R and keep the other modules intact.
-
-mPsy differs from other psychophysical frameworks in three ways:
+mPsy differs from other psychophysical software in three ways:
 
 * it requires a small amount of code 
 * it is self-contained
@@ -56,7 +29,42 @@ mPsy differs from other psychophysical frameworks in three ways:
 
 These and other key features of mPsy are illustrated in a series of :doc:`tutorials`.
 
-We gratefully acknowledge the financial support to this project from NSF, NIH, and Arthur Woodrow Foundation.
+
+.. |slogo| image:: assets/logo_mpsy512.png
+.. |slog2| image:: assets/logo_mpsy512_g.png
+.. |sdocs| image:: assets/book1.png
+
+|
+
+.. raw:: html
+
+    <center>
+    <table border="0" width="80%" style="text-align: center; border=0; margin: 20px;">
+    <tbody>
+    <tr>
+	<td>
+    <a href="tutorials.html" style="text-decoration: none;">
+        <img class="cogex" alt="" border="0" width="160px" height="160px" src="_static/book2g.png"><br/>
+        <span style="font-size: 25px;">Tutorials</span></a>
+    </td>
+    <td>
+    <a href="https://dl.dropboxusercontent.com/u/166463/mpsy/download/mpsy_minimal.zip"
+       style="text-decoration: none;">
+        <img class="cogex" alt="" border="0" width="160px" height="160px" src="_static/logo_mpsy512_g.png"><br/>
+        <span style="font-size: 25px;">Download</span>
+        </a>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </center>
+	
+|
+
+Acknowledgements
+----------------
+
+We gratefully acknowledge the support from the National Science Foundation (Grant 1027259), the National Institutes of Health (Grant EY018613), and The Arthur Woodrow Foundation.
 	
 	
 .. raw:: html
@@ -71,9 +79,9 @@ We gratefully acknowledge the financial support to this project from NSF, NIH, a
     Control from Python <tut_python>
     Control from MATLAB <tut_matlab>
     Control from R <tut_r>
-    Standard stimulus library <stimuli>
+    Standard library <stimuli>
     New stimuli <tut_stimuli>
-    Function reference <reference>
+    Reference <reference>
 
 	
 .. raw:: html

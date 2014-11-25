@@ -1,11 +1,13 @@
 
-Brief function reference
-========================
+Brief reference
+===============
 
-.. .. autoclass:: stimuli.Grating
-.. .. autoclass:: stimuli.DotLattice
-.. .. autoclass:: stimuli.Dot
-.. .. autoclass:: stimuli.Pill
+.. autoclass:: stimuli.Grating
+.. autoclass:: stimuli.DotLattice
+.. autoclass:: stimuli.Dot
+.. autoclass:: stimuli.Pill
+.. autoclass:: stimuli.RDKMod
+.. .. autoclass:: stimuli.Letters
 
 Indices and tables
 ==================

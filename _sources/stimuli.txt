@@ -6,30 +6,32 @@
     h2 { clear: right; }
     </style>
 
-Standard stimulus library
-=========================
+Standard library
+================
 
-Here is a number of stimuli deposited to mPsy standard library so far.
+Below is a number of stimuli deposited to mPsy standard library so far.
 
 Luminance grating
 -----------------
 
 .. image:: assets/stimuli/0004.png
-    :align: right
-    :width: 120px
+    :align: left
+    :width: 100px
 
 A periodic modulation of luminance.  The modulation is characterized by spatial and temporal frequencies. The stimulus is complete with a mask that can take the form of smooth (Gaussian) or sharp aperture. The grating can be tilted and slanted.
 
 .. mpsyparams:: stimuli.Grating
 
-Random-dot cinematogram (RDC)
------------------------------
+|
+
+Random-dot cinematogram
+-----------------------
 
 .. image:: assets/stimuli/0002.png
-    :align: right
-    :width: 120px
+    :align: left
+    :width: 100px
 
-An array of randomly positioned dots. A common instantiation of RDC contains two groups of dots, "signal" and "noise," whose properties determine stimulus "coherence."  The instance on the right contains only one group. One may overlay several such stimuli (using different parameters for each) to control coherence or create more complex versions of RDC.
+An array of randomly positioned dots. A common instantiation of this stimulus contains two groups of dots, "signal" and "noise," whose properties determine stimulus "coherence."  The instance on the right contains only one group. One may overlay several such stimuli (using different parameters for each) to control coherence or create more complex versions of random-dot cinematograms (RDC).
 
 .. mpsyparams:: stimuli.RDK
 
@@ -37,43 +39,51 @@ Dot lattice
 -----------
 
 .. image:: assets/stimuli/0001.png
-    :align: right
-    :width: 120px
+    :align: left
+    :width: 100px
 
 A periodic array of dots organized along several orientations with a constant inter-dot distance within orientation. The "dots" can be solid disks or Gaussian blobs, or they can have more complex shapes, such as luminance gratings characterized by the same of different spatial frequencies and orientations. 
 
 .. mpsyparams:: stimuli.DotLattice
 
+|
+
 Cube
 ----
 
 .. image:: assets/stimuli/0007.png
-    :align: right
-    :width: 120px
+    :align: left
+    :width: 100px
 
 Cube rotated and scaled in three dimensions. The colors of vertices and faces are controlled independent of one another.
 
 .. mpsyparams:: stimuli.Letters
 
+|
+|
+|
+
 Tiled image
 -----------
 
 .. image:: assets/stimuli/0003.png
-    :align: right
-    :width: 120px
+    :align: left
+    :width: 100px
 
-An image is divided to rectangular fragments called "tiles." The tiles can remain in place (making up the original image presented on a slanted/tilted plane) or they can be individually scaled or rotated. 
+An image is divided to rectangular fragments called "tiles." The tiles can remain in place, making up the original image presented on a slanted or tilted plane. Or the tiles can be individually scaled, translated, or rotated. 
 
 .. mpsyparams:: stimuli.Tiles
+
+|
 
 Alphabet grid
 -------------
 
 .. image:: assets/stimuli/0005.png
-    :align: right
-    :width: 120px
+    :align: left
+    :width: 100px
 
-A grid of letters commonly used in research of Brain Computer Interface (BCI). The letters are shown in a grid of 6x6 cells. The cells can be periodically highlighted. 
+A grid of letters commonly used in research of Brain Computer Interfaces (BCI). The letters are shown in a grid of 6x6 cells. The cells can be periodically highlighted. 
 
 .. mpsyparams:: stimuli.Letters
 

@@ -1,33 +1,34 @@
 
-Tutorials for Modular Psychophysics (mPsy)
-=========================================
+Tutorials
+=========
 
 Installation
 ------------
 
-If you haven't downloaded Modular Psychophysics yes, click on this `link <https://dl.dropboxusercontent.com/u/166463/mpsy/download/mpsy_minimal.zip>`_.
+If you have not downloaded mPsy yet, follow this `link <https://dl.dropboxusercontent.com/u/166463/mpsy/download/mpsy_minimal.zip>`_.
 
-The core of Modular Psychophysics requires only `Python <http://python.org>`_ to run. One other essential dependency (`pyglet <http://www.pyglet.org/>`_) is bundled with the package. However, we also suggest installing `Numerical Python <http://numpy.org>`_ (`numpy <http://numpy.org>`_). It is very likely that even the simplest experiment will require some numerical computation.
-Some of the stimuli we use in tutorials use Python's Numpy module.
+The core of mPsy requires only `Python <http://python.org>`_ to run. One essential dependency is `pyglet <http://www.pyglet.org/>`_, contained in the standard download of mPsy.  
 
-If you are completely new to Python, we suggest installing the free version of `Enthought Python Distribution <https://www.enthought.com/products/epd/>`_ 
+We also recommend you install Numerical Python (`numpy <http://numpy.org>`_). Even the simplest experiment is likely to require some numerical computations. Some of the stimuli used in the tutorials use numpy.
+
+If you are completely new to Python, we recommend you install the free version of `Enthought Python Distribution <https://www.enthought.com/products/epd/>`_ 
 recently rebranded as `Canopy Express <https://www.enthought.com/products/epd/free/>`_. 
-For Mac OS, this distribution is one of the few reliable ways to obtain all scientific packages (including matplotlib) and make them work without further effort.
+For Mac OS, this distribution is one of the few reliable methods to obtain all scientific packages (including matplotlib) and make them work without further effort.
 
 Getting Started
 ---------------
 
-Although mPsy's core is written in Python, it can be controlled from other lanuguages.
-Working examples of controlling mPsy presentation remotely are available for the following languages:
+Although the core of mPsy is written in Python, it can be controlled using other languages, locally or remotely. Examples of controlling mPsy remotely are available for the following languages so far:
 
-* Python - :doc:`tut_python`
-* MATLAB - :doc:`tut_matlab`
-* R - :doc:`tut_r`
+* :doc:`tut_python`
+* :doc:`tut_matlab`
+* :doc:`tut_r`
+
 
 Advanced tutorials
 ------------------
 
-Her you can find tutorials that show how to extend the core of mPsy.
+These tutorials illustrate how to extend the core of mPsy:
 
-:doc:`tut_stimuli` (Python)
+* :doc:`tut_stimuli`
 

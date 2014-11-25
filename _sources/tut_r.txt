@@ -1,6 +1,6 @@
 
-Controlling `mPsy` experiments from R
-========================================
+Control from R
+==============
 
 Contents:
 
@@ -11,60 +11,55 @@ Contents:
 Installation
 ------------
 
-You can download mPsy with sample experiment written in R from 
+Download mPsy with the sample experiment in R from 
 `here <https://dl.dropboxusercontent.com/u/166463/mpsy/download/mpsy_r.zip>`_.
 
-In what is described on this page, the R environment is used only to specify the timeline of experiment and its parameters.
-Presentation of stimuli still require a working Python installation as descibed in :doc:`index`.
+In the following the R environment is used only to define stimulus parameters and the timeline of the experiment. 
 
-Once you have Python installed, exctract the downloaded mPsy package into an empty directory.
+Presentation of stimuli requires a working Python installation as described in :doc:`tutorials`. Once Python is installed, extract the downloaded mPsy package into an empty directory.
 
-The mPsy-to-R bridge script uses two R packages that might be not installed in your distribution.
-These packages are "rjson" and "httpRequest", please install them using your favorite method.
+The bridge between mPsy and R uses two R packages: ``rjson`` and ``ttpRequest``. Make sure you have them.
 
-A simple R experiment
----------------------
+Sample experiment
+-----------------
 
-As stated in the first section the experiment will be essentially running in Python, R will
-be used to remotelly control this experiment. The Python program that will "listen" to the R
-commands is a simple experiment with no stimuli and remote control component included:
+In this experiment R is used to remotely control the experiment run in Python. 
+
+The following Python program "listens" to R commands and it presents no stimuli.
 
 .. literalinclude:: ../../mPsy/examples/exp_tut_webremote.py
 
-The web remote control is enabled by the following code:
+The remote control is enabled by:
 
 .. literalinclude:: ../../mPsy/examples/exp_tut_webremote.py
     :lines: 14-19
 
-When the remotely controllable Python experiment is running we can use R to define when and 
-what stimuli appear on the screen. The mPsy Python package will take care of stimulus presentation, 
-subject interaction such as the collecting responses, and transmission of collected information back 
-to the R program.
+When the Python experiment is already running, we use R to define what stimuli appear on the screen and when. mPsy will take care of stimulus presentation and 
+interaction with the subject (i.e., it will collect responses and send this information back  to R).
 
-The R experiment looks as follows:
+Here is the code in R:
 
 .. highlight:: r
 .. literalinclude:: ../../mPsy/examples/r/dots_tut3.r
 
-To run the demo experiment first download the file. Next run the "exp_tut_webremote.py" 
-(double click, or use Terminal or cmd.exe and execute by typing "python exp_tut_webremote.py"). 
-A succesfull execution of the Python program results in a blank  black screen 
-(or a black window in case fullscreen option is off). At this point you can go to R, 
-change the working directory to the one containing the file "dots_tut3.r" and run "source('dots_tut3.r')".
+To run this demonstration, download the file and run ``exp_tut_webremote.py`` by
 
-The syntax of the R experiment is modelled after the Python examples. Please refer
-to the main tutorial ":doc:`index`" for explanation of commands for stimulus parameter and trial setup.
+  * either double-clicking the file name
+  * or executing ``python exp_tut_webremote.py`` in the Terminal.
+
+A successfully executed Python program will create an empty black screen or an empty black window if the ``fullscreen`` option is off. 
+
+At this point you can go to R, change the working directory to the one containing the file ``dots_tut3.r`` and run ``source('dots_tut3.r')``.
+
+The syntax of the sample experiment in R is modelled after the sample example in Python. See main :doc:`tutorials` for an explanation of how to control the parameters of stimuli and the timeline.
 
 Recording responses
 -------------------
 
-Events triggered by mPsy or subject interation are described in the main Python tutorial
-in :doc:`tut_python`.
+The events triggered by mPsy or the subject are described in the main Python tutorial  :doc:`tut_python`.
 
-To catch events in R we regularly check for any messages accumulating in the Python presentation program:
+To catch events in R we regularly check for messages accumulating in the Python presentation program:
 
 .. literalinclude:: ../../mPsy/examples/r/dots_tut3.r
     :lines: 80-100
-
-
 

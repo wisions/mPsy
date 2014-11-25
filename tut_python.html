@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Psychophysics in “pure” Python &mdash; Modular Psychophysics 2.0 documentation</title>
+    <title>Control from Python &mdash; Modular Psychophysics 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,7 +26,7 @@
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="top" title="Modular Psychophysics 2.0 documentation" href="index.html" />
     <link rel="next" title="Control from MATLAB" href="tut_matlab.html" />
-    <link rel="prev" title="Tutorials for Modular Psychophysics (mPsy)" href="tutorials.html" /> 
+    <link rel="prev" title="Tutorials" href="tutorials.html" /> 
   </head>
   <body>
     <div class="header-wrapper">
@@ -37,7 +37,7 @@
         <div class="headertitle"><a
           href="index.html">Modular Psychophysics 2.0 documentation</a></div>
         <div class="rel">
-          <a href="tutorials.html" title="Tutorials for Modular Psychophysics (mPsy)"
+          <a href="tutorials.html" title="Tutorials"
              accesskey="P">previous</a> |
           <a href="tut_matlab.html" title="Control from MATLAB"
              accesskey="N">next</a> |
@@ -55,22 +55,22 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="psychophysics-in-pure-python">
-<h1>Psychophysics in &#8220;pure&#8221; Python<a class="headerlink" href="#psychophysics-in-pure-python" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="control-from-python">
+<h1>Control from Python<a class="headerlink" href="#control-from-python" title="Permalink to this headline">¶</a></h1>
 <p>Contents:</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#the-hello-lattice-experiment" id="id1">The &#8220;Hello Lattice!&#8221; experiment</a></li>
-<li><a class="reference internal" href="#recording-responses" id="id2">Recording responses</a></li>
-<li><a class="reference internal" href="#randomizing-stimulus-parameters" id="id3">Randomizing stimulus parameters</a></li>
+<li><a class="reference internal" href="#sample-experiment" id="id1">Sample experiment</a></li>
+<li><a class="reference internal" href="#code-in-detail" id="id2">Code in detail</a></li>
+<li><a class="reference internal" href="#recording-responses" id="id3">Recording responses</a></li>
+<li><a class="reference internal" href="#stimulus-randomization" id="id4">Stimulus randomization</a></li>
 </ul>
 </div>
-<div class="section" id="the-hello-lattice-experiment">
-<h2><a class="toc-backref" href="#id1">The &#8220;Hello Lattice!&#8221; experiment</a><a class="headerlink" href="#the-hello-lattice-experiment" title="Permalink to this headline">¶</a></h2>
-<p>We start with a basic example that will use a lattice stimulus.
-Our aim is to run a simple experiment with three trials. In each trial we will show first a fixation dot,
-then present a dot lattice and finally collect a response. The code of the full &#8220;Hello lattice!&#8221;
-experiment is as follows:</p>
+<div class="section" id="sample-experiment">
+<h2><a class="toc-backref" href="#id1">Sample experiment</a><a class="headerlink" href="#sample-experiment" title="Permalink to this headline">¶</a></h2>
+<p>We start with a simple example that uses Dot Lattice as the stimulus. Let us design a short  experiment of only three trials. On every trial a fixation dot is presented first,
+followed by a stimulus and response.</p>
+<p>A complete code of this experiment is:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">stimuli</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">fullscreen</span> <span class="o">=</span> <span class="bp">True</span> <span class="c">#False</span>
@@ -124,10 +124,12 @@ experiment is as follows:</p>
 <span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>To run it simply download the file and execute it. If you are new to Python, I suggest you try
-creating and running the script from scratch. Create a simple text file, name it &#8220;dots_tut1.py&#8221;,
-copy the code from the box above and paste it into your text editor. Save the script and run it.</p>
-<p>Now we will walk through the code:</p>
+<p>You can run this experiment by downloading the file and executing it.</p>
+<p>If you are new to Python, try  creating and running the script from scratch. Paste the code from the box above into your text editor, save it as <tt class="docutils literal"><span class="pre">dots_tut1.py</span></tt>. To run it, double click the file name or execute it by typing <tt class="docutils literal"><span class="pre">python</span> <span class="pre">dots_tut1.py</span></tt> in the Terminal.</p>
+</div>
+<div class="section" id="code-in-detail">
+<h2><a class="toc-backref" href="#id2">Code in detail</a><a class="headerlink" href="#code-in-detail" title="Permalink to this headline">¶</a></h2>
+<p>Now let us walk through this code. The first few lines initialize the library (line 1), initialize the window (lines 3-4) and create Python variables <tt class="docutils literal"><span class="pre">cx,</span> <span class="pre">cy</span></tt> that will hold the coordinates of screen center:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">stimuli</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">fullscreen</span> <span class="o">=</span> <span class="bp">True</span> <span class="c">#False</span>
@@ -136,10 +138,7 @@ copy the code from the box above and paste it into your text editor. Save the sc
 <span class="n">cx</span><span class="p">,</span> <span class="n">cy</span> <span class="o">=</span> <span class="n">win</span><span class="o">.</span><span class="n">width</span> <span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">win</span><span class="o">.</span><span class="n">height</span> <span class="o">//</span><span class="mi">2</span>
 </pre></div>
 </div>
-<p>The first few lines initialize the library (line 1), initialize the window (lines 3-4) and
-create Python variables <tt class="docutils literal"><span class="pre">cx,</span> <span class="pre">cy</span></tt> that will hold the coordinates of the center of the screen,
-which will later be used to position stimuli.</p>
-<p>Next we will need to create presentation screens.</p>
+<p>Next we create presentation screens:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># prepare lattice configuration</span>
 <span class="n">p_lattice</span> <span class="o">=</span>  <span class="n">Params</span><span class="p">(</span><span class="n">ap_fs</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">ap_sigma</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">ap_edge</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span>
                     <span class="n">gamma</span><span class="o">=</span><span class="mf">70.0</span><span class="p">,</span> <span class="n">theta</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
@@ -149,40 +148,41 @@ which will later be used to position stimuli.</p>
 </div>
 </div>
 <div class="section" id="recording-responses">
-<h2><a class="toc-backref" href="#id2">Recording responses</a><a class="headerlink" href="#recording-responses" title="Permalink to this headline">¶</a></h2>
-<p>We will build on the previous example. We leave the stimuli intact and add a piece of code
-that will enable keeping record of various events in the experiment. Events are generated
-by mPsy presentation module or by stimuli. Three types of events are generated by default:</p>
-<ul class="simple">
-<li>TRIAL event - when a trial starts</li>
-<li>KEY event - a key is pressed</li>
-<li>MOUSE event - a mouse button is pressed</li>
+<h2><a class="toc-backref" href="#id3">Recording responses</a><a class="headerlink" href="#recording-responses" title="Permalink to this headline">¶</a></h2>
+<p>We will build on the previous example, by leaving the stimuli intact and adding the code
+that enables tracking various events in the experiment.</p>
+<p>Events are generated by the mPsy presentation module or by the stimuli. Three types of events are generated by default:</p>
+<blockquote>
+<div><ul class="simple">
+<li>TRIAL - when a trial starts</li>
+<li>KEY - when a key is pressed</li>
+<li>MOUSE - when a mouse button is pressed</li>
 </ul>
-<p>To catch the events we need to create a function that gets called every time an event is triggered:</p>
+</div></blockquote>
+<p>To catch an event we need a function that will be called every time an event is triggered:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># create a function that will be triggered by events TRIAL, MOUSE, KEY ...</span>
 <span class="n">log</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;dots2.log&#39;</span><span class="p">,</span><span class="s">&#39;wb&#39;</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">record_event</span><span class="p">(</span><span class="n">event</span><span class="p">,</span><span class="n">time</span><span class="p">,</span><span class="n">trial</span><span class="p">,</span><span class="n">args</span><span class="p">):</span>
     <span class="k">print</span> <span class="o">&gt;&gt;</span><span class="n">log</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">trial</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">args</span>
+
+<span class="c"># tell mPsy about logging function</span>
+<span class="n">win</span><span class="o">.</span><span class="n">set_logger</span><span class="p">(</span><span class="n">record_event</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The function and its parameters can have any names, but the number of parameters has to have always the same (four).
-The contents of the parameters will be:</p>
-<ul>
-<li><p class="first">event - text, name of the event</p>
-</li>
-<li><p class="first">time - numerical value, number of seconds (since when depends on platform)</p>
-</li>
-<li><p class="first">trial - trial object, this object contains stimuli and its parameters</p>
-</li>
-<li><dl class="first docutils">
-<dt>args - properties of the event, for KEY event the name of the key pressed,</dt>
-<dd><p class="first last">for MOUSE event the coordinate and the button clicked</p>
-</dd>
-</dl>
-</li>
+<p>Function <tt class="docutils literal"><span class="pre">record_event()</span></tt> could have any name and its parameters could be called differently. But the number of parameters and their order must be the same. These parameters are:</p>
+<blockquote>
+<div><ul class="simple">
+<li>event - text containing the name of the event</li>
+<li>time - numerical value in seconds from experiment onset</li>
+<li>trial - trial object: an important object in mPsy;
+it contains information about the stimuli and their parameters</li>
+<li>args - contain properties of the event:
+- for KEY event the name of the key pressed,
+- for MOUSE event the coordinate and the button clicked.</li>
 </ul>
-<p>When you run the resulting file, the file <em>dots2.log</em> will look like this:</p>
+</div></blockquote>
+<p>When you execute this experiment, file <tt class="docutils literal"><span class="pre">dots2.log</span></tt> is created with the contents that look like this:</p>
 <div class="highlight-none"><div class="highlight"><pre>TRIAL 0.575153048996 Start []
 KEY 1.31466873576 Start SPACE
 TRIAL 1.3156867604 Fixation []
@@ -200,36 +200,32 @@ MOUSE 15.1811783249 Response [814, 456, 1]
 TRIAL 15.1816048716 End []
 </pre></div>
 </div>
-<p>Sometimes it might be more useful to keep only the response, this can be done by looking at the content
-of the parameters passed to the logging function:</p>
+<p>Suppose we want to only keep the response. Then we change the <tt class="docutils literal"><span class="pre">record_event()</span></tt> function:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">record_event</span><span class="p">(</span><span class="n">event</span><span class="p">,</span><span class="n">time</span><span class="p">,</span><span class="n">trial</span><span class="p">,</span><span class="n">args</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">event</span> <span class="o">==</span> <span class="s">&#39;MOUSE&#39;</span> <span class="ow">and</span> <span class="n">trial</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s">&#39;Response&#39;</span><span class="p">:</span>
         <span class="k">print</span> <span class="o">&gt;&gt;</span><span class="n">log</span><span class="p">,</span> <span class="s">&#39;RESP&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>A record of such an experiment would the look like this:</p>
+<p>yielding this record:</p>
 <div class="highlight-none"><div class="highlight"><pre>RESP 814 453
 RESP 627 428
 RESP 814 456
 </pre></div>
 </div>
-<p>Later on we will show how to compute correctness of the response before writing it out.</p>
+<p>(In the forthcoming tutorials we will compute whether the response is correct prior to logging.)</p>
 </div>
-<div class="section" id="randomizing-stimulus-parameters">
-<h2><a class="toc-backref" href="#id3">Randomizing stimulus parameters</a><a class="headerlink" href="#randomizing-stimulus-parameters" title="Permalink to this headline">¶</a></h2>
-<p>Parameters of stimuli in an experiment are usually randomized, shuffled.
-To generate a specific number of shuffled parameters we can use Python lists. Specifically,
-two operations come in handy, shuffling and concatenation.</p>
+<div class="section" id="stimulus-randomization">
+<h2><a class="toc-backref" href="#id4">Stimulus randomization</a><a class="headerlink" href="#stimulus-randomization" title="Permalink to this headline">¶</a></h2>
+<p>To randomize stimulus parameters we can use Python lists. Two operations are needed for this: shuffling and concatenation.</p>
+<p>The following code creates a list of values, which are then shuffled using Python function <tt class="docutils literal"><span class="pre">shuffle()</span></tt>. It is an example of shuffling &#8220;in-place&#8221; where we modify the original list rather than creating a new variable.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">ratios</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">1.2</span><span class="p">,</span><span class="mf">1.3</span><span class="p">,</span><span class="mf">1.4</span><span class="p">,</span><span class="mf">1.5</span><span class="p">]</span>
 <span class="o">&gt;&gt;</span> <span class="n">shuffle</span><span class="p">(</span><span class="n">ratios</span><span class="p">)</span>
 <span class="o">&gt;&gt;</span> <span class="n">ratios</span>
 <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>In the snippet above, we have created a list of values. Then we used Python <cite>shuffle</cite> function
-to shuffle the list in-place (this means, the original list will be modified).</p>
-<p>To create a more complicated set of parameters we can concatenate list by the <cite>+</cite> operator
-or make multiple copies of a list with the <cite>*</cite> operator:</p>
+<p>To create a more complicated set of parameters we can concatenate list using the <tt class="docutils literal"><span class="pre">+</span></tt> operator
+or make multiple copies of a list with the <tt class="docutils literal"><span class="pre">*</span></tt> operator:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">ratios</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">1.2</span><span class="p">]</span>
 <span class="o">&gt;&gt;</span> <span class="n">ratios</span> <span class="o">+</span> <span class="n">ratios</span>
 <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">]</span>
@@ -252,9 +248,10 @@ or make multiple copies of a list with the <cite>*</cite> operator:</p>
 <span class="p">[[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">],[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">],[</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">]]</span>
 </pre></div>
 </div>
-<p>The <cite>trials</cite> list of blocks, as any other list, can be shuffled.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">trials</span>
-<span class="p">[[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">],[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">],[</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">]]</span>
+<p>In list of blocks can be shuffled as well:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">shuffle</span><span class="p">(</span><span class="n">trials</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">trials</span>
+<span class="p">[[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -272,16 +269,17 @@ or make multiple copies of a list with the <cite>*</cite> operator:</p>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Control from Python</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#the-hello-lattice-experiment">The &#8220;Hello Lattice!&#8221; experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sample-experiment">Sample experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-in-detail">Code in detail</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#recording-responses">Recording responses</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#randomizing-stimulus-parameters">Randomizing stimulus parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stimulus-randomization">Stimulus randomization</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tut_matlab.html">Control from MATLAB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_r.html">Control from R</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stimuli.html">Standard stimulus library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stimuli.html">Standard library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_stimuli.html">New stimuli</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">Brief function reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Brief reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 
@@ -303,7 +301,7 @@ or make multiple copies of a list with the <cite>*</cite> operator:</p>
     <div class="footer-wrapper">
       <div class="footer">
         <div class="left">
-          <a href="tutorials.html" title="Tutorials for Modular Psychophysics (mPsy)"
+          <a href="tutorials.html" title="Tutorials"
              >previous</a> |
           <a href="tut_matlab.html" title="Control from MATLAB"
              >next</a> |

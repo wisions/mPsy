@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Brief function reference &mdash; Modular Psychophysics 2.0 documentation</title>
+    <title>Brief reference &mdash; Modular Psychophysics 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -52,8 +52,156 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="brief-function-reference">
-<h1>Brief function reference<a class="headerlink" href="#brief-function-reference" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="brief-reference">
+<h1>Brief reference<a class="headerlink" href="#brief-reference" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="stimuli.Grating">
+<em class="property">class </em><tt class="descclassname">stimuli.</tt><tt class="descname">Grating</tt><big>(</big><em>pos</em>, <em>params=Params()</em><big>)</big><a class="reference internal" href="_modules/stimuli.html#Grating"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#stimuli.Grating" title="Permalink to this definition">¶</a></dt>
+<dd><p>A periodic modulation of luminance.  The modulation is characterized 
+by spatial and temporal frequencies. The stimulus is complete with a mask 
+that can take the form of smooth (Gaussian) or sharp aperture. 
+The grating can be tilted and slanted.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>width</strong> &#8211; size of stimulus in pixels</li>
+<li><strong>fs</strong> &#8211; spatial frequncy</li>
+<li><strong>ph</strong> &#8211; phase</li>
+<li><strong>speed</strong> &#8211; speed</li>
+<li><strong>contr</strong> &#8211; contrast</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This stimulus can be also used with the &#8220;Pelli-Zhang Video Switcher&#8221;.
+The following parameters apply:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>box</strong> &#8211; logical True or 1.0 to enable Video Switcher</li>
+<li><strong>Lbg</strong> &#8211; Luminance of background</li>
+<li><strong>Lmin</strong> &#8211; Minimum measured luminance of monitor</li>
+<li><strong>Lmax</strong> &#8211; Maximum measured luminance of monitor</li>
+<li><strong>gamma</strong> &#8211; gamma correction constant</li>
+<li><strong>BTRR</strong> &#8211; the BTRR parameter of you Video Switcher</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="stimuli.DotLattice">
+<em class="property">class </em><tt class="descclassname">stimuli.</tt><tt class="descname">DotLattice</tt><big>(</big><em>pos</em>, <em>params=Params()</em><big>)</big><a class="reference internal" href="_modules/stimuli.html#DotLattice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#stimuli.DotLattice" title="Permalink to this definition">¶</a></dt>
+<dd><p>A periodic array of dots organized along several orientations with a constant 
+inter-dot distance within orientation. The &#8220;dots&#8221; can be solid disks or Gaussian blobs, 
+or they can have more complex shapes, such as luminance gratings characterized 
+by the same of different spatial frequencies and orientations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ap_fs</strong> &#8211; spatial frequency of the mask</li>
+<li><strong>ap_sigma</strong> &#8211; spatial frequency of the mask</li>
+<li><strong>ap_edge</strong> &#8211; power of apperture&#8217;s Gaussian (slope)</li>
+<li><strong>gamma</strong> &#8211; angle</li>
+<li><strong>theta</strong> &#8211; angle of A nd B directions within lattice</li>
+<li><strong>dx</strong> &#8211; parameter a, shortest distance</li>
+<li><strong>r</strong> &#8211; aspect ratio</li>
+<li><strong>dot_size</strong> &#8211; size of dot&#8217;s texture</li>
+<li><strong>dot_sigma</strong> &#8211; width of dot&#8217;s Gaussian</li>
+<li><strong>dot_fs</strong> &#8211; spatial frequency of dot&#8217;s grating</li>
+<li><strong>dot_edge</strong> &#8211; power of dot&#8217;s Gaussian (slope)</li>
+<li><strong>dot_c</strong> &#8211; dot color [0.0,1.0]</li>
+<li><strong>dot_phi</strong> &#8211; phase of dot&#8217;s grating</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="stimuli.Dot">
+<em class="property">class </em><tt class="descclassname">stimuli.</tt><tt class="descname">Dot</tt><big>(</big><em>pos</em>, <em>params=Params()</em><big>)</big><a class="reference internal" href="_modules/stimuli.html#Dot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#stimuli.Dot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gaussian dot stimulus.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>c</strong> &#8211; contrast [0.0,1.0]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="stimuli.Pill">
+<em class="property">class </em><tt class="descclassname">stimuli.</tt><tt class="descname">Pill</tt><big>(</big><em>pos</em>, <em>params=Params()</em><big>)</big><a class="reference internal" href="_modules/stimuli.html#Pill"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#stimuli.Pill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Orientation circle stimulus. This Stimulus is useful as a response
+choice for orientation selection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>th</strong> &#8211; size of stimulus</li>
+<li><strong>R</strong> &#8211; radius</li>
+<li><strong>d</strong> &#8211; width of orientation bar</li>
+<li><strong>alpha</strong> &#8211; stimulus&#8217; opacity (1.0 is opaque)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="stimuli.RDKMod">
+<em class="property">class </em><tt class="descclassname">stimuli.</tt><tt class="descname">RDKMod</tt><big>(</big><em>pos</em>, <em>params=Params()</em><big>)</big><a class="reference internal" href="_modules/stimuli.html#RDKMod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#stimuli.RDKMod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Random Dot Cinematogram with modulated speed</p>
+<p>Dots move together along axis controlled by &#8220;theta&#8221; parameter.
+Speed of each dot is controlled by</p>
+<blockquote>
+<div><p>vx = a + b*cos(2*pi*f*cos(gamma)*x[0] + phi)</p>
+<p>vy = a + b*cos(2*pi*f*sin(gamma)*y[0] + phi)</p>
+</div></blockquote>
+<p>The speed is computed from the initial location (x[0],y[0]) 
+of each dot. Then</p>
+<blockquote>
+<div><p>R = rand-0.5</p>
+<p>x[t+1] = x[t] + vx + vx*noise*R</p>
+<p>y[t+1] = y[t] + vy + vy*noise*R</p>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>width</strong> &#8211; width and height in pixels</li>
+<li><strong>n</strong> &#8211; number of dots</li>
+<li><strong>theta</strong> &#8211; motion direction in radians</li>
+<li><strong>gamma</strong> &#8211; angle of modulation relative to the motion direction in radians</li>
+<li><strong>a</strong> &#8211; speed modulation parameter a</li>
+<li><strong>b</strong> &#8211; speed modulation parameter b</li>
+<li><strong>f</strong> &#8211; speed modulation parameter f</li>
+<li><strong>phi</strong> &#8211; speed modulation parameter phi</li>
+<li><strong>tilt</strong> &#8211; tilt angle</li>
+<li><strong>slant</strong> &#8211; slant angle</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
@@ -78,9 +226,9 @@
 <li class="toctree-l1"><a class="reference internal" href="tut_python.html">Control from Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_matlab.html">Control from MATLAB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_r.html">Control from R</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stimuli.html">Standard stimulus library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stimuli.html">Standard library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_stimuli.html">New stimuli</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Brief function reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Brief reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 

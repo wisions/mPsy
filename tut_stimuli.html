@@ -25,8 +25,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="top" title="Modular Psychophysics 2.0 documentation" href="index.html" />
-    <link rel="next" title="Brief function reference" href="reference.html" />
-    <link rel="prev" title="Standard stimulus library" href="stimuli.html" /> 
+    <link rel="next" title="Brief reference" href="reference.html" />
+    <link rel="prev" title="Standard library" href="stimuli.html" /> 
   </head>
   <body>
     <div class="header-wrapper">
@@ -37,9 +37,9 @@
         <div class="headertitle"><a
           href="index.html">Modular Psychophysics 2.0 documentation</a></div>
         <div class="rel">
-          <a href="stimuli.html" title="Standard stimulus library"
+          <a href="stimuli.html" title="Standard library"
              accesskey="P">previous</a> |
-          <a href="reference.html" title="Brief function reference"
+          <a href="reference.html" title="Brief reference"
              accesskey="N">next</a> |
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a>
@@ -57,8 +57,8 @@
             
   <div class="section" id="creating-your-own-stimuli-in-python">
 <h1>Creating your own stimuli in Python<a class="headerlink" href="#creating-your-own-stimuli-in-python" title="Permalink to this headline">¶</a></h1>
-<p>Every mPsy stimulus contains at least two elements: function <cite>draw()</cite> and field <cite>params</cite>.  The latter is an associative array: a fundamental object type such as <cite>struct</cite> in MATLAB and <cite>named list</cite> in R.</p>
-<p>A definition of stimulus in mPsy is illustrated just below using stimulus <cite>Text</cite>,  a simple yet functional example of text label:</p>
+<p>Every mPsy stimulus contains at least two elements: function <tt class="docutils literal"><span class="pre">draw()</span></tt> and field <tt class="docutils literal"><span class="pre">params</span></tt>.  The latter is an associative array: a fundamental object type such as <cite>struct</cite> in MATLAB and <cite>named list</cite> in R.</p>
+<p>A definition of stimulus in mPsy is illustrated just below using stimulus <tt class="docutils literal"><span class="pre">Text</span></tt>,  a simple yet functional example of text label:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">pyglet</span> <span class="kn">import</span> <span class="n">text</span>
 
 <span class="k">class</span> <span class="nc">Text</span><span class="p">:</span>
@@ -69,8 +69,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Each mPsy stimulus [is an independent program], for which several examples appear module <cite>stimuli.py</cite>. The examples in <cite>stimuli.py</cite> (and the one above) can be used outside of mPsy, which is useful for the developing your own stimuli.</p>
-<p>The following code shows how to set up a window and call the <cite>draw()</cite> function for an mPsy stimulus.</p>
+<p>Each mPsy stimulus [is an independent program], for which several examples appear module <tt class="docutils literal"><span class="pre">stimuli.py</span></tt>. The examples in <tt class="docutils literal"><span class="pre">stimuli.py</span></tt> (and the one above) can be used outside of mPsy, which is useful for the developing your own stimuli.</p>
+<p>The following code shows how to set up a window and call the <tt class="docutils literal"><span class="pre">draw()</span></tt> function for an mPsy stimulus.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">pyglet</span> <span class="kn">import</span> <span class="n">text</span>
 
 <span class="k">class</span> <span class="nc">Text</span><span class="p">:</span>
@@ -131,9 +131,9 @@
 <li class="toctree-l1"><a class="reference internal" href="tut_python.html">Control from Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_matlab.html">Control from MATLAB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_r.html">Control from R</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stimuli.html">Standard stimulus library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stimuli.html">Standard library</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">New stimuli</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">Brief function reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Brief reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 
@@ -155,9 +155,9 @@
     <div class="footer-wrapper">
       <div class="footer">
         <div class="left">
-          <a href="stimuli.html" title="Standard stimulus library"
+          <a href="stimuli.html" title="Standard library"
              >previous</a> |
-          <a href="reference.html" title="Brief function reference"
+          <a href="reference.html" title="Brief reference"
              >next</a> |
           <a href="genindex.html" title="General Index"
              >index</a>

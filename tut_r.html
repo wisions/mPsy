@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Controlling mPsy experiments from R &mdash; Modular Psychophysics 2.0 documentation</title>
+    <title>Control from R &mdash; Modular Psychophysics 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="top" title="Modular Psychophysics 2.0 documentation" href="index.html" />
-    <link rel="next" title="Standard stimulus library" href="stimuli.html" />
+    <link rel="next" title="Standard library" href="stimuli.html" />
     <link rel="prev" title="Control from MATLAB" href="tut_matlab.html" /> 
   </head>
   <body>
@@ -39,7 +39,7 @@
         <div class="rel">
           <a href="tut_matlab.html" title="Control from MATLAB"
              accesskey="P">previous</a> |
-          <a href="stimuli.html" title="Standard stimulus library"
+          <a href="stimuli.html" title="Standard library"
              accesskey="N">next</a> |
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a>
@@ -55,31 +55,28 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="controlling-mpsy-experiments-from-r">
-<h1>Controlling <cite>mPsy</cite> experiments from R<a class="headerlink" href="#controlling-mpsy-experiments-from-r" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="control-from-r">
+<h1>Control from R<a class="headerlink" href="#control-from-r" title="Permalink to this headline">¶</a></h1>
 <p>Contents:</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><a class="reference internal" href="#installation" id="id1">Installation</a></li>
-<li><a class="reference internal" href="#a-simple-r-experiment" id="id2">A simple R experiment</a></li>
+<li><a class="reference internal" href="#sample-experiment" id="id2">Sample experiment</a></li>
 <li><a class="reference internal" href="#recording-responses" id="id3">Recording responses</a></li>
 </ul>
 </div>
 <div class="section" id="installation">
 <h2><a class="toc-backref" href="#id1">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>You can download mPsy with sample experiment written in R from
+<p>Download mPsy with the sample experiment in R from
 <a class="reference external" href="https://dl.dropboxusercontent.com/u/166463/mpsy/download/mpsy_r.zip">here</a>.</p>
-<p>In what is described on this page, the R environment is used only to specify the timeline of experiment and its parameters.
-Presentation of stimuli still require a working Python installation as descibed in <a class="reference internal" href="index.html"><em>Modular Psychophysics (mPsy)</em></a>.</p>
-<p>Once you have Python installed, exctract the downloaded mPsy package into an empty directory.</p>
-<p>The mPsy-to-R bridge script uses two R packages that might be not installed in your distribution.
-These packages are &#8220;rjson&#8221; and &#8220;httpRequest&#8221;, please install them using your favorite method.</p>
+<p>In the following the R environment is used only to define stimulus parameters and the timeline of the experiment.</p>
+<p>Presentation of stimuli requires a working Python installation as described in <a class="reference internal" href="tutorials.html"><em>Tutorials</em></a>. Once Python is installed, extract the downloaded mPsy package into an empty directory.</p>
+<p>The bridge between mPsy and R uses two R packages: <tt class="docutils literal"><span class="pre">rjson</span></tt> and <tt class="docutils literal"><span class="pre">ttpRequest</span></tt>. Make sure you have them.</p>
 </div>
-<div class="section" id="a-simple-r-experiment">
-<h2><a class="toc-backref" href="#id2">A simple R experiment</a><a class="headerlink" href="#a-simple-r-experiment" title="Permalink to this headline">¶</a></h2>
-<p>As stated in the first section the experiment will be essentially running in Python, R will
-be used to remotelly control this experiment. The Python program that will &#8220;listen&#8221; to the R
-commands is a simple experiment with no stimuli and remote control component included:</p>
+<div class="section" id="sample-experiment">
+<h2><a class="toc-backref" href="#id2">Sample experiment</a><a class="headerlink" href="#sample-experiment" title="Permalink to this headline">¶</a></h2>
+<p>In this experiment R is used to remotely control the experiment run in Python.</p>
+<p>The following Python program &#8220;listens&#8221; to R commands and it presents no stimuli.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">stimuli</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
@@ -101,7 +98,7 @@ commands is a simple experiment with no stimuli and remote control component inc
     
     <span class="c"># run experiment</span>
     <span class="c"># mPsy takes Trials from the begining of the trials list</span>
-    <span class="c"># if the trials list is eempty mPsy waits</span>
+    <span class="c"># if the trials list is empty mPsy waits</span>
     <span class="c"># ESCAPE stops the experiment at any time</span>
     <span class="n">run</span><span class="p">()</span>
 
@@ -109,7 +106,7 @@ commands is a simple experiment with no stimuli and remote control component inc
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>The web remote control is enabled by the following code:</p>
+<p>The remote control is enabled by:</p>
 <div class="highlight-python"><div class="highlight"><pre>    <span class="c"># tell mPsy about remote control</span>
     <span class="kn">import</span> <span class="nn">web</span>
     <span class="n">remote</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">Remote</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
@@ -118,11 +115,9 @@ commands is a simple experiment with no stimuli and remote control component inc
     <span class="n">win</span><span class="o">.</span><span class="n">set_logger</span><span class="p">(</span><span class="n">remote</span><span class="o">.</span><span class="n">event</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>When the remotely controllable Python experiment is running we can use R to define when and
-what stimuli appear on the screen. The mPsy Python package will take care of stimulus presentation,
-subject interaction such as the collecting responses, and transmission of collected information back
-to the R program.</p>
-<p>The R experiment looks as follows:</p>
+<p>When the Python experiment is already running, we use R to define what stimuli appear on the screen and when. mPsy will take care of stimulus presentation and
+interaction with the subject (i.e., it will collect responses and send this information back  to R).</p>
+<p>Here is the code in R:</p>
 <div class="highlight-r"><div class="highlight"><pre>source<span class="p">(</span><span class="s">&#39;mPsy.r&#39;</span><span class="p">)</span>
 
 <span class="c1"># EXPERIMENT</span>
@@ -223,19 +218,21 @@ set_trials<span class="p">(</span>trials<span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>To run the demo experiment first download the file. Next run the &#8220;exp_tut_webremote.py&#8221;
-(double click, or use Terminal or cmd.exe and execute by typing &#8220;python exp_tut_webremote.py&#8221;).
-A succesfull execution of the Python program results in a blank  black screen
-(or a black window in case fullscreen option is off). At this point you can go to R,
-change the working directory to the one containing the file &#8220;dots_tut3.r&#8221; and run &#8220;source(&#8216;dots_tut3.r&#8217;)&#8221;.</p>
-<p>The syntax of the R experiment is modelled after the Python examples. Please refer
-to the main tutorial &#8220;<a class="reference internal" href="index.html"><em>Modular Psychophysics (mPsy)</em></a>&#8221; for explanation of commands for stimulus parameter and trial setup.</p>
+<p>To run this demonstration, download the file and run <tt class="docutils literal"><span class="pre">exp_tut_webremote.py</span></tt> by</p>
+<blockquote>
+<div><ul class="simple">
+<li>either double-clicking the file name</li>
+<li>or executing <tt class="docutils literal"><span class="pre">python</span> <span class="pre">exp_tut_webremote.py</span></tt> in the Terminal.</li>
+</ul>
+</div></blockquote>
+<p>A successfully executed Python program will create an empty black screen or an empty black window if the <tt class="docutils literal"><span class="pre">fullscreen</span></tt> option is off.</p>
+<p>At this point you can go to R, change the working directory to the one containing the file <tt class="docutils literal"><span class="pre">dots_tut3.r</span></tt> and run <tt class="docutils literal"><span class="pre">source('dots_tut3.r')</span></tt>.</p>
+<p>The syntax of the sample experiment in R is modelled after the sample example in Python. See main <a class="reference internal" href="tutorials.html"><em>Tutorials</em></a> for an explanation of how to control the parameters of stimuli and the timeline.</p>
 </div>
 <div class="section" id="recording-responses">
 <h2><a class="toc-backref" href="#id3">Recording responses</a><a class="headerlink" href="#recording-responses" title="Permalink to this headline">¶</a></h2>
-<p>Events triggered by mPsy or subject interation are described in the main Python tutorial
-in <a class="reference internal" href="tut_python.html"><em>Psychophysics in &#8220;pure&#8221; Python</em></a>.</p>
-<p>To catch events in R we regularly check for any messages accumulating in the Python presentation program:</p>
+<p>The events triggered by mPsy or the subject are described in the main Python tutorial  <a class="reference internal" href="tut_python.html"><em>Control from Python</em></a>.</p>
+<p>To catch events in R we regularly check for messages accumulating in the Python presentation program:</p>
 <div class="highlight-r"><div class="highlight"><pre><span class="c1"># watch the events for 10 seconds</span>
 <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)</span>
 <span class="p">{</span>
@@ -276,13 +273,13 @@ in <a class="reference internal" href="tut_python.html"><em>Psychophysics in &#8
 <li class="toctree-l1"><a class="reference internal" href="tut_matlab.html">Control from MATLAB</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Control from R</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#a-simple-r-experiment">A simple R experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sample-experiment">Sample experiment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#recording-responses">Recording responses</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="stimuli.html">Standard stimulus library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stimuli.html">Standard library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_stimuli.html">New stimuli</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">Brief function reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Brief reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 
@@ -306,7 +303,7 @@ in <a class="reference internal" href="tut_python.html"><em>Psychophysics in &#8
         <div class="left">
           <a href="tut_matlab.html" title="Control from MATLAB"
              >previous</a> |
-          <a href="stimuli.html" title="Standard stimulus library"
+          <a href="stimuli.html" title="Standard library"
              >next</a> |
           <a href="genindex.html" title="General Index"
              >index</a>

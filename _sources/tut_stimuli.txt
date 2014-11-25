@@ -1,10 +1,10 @@
 
 Creating your own stimuli in Python
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------
 
-Every mPsy stimulus contains at least two elements: function `draw()` and field `params`.  The latter is an associative array: a fundamental object type such as `struct` in MATLAB and `named list` in R.
+Every mPsy stimulus contains at least two elements: function ``draw()`` and field ``params``.  The latter is an associative array: a fundamental object type such as `struct` in MATLAB and `named list` in R.
 
-A definition of stimulus in mPsy is illustrated just below using stimulus `Text`,  a simple yet functional example of text label:
+A definition of stimulus in mPsy is illustrated just below using stimulus ``Text``,  a simple yet functional example of text label:
 
 .. code-block:: python
 
@@ -19,9 +19,9 @@ A definition of stimulus in mPsy is illustrated just below using stimulus `Text`
 
 
 
-Each mPsy stimulus [is an independent program], for which several examples appear module `stimuli.py`. The examples in `stimuli.py` (and the one above) can be used outside of mPsy, which is useful for the developing your own stimuli.
+Each mPsy stimulus [is an independent program], for which several examples appear module ``stimuli.py``. The examples in ``stimuli.py`` (and the one above) can be used outside of mPsy, which is useful for the developing your own stimuli.
 
-The following code shows how to set up a window and call the `draw()` function for an mPsy stimulus.
+The following code shows how to set up a window and call the ``draw()`` function for an mPsy stimulus.
 
 .. code-block:: python
 

@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="top" title="Modular Psychophysics 2.0 documentation" href="#" />
-    <link rel="next" title="Tutorials for Modular Psychophysics (mPsy)" href="tutorials.html" /> 
+    <link rel="next" title="Tutorials" href="tutorials.html" /> 
   </head>
   <body>
     <div class="header-wrapper">
@@ -36,7 +36,7 @@
         <div class="headertitle"><a
           href="#">Modular Psychophysics 2.0 documentation</a></div>
         <div class="rel">
-          <a href="tutorials.html" title="Tutorials for Modular Psychophysics (mPsy)"
+          <a href="tutorials.html" title="Tutorials"
              accesskey="N">next</a> |
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a>
@@ -54,45 +54,51 @@
             
   <div class="section" id="modular-psychophysics-mpsy">
 <h1>Modular Psychophysics (mPsy)<a class="headerlink" href="#modular-psychophysics-mpsy" title="Permalink to this headline">¶</a></h1>
-<p>mPsy is a modular approach to design of psychophysical experiments.</p>
-<p>It allows one to build experiments out of modules: independent programs in different languages best suited for the different components of your project.</p>
-<p>mPsy is free, open-source, and extremely compact. It embodies a minimalist approach to programming and psychophysics.</p>
-<p>The core of mPsy is written in Python. It offers a library of standard stimuli and also tools for building new stimuli, static and dynamic.</p>
-<p>The core can be controlled using several languages. For example:</p>
-<ul class="simple">
-<li>the flow of the experiment can be written in MATLAB</li>
-<li>the stimulus in Python (or called from MATLAB without any knowledge of Python)</li>
-<li>and automatic plotting of the data in R.</li>
-</ul>
-<center>
-<table border="0" width="80%" style="text-align: center; border=0; margin: 20px;">
-<tbody>
-<tr>
-<td>
-<a href="https://dl.dropboxusercontent.com/u/166463/mpsy/download/mpsy_minimal.zip"
-   style="text-decoration: none;">
-    <img class="cogex" alt="" border="0" width="160px" height="160px" src="_static/logo_mpsy512_g.png"><br/>
-    <span style="font-size: 32px;">Download</span>
-    </a>
-</td>
-<td>
-<a href="tutorials.html" style="text-decoration: none;">
-    <img class="cogex" alt="" border="0" width="160px" height="160px" src="_static/book2g.png"><br/>
-    <span style="font-size: 32px;">Tutorials</span></a>
-</td>
-</tr>
-</tbody>
-</table>
-</center><p>Although mPsy does not depend on such expensive commercial software as MATLAB, you can control mPsy through MATLAB in case you want to start where you are most comfortable now, and then move on to open-source, free software as you learn mPsy.</p>
-<p>Later on, when you decide to leave MATLAB, you will write the flow of experiment in Python or R and keep the other modules intact.</p>
-<p>mPsy differs from other psychophysical frameworks in three ways:</p>
+<p>What is mPsy?</p>
+<blockquote>
+<div><p>It is a collection of tools that implements a modular approach to psychophysics.</p>
+<p>It lets you write parts of experiment in different languages best suited for each part.</p>
+<p>It is free, open-source, and extremely compact. Its core is written in Python.</p>
+<p>It embodies a minimalist approach to coding and psychophysics.</p>
+<p>It allows one to run experiments locally or over networks.</p>
+</div></blockquote>
+<p>For example, the timeline of your experiment can be scripted in MATLAB, calling the stimuli written in Python on every trial (without any knowledge of Python), followed by automatic plotting of data in R.</p>
+<p>mPsy offers freedom. It saves you from dependence on such expensive commercial software as MATLAB. Still, you may control mPsy from MATLAB if you want to start where you are most comfortable now, and then move on to the open-source, free software as you learn mPsy.</p>
+<p>mPsy differs from other psychophysical software in three ways:</p>
 <ul class="simple">
 <li>it requires a small amount of code</li>
 <li>it is self-contained</li>
 <li>it is open to control over networks</li>
 </ul>
-<p>These and other key features of mPsy are illustrated in a series of <a class="reference internal" href="tutorials.html"><em>Tutorials for Modular Psychophysics (mPsy)</em></a>.</p>
-<p>We gratefully acknowledge the financial support to this project from NSF, NIH, and Arthur Woodrow Foundation.</p>
+<p>These and other key features of mPsy are illustrated in a series of <a class="reference internal" href="tutorials.html"><em>Tutorials</em></a>.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<center>
+<table border="0" width="80%" style="text-align: center; border=0; margin: 20px;">
+<tbody>
+<tr>
+    <td>
+<a href="tutorials.html" style="text-decoration: none;">
+    <img class="cogex" alt="" border="0" width="160px" height="160px" src="_static/book2g.png"><br/>
+    <span style="font-size: 25px;">Tutorials</span></a>
+</td>
+<td>
+<a href="https://dl.dropboxusercontent.com/u/166463/mpsy/download/mpsy_minimal.zip"
+   style="text-decoration: none;">
+    <img class="cogex" alt="" border="0" width="160px" height="160px" src="_static/logo_mpsy512_g.png"><br/>
+    <span style="font-size: 25px;">Download</span>
+    </a>
+</td>
+</tr>
+</tbody>
+</table>
+</center><div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="section" id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this headline">¶</a></h2>
+<p>We gratefully acknowledge the support from the National Science Foundation (Grant 1027259), the National Institutes of Health (Grant EY018613), and The Arthur Woodrow Foundation.</p>
 <div style="display: none;"><div class="toctree-wrapper compound">
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="">Home</a></li>
@@ -103,26 +109,27 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tut_python.html">Control from Python</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tut_python.html#the-hello-lattice-experiment">The &#8220;Hello Lattice!&#8221; experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut_python.html#sample-experiment">Sample experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut_python.html#code-in-detail">Code in detail</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut_python.html#recording-responses">Recording responses</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tut_python.html#randomizing-stimulus-parameters">Randomizing stimulus parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut_python.html#stimulus-randomization">Stimulus randomization</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tut_matlab.html">Control from MATLAB</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="tut_matlab.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tut_matlab.html#a-sample-experiment">A sample experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut_matlab.html#sample-experiment">Sample experiment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut_matlab.html#recording-responses">Recording responses</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tut_r.html">Control from R</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="tut_r.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tut_r.html#a-simple-r-experiment">A simple R experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut_r.html#sample-experiment">Sample experiment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tut_r.html#recording-responses">Recording responses</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="stimuli.html">Standard stimulus library</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="stimuli.html">Standard library</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="stimuli.html#luminance-grating">Luminance grating</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stimuli.html#random-dot-cinematogram-rdc">Random-dot cinematogram (RDC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stimuli.html#random-dot-cinematogram">Random-dot cinematogram</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stimuli.html#dot-lattice">Dot lattice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stimuli.html#cube">Cube</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stimuli.html#tiled-image">Tiled image</a></li>
@@ -130,11 +137,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tut_stimuli.html">New stimuli</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">Brief function reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Brief reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </div>
 </div></div>
+</div>
 
 
           </div>
@@ -150,9 +158,9 @@
 <li class="toctree-l1"><a class="reference internal" href="tut_python.html">Control from Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_matlab.html">Control from MATLAB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_r.html">Control from R</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stimuli.html">Standard stimulus library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stimuli.html">Standard library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_stimuli.html">New stimuli</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">Brief function reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Brief reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 
@@ -174,7 +182,7 @@
     <div class="footer-wrapper">
       <div class="footer">
         <div class="left">
-          <a href="tutorials.html" title="Tutorials for Modular Psychophysics (mPsy)"
+          <a href="tutorials.html" title="Tutorials"
              >next</a> |
           <a href="genindex.html" title="General Index"
              >index</a>

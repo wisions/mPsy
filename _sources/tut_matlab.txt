@@ -11,44 +11,57 @@ Contents:
 Installation
 ------------
 
-The standard `distribution <https://dl.dropboxusercontent.com/u/166463/mpsy/download/mpsy_matlab.zip>`_ of mPsy contains a sample experiment in MATLAB.
+The standard `distribution <https://dl.dropboxusercontent.com/u/166463/mpsy/download/mpsy_matlab.zip>`_ of mPsy contains a sample experiment in which MATLAB is used to define the timeline of the experiment and its parameters. 
 
-Here MATLAB is used to define the time line of experiment and its parameters. Presentation of stimuli requires a working installation of Python as described in :doc:`index`. Once Python is installed, extract the archived mPsy package into an empty directory.
+Presentation of stimuli requires a working installation of Python as described in :doc:`tutorials`. Once Python is installed, extract the archived mPsy package into an empty directory.
 
-A sample experiment
--------------------
+Sample experiment
+-----------------
 
-Here stimulus presentation is carried by Python. MATLAB is used to control the experiment remotely. Python "listens" to MATLAB commands and executes them.
+Here stimulus presentation is carried by Python. MATLAB is used to control the experiment remotely. Python listens to MATLAB commands and executes them.
 
-The following is a "blank" experiment with no stimuli:
+The following is a "blank" experiment that presents no stimuli.
 
 .. literalinclude:: ../../mPsy/examples/exp_tut_webremote.py
 
-Remote control is enabled by this code:
+Remote control is enabled by the following code.
 
 .. literalinclude:: ../../mPsy/examples/exp_tut_webremote.py
     :lines: 14-19
 
-In a complete experiment, the timing and identity of stimuli is controlled from MATLAB.  Python presents stimuli, collect subject's responses, and makes the collected information available for MATLAB to pick up.
+In a complete experiment, the timing and identity of stimuli is controlled from MATLAB. Python presents stimuli, collect subject's responses, and makes the collected information available for MATLAB to pick up.
 
-The MATLAB side of this experiment looks as follows:
+The MATLAB side of this experiment looks as follows.
 
 .. highlight:: matlab
 .. literalinclude:: ../../mPsy/examples/matlab/exp_tut4.m
 
-To run the demonstration, copy the above into MATLAB. Next run the "exp_tut_webremote.py" 
-(double click the file name or execute it by typing "python exp_tut_webremote.py" in the Terminal). A successfully executed Python program creates an empy  
-black screen (or a black window when `fullscreen` option is off).
+To run this demonstration:
 
-At this point you can go to MATLAB, change you directory to that containing
-files "exp_tut4.m" and "mimport.m" and also subdirectory "matlab" and run "exp_tut4".
+* Copy the above snippet into MATLAB (starting with ``mimport``).
+* Run the ``exp_tut_webremote.py`` 
 
-The syntax of the MATLAB experiment is modelled after the Python examples. Main tutorial ":doc:`index`" explains how to define the parameters of stimuli and the time line of the experiment.
+  * To accomplish this, double-click the file name 
+  * or execute it by typing ``python exp_tut_webremote.py`` in the Terminal.
+ 
+* A successfully executed Python program creates an empty  black screen 
+
+  * or a black window when ``fullscreen`` option is off.
+
+* At this point you can go to MATLAB, change you directory to that containing
+
+  * file ``exp_tut4.m``
+  * file ``mimport.m``
+  * subdirectory ``matlab`` 
+  
+and run ``exp_tut4``.
+
+The syntax of the MATLAB experiment is modelled after the Python examples. The main tutorial in :doc:`tutorials` explains how to define parameters of the stimuli and the timeline.
 
 Recording responses
 -------------------
 
-On every event (triggered by mPsy or subject's response) information is added to mPsy event log as described in the main Python tutorial in :doc:`tut_python`. To catch events in MATLAB we regularly check for the messages accumulating on the Python side:
+On every event triggered by mPsy (or by subject's response) information is added to mPsy event log as described in tutorial :doc:`tut_python`. To catch events in MATLAB we regularly check for the messages accumulating on the Python side:
 
 .. literalinclude:: ../../mPsy/examples/matlab/exp_tut4.m
     :lines: 56-63

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Standard stimulus library &mdash; Modular Psychophysics 2.0 documentation</title>
+    <title>Standard library &mdash; Modular Psychophysics 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,7 +26,7 @@
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="top" title="Modular Psychophysics 2.0 documentation" href="index.html" />
     <link rel="next" title="Creating your own stimuli in Python" href="tut_stimuli.html" />
-    <link rel="prev" title="Controlling mPsy experiments from R" href="tut_r.html" /> 
+    <link rel="prev" title="Control from R" href="tut_r.html" /> 
   </head>
   <body>
     <div class="header-wrapper">
@@ -37,7 +37,7 @@
         <div class="headertitle"><a
           href="index.html">Modular Psychophysics 2.0 documentation</a></div>
         <div class="rel">
-          <a href="tut_r.html" title="Controlling mPsy experiments from R"
+          <a href="tut_r.html" title="Control from R"
              accesskey="P">previous</a> |
           <a href="tut_stimuli.html" title="Creating your own stimuli in Python"
              accesskey="N">next</a> |
@@ -58,38 +58,52 @@
   <style>
 img { border-radius: 4px; margin-bottom: 10px; }
 h2 { clear: right; }
-</style><div class="section" id="standard-stimulus-library">
-<h1>Standard stimulus library<a class="headerlink" href="#standard-stimulus-library" title="Permalink to this headline">¶</a></h1>
-<p>Here is a number of stimuli deposited to mPsy standard library so far.</p>
+</style><div class="section" id="standard-library">
+<h1>Standard library<a class="headerlink" href="#standard-library" title="Permalink to this headline">¶</a></h1>
+<p>Below is a number of stimuli deposited to mPsy standard library so far.</p>
 <div class="section" id="luminance-grating">
 <h2>Luminance grating<a class="headerlink" href="#luminance-grating" title="Permalink to this headline">¶</a></h2>
-<a class="reference internal image-reference" href="_images/0004.png"><img alt="_images/0004.png" class="align-right" src="_images/0004.png" style="width: 120px;" /></a>
+<a class="reference internal image-reference" href="_images/0004.png"><img alt="_images/0004.png" class="align-left" src="_images/0004.png" style="width: 100px;" /></a>
 <p>A periodic modulation of luminance.  The modulation is characterized by spatial and temporal frequencies. The stimulus is complete with a mask that can take the form of smooth (Gaussian) or sharp aperture. The grating can be tilted and slanted.</p>
+<div class="line-block">
+<div class="line"><br /></div>
 </div>
-<div class="section" id="random-dot-cinematogram-rdc">
-<h2>Random-dot cinematogram (RDC)<a class="headerlink" href="#random-dot-cinematogram-rdc" title="Permalink to this headline">¶</a></h2>
-<a class="reference internal image-reference" href="_images/0002.png"><img alt="_images/0002.png" class="align-right" src="_images/0002.png" style="width: 120px;" /></a>
-<p>An array of randomly positioned dots. A common instantiation of RDC contains two groups of dots, &#8220;signal&#8221; and &#8220;noise,&#8221; whose properties determine stimulus &#8220;coherence.&#8221;  The instance on the right contains only one group. One may overlay several such stimuli (using different parameters for each) to control coherence or create more complex versions of RDC.</p>
+</div>
+<div class="section" id="random-dot-cinematogram">
+<h2>Random-dot cinematogram<a class="headerlink" href="#random-dot-cinematogram" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/0002.png"><img alt="_images/0002.png" class="align-left" src="_images/0002.png" style="width: 100px;" /></a>
+<p>An array of randomly positioned dots. A common instantiation of this stimulus contains two groups of dots, &#8220;signal&#8221; and &#8220;noise,&#8221; whose properties determine stimulus &#8220;coherence.&#8221;  The instance on the right contains only one group. One may overlay several such stimuli (using different parameters for each) to control coherence or create more complex versions of random-dot cinematograms (RDC).</p>
 </div>
 <div class="section" id="dot-lattice">
 <h2>Dot lattice<a class="headerlink" href="#dot-lattice" title="Permalink to this headline">¶</a></h2>
-<a class="reference internal image-reference" href="_images/0001.png"><img alt="_images/0001.png" class="align-right" src="_images/0001.png" style="width: 120px;" /></a>
+<a class="reference internal image-reference" href="_images/0001.png"><img alt="_images/0001.png" class="align-left" src="_images/0001.png" style="width: 100px;" /></a>
 <p>A periodic array of dots organized along several orientations with a constant inter-dot distance within orientation. The &#8220;dots&#8221; can be solid disks or Gaussian blobs, or they can have more complex shapes, such as luminance gratings characterized by the same of different spatial frequencies and orientations.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </div>
 <div class="section" id="cube">
 <h2>Cube<a class="headerlink" href="#cube" title="Permalink to this headline">¶</a></h2>
-<a class="reference internal image-reference" href="_images/0007.png"><img alt="_images/0007.png" class="align-right" src="_images/0007.png" style="width: 120px;" /></a>
+<a class="reference internal image-reference" href="_images/0007.png"><img alt="_images/0007.png" class="align-left" src="_images/0007.png" style="width: 100px;" /></a>
 <p>Cube rotated and scaled in three dimensions. The colors of vertices and faces are controlled independent of one another.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
 </div>
 <div class="section" id="tiled-image">
 <h2>Tiled image<a class="headerlink" href="#tiled-image" title="Permalink to this headline">¶</a></h2>
-<a class="reference internal image-reference" href="_images/0003.png"><img alt="_images/0003.png" class="align-right" src="_images/0003.png" style="width: 120px;" /></a>
-<p>An image is divided to rectangular fragments called &#8220;tiles.&#8221; The tiles can remain in place (making up the original image presented on a slanted/tilted plane) or they can be individually scaled or rotated.</p>
+<a class="reference internal image-reference" href="_images/0003.png"><img alt="_images/0003.png" class="align-left" src="_images/0003.png" style="width: 100px;" /></a>
+<p>An image is divided to rectangular fragments called &#8220;tiles.&#8221; The tiles can remain in place, making up the original image presented on a slanted or tilted plane. Or the tiles can be individually scaled, translated, or rotated.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </div>
 <div class="section" id="alphabet-grid">
 <h2>Alphabet grid<a class="headerlink" href="#alphabet-grid" title="Permalink to this headline">¶</a></h2>
-<a class="reference internal image-reference" href="_images/0005.png"><img alt="_images/0005.png" class="align-right" src="_images/0005.png" style="width: 120px;" /></a>
-<p>A grid of letters commonly used in research of Brain Computer Interface (BCI). The letters are shown in a grid of 6x6 cells. The cells can be periodically highlighted.</p>
+<a class="reference internal image-reference" href="_images/0005.png"><img alt="_images/0005.png" class="align-left" src="_images/0005.png" style="width: 100px;" /></a>
+<p>A grid of letters commonly used in research of Brain Computer Interfaces (BCI). The letters are shown in a grid of 6x6 cells. The cells can be periodically highlighted.</p>
 </div>
 </div>
 
@@ -107,9 +121,9 @@ h2 { clear: right; }
 <li class="toctree-l1"><a class="reference internal" href="tut_python.html">Control from Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_matlab.html">Control from MATLAB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tut_r.html">Control from R</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Standard stimulus library</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Standard library</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#luminance-grating">Luminance grating</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#random-dot-cinematogram-rdc">Random-dot cinematogram (RDC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#random-dot-cinematogram">Random-dot cinematogram</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dot-lattice">Dot lattice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#cube">Cube</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tiled-image">Tiled image</a></li>
@@ -117,7 +131,7 @@ h2 { clear: right; }
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tut_stimuli.html">New stimuli</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">Brief function reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Brief reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 
@@ -139,7 +153,7 @@ h2 { clear: right; }
     <div class="footer-wrapper">
       <div class="footer">
         <div class="left">
-          <a href="tut_r.html" title="Controlling mPsy experiments from R"
+          <a href="tut_r.html" title="Control from R"
              >previous</a> |
           <a href="tut_stimuli.html" title="Creating your own stimuli in Python"
              >next</a> |
