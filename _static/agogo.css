@@ -22,6 +22,11 @@ body {
   background-color: #eeeeec;
 }
 
+em { 
+  font-style: normal;
+  font-weight: bold;
+  color: #ce5c00;
+}
 
 /* Page layout */
 
@@ -135,7 +140,7 @@ div.header .headertitle {
   font-family: "Georgia", "Times New Roman", serif;
   font-weight: normal;
   font-size: 180%;
-  letter-spacing: .08em;
+  //letter-spacing: .08em;
   margin-bottom: .8em;
 }
 
@@ -223,7 +228,13 @@ div.document li.toctree-l1 {
   margin-bottom: 1em;
 }
 
+div.document .descclassname {
+  font-size: 1.3em;
+  //font-weight: normal;
+}
+
 div.document .descname {
+  font-size: 1.3em;
   font-weight: bold;
 }
 
@@ -311,7 +322,7 @@ div.sidebar li.toctree-l1.current li.toctree-l2 a {
 }
 
 div.sidebar input[type="text"] {
-  width: 170px;
+  width: 150px;
 }
 
 div.sidebar input[type="submit"] {

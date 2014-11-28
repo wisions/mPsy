@@ -1296,6 +1296,118 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">vlist</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">GL_TRIANGLES</span><span class="p">)</span>
         <span class="n">glDisable</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">)</span>
         <span class="n">glPopMatrix</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">Lines</span><span class="p">(</span><span class="n">stim</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">100.0</span><span class="p">,</span><span class="mf">100.0</span><span class="p">,</span><span class="mf">100.0</span><span class="p">,</span><span class="o">-</span><span class="mf">100.0</span><span class="p">],</span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">100.0</span><span class="p">,</span><span class="o">-</span><span class="mf">100.0</span><span class="p">,</span><span class="mf">100.0</span><span class="p">,</span><span class="mf">100.0</span><span class="p">],</span><span class="n">z</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+                 <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">],</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">pos</span><span class="p">,</span><span class="n">params</span><span class="o">=</span><span class="n">Params</span><span class="p">()):</span>
+        <span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">cycle</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="n">pos</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">params</span><span class="p">,</span><span class="s">&#39;colors&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">iterable</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">colors</span><span class="p">):</span>
+            <span class="n">params</span><span class="o">.</span><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">params</span><span class="o">.</span><span class="n">colors</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">copy_params</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_defaults</span><span class="p">,</span><span class="n">params</span><span class="p">)</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clock</span> <span class="o">=</span> <span class="n">pyglet</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">Clock</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="c"># make vertex_list</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vlist</span> <span class="o">=</span> <span class="n">pyglet</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">vertex_list</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="s">&#39;v3d/stream&#39;</span><span class="p">,</span> <span class="s">&#39;c4f&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xy</span> <span class="o">=</span> <span class="n">from_ctypes</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vlist</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span><span class="s">&#39;f8&#39;</span><span class="p">,(</span><span class="n">N</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xy</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">z</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">colors</span> <span class="o">=</span> <span class="n">from_ctypes</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vlist</span><span class="o">.</span><span class="n">colors</span><span class="p">,</span><span class="s">&#39;f4&#39;</span><span class="p">,(</span><span class="n">N</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">colors</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vlist</span><span class="o">.</span><span class="n">_vertices_cache</span><span class="o">.</span><span class="n">invalidate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vlist</span><span class="o">.</span><span class="n">_colors_cache</span><span class="o">.</span><span class="n">invalidate</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span>
+        <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">)</span>
+        <span class="n">glPushMatrix</span><span class="p">()</span>
+        <span class="n">glLoadIdentity</span><span class="p">()</span>
+        <span class="n">glTranslatef</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="bp">self</span><span class="o">.</span><span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">glDisable</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">)</span>
+        <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_MULTISAMPLE_ARB</span><span class="p">)</span>
+        <span class="c">#glEnable(GL_POLYGON_SMOOTH);</span>
+        <span class="c">#glHint(GL_POLYGON_SMOOTH_HINT, GL_NICEST)</span>
+        <span class="n">glLineWidth</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">linewidth</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vlist</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">GL_LINES</span><span class="p">)</span>
+        <span class="n">glPointSize</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">linewidth</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vlist</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">GL_POINTS</span><span class="p">)</span>
+        <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">)</span>
+        <span class="c">#glDisable(GL_POLYGON_SMOOTH);</span>
+        <span class="c">#glHint(GL_POLYGON_SMOOTH_HINT, GL_DONT_CARE)</span>
+        <span class="n">glDisable</span><span class="p">(</span><span class="n">GL_MULTISAMPLE_ARB</span><span class="p">)</span>
+        <span class="n">glPopMatrix</span><span class="p">()</span>
+
+<span class="n">grating_frag_source</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">    precision highp float;</span>
+<span class="s">    </span>
+<span class="s">    uniform float time;</span>
+<span class="s">    uniform float fs;</span>
+<span class="s">    uniform float contr;</span>
+
+<span class="s">    void main() {</span>
+<span class="s">        float x = gl_TexCoord[0].x - 0.5;</span>
+<span class="s">        float y = -(gl_TexCoord[0].y - 0.5);</span>
+<span class="s">        float m = exp(-0.5*(x*x + y*y)/pow(0.17,2.0));</span>
+<span class="s">        float c = m*contr*cos(fs*x + 2.0*time);</span>
+<span class="s">        c = (1.0+c)/2.0;</span>
+<span class="s">        gl_FragColor.rgba = vec4(c,c,c,1.0);</span>
+<span class="s">    }</span>
+<span class="s">    &quot;&quot;&quot;</span>
+
+<span class="k">class</span> <span class="nc">GLSLStimulus</span><span class="p">(</span><span class="n">stim</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mf">300.0</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">300.0</span><span class="p">,</span> 
+                        <span class="n">vert_source</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span><span class="n">frag_source</span><span class="o">=</span><span class="n">grating_frag_source</span><span class="p">,</span>
+                        <span class="n">params</span><span class="o">=</span><span class="p">[(</span><span class="s">&#39;fs&#39;</span><span class="p">,</span><span class="s">&#39;glUniform1f&#39;</span><span class="p">,</span><span class="mf">40.0</span><span class="p">),</span>
+                                <span class="p">(</span><span class="s">&#39;contr&#39;</span><span class="p">,</span><span class="s">&#39;glUniform1f&#39;</span><span class="p">,</span><span class="mf">1.0</span><span class="p">)])):</span>
+    <span class="sd">&quot;&quot;&quot;GLSL stimulus</span>
+<span class="sd">    </span>
+<span class="sd">    :param width: size of stimulus in pixels</span>
+<span class="sd">    :param height: size of stimulus in pixels</span>
+<span class="sd">    :param vert_source: GLSL vertex program</span>
+<span class="sd">    :param frag_source: GLSL fragment program</span>
+<span class="sd">    :param params: GLSL program parameters</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">pos</span><span class="p">,</span><span class="n">params</span><span class="o">=</span><span class="n">Params</span><span class="p">()):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="n">pos</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">copy_params</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_defaults</span><span class="p">,</span><span class="n">params</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clock</span> <span class="o">=</span> <span class="n">pyglet</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">Clock</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shader</span> <span class="o">=</span> <span class="n">Shader</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">frag_source</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">vert_source</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">program</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shader</span><span class="o">.</span><span class="n">program</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uniforms</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="s">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="bp">self</span><span class="o">.</span><span class="n">shader</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">glutype</span><span class="p">,</span> <span class="n">val0</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">params</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shader</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">name</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">glUseProgram</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">program</span><span class="p">)</span>
+        <span class="n">glUniform1f</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="s">&#39;time&#39;</span><span class="p">],</span><span class="bp">self</span><span class="o">.</span><span class="n">t0</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">glutype</span><span class="p">,</span> <span class="n">val0</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">params</span><span class="p">:</span>
+            <span class="nb">getattr</span><span class="p">(</span><span class="n">gl</span><span class="p">,</span><span class="n">glutype</span><span class="p">,</span><span class="n">glUniform1f</span><span class="p">)(</span><span class="bp">self</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="n">name</span><span class="p">],</span><span class="n">val0</span><span class="p">)</span>
+        <span class="n">glUseProgram</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pos</span>
+        <span class="n">w2</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">width</span><span class="o">/</span><span class="mf">2.0</span>
+        <span class="n">glUseProgram</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">program</span><span class="p">)</span>
+        <span class="n">time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">t0</span>
+        <span class="n">glUniform1f</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="s">&#39;time&#39;</span><span class="p">],</span><span class="n">time</span><span class="p">)</span>
+        <span class="n">glPushMatrix</span><span class="p">()</span>
+        <span class="n">glLoadIdentity</span><span class="p">()</span>
+        <span class="n">glTranslatef</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="bp">self</span><span class="o">.</span><span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_QUADS</span><span class="p">)</span>
+        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">)</span>
+        <span class="n">glVertex2f</span><span class="p">(</span><span class="o">-</span><span class="n">w2</span><span class="p">,</span><span class="o">-</span><span class="n">w2</span><span class="p">)</span>
+        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">)</span>
+        <span class="n">glVertex2f</span><span class="p">(</span><span class="n">w2</span><span class="p">,</span><span class="o">-</span><span class="n">w2</span><span class="p">)</span>
+        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">glVertex2f</span><span class="p">(</span><span class="n">w2</span><span class="p">,</span><span class="n">w2</span><span class="p">)</span>
+        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">glVertex2f</span><span class="p">(</span><span class="o">-</span><span class="n">w2</span><span class="p">,</span><span class="n">w2</span><span class="p">)</span>
+        <span class="n">glEnd</span><span class="p">()</span>
+        <span class="n">glPopMatrix</span><span class="p">()</span>
+        <span class="n">glUseProgram</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
           </div>

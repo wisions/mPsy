@@ -1,0 +1,79 @@
+
+Creating your own stimuli in Python
+-----------------------------------
+
+Every mPsy stimulus contains at least two elements: function ``draw()`` and field ``params``.  The latter is an associative array: a fundamental object type such as `struct` in MATLAB and `named list` in R.
+
+A definition of stimulus in mPsy is illustrated just below using stimulus ``Text``,  a simple yet functional example of text label:
+
+.. code-block:: python
+
+    from pyglet import text
+
+    class Text:
+        def __init__(self,**params):
+            self.params = Params(\**params)
+            self.text = text.Label(self.params.msg,anchor_x='center',halign='center')
+        def draw(self):
+            self.text.draw()
+
+
+
+Each mPsy stimulus [is an independent program], for which several examples appear module ``stimuli.py``. The examples in ``stimuli.py`` (and the one above) can be used outside of mPsy, which is useful for the developing your own stimuli.
+
+The following code shows how to set up a window and call the ``draw()`` function for an mPsy stimulus.
+
+.. code-block:: python
+
+    from pyglet import text
+
+    class Text:
+        def __init__(self,\**params):
+            print params
+            self.params = Params(\**params)
+            self.text = text.Label(self.params.msg,halign='center',anchor_x='center')
+        def draw(self):
+            self.text.draw()
+
+    if __name__ == "__main__":
+        import sys
+        sys.path[:0] = ['packages.zip']
+
+        from pyglet.gl import *
+        from pyglet.window import key
+        from pyglet import clock, clock, font, graphics, window, text
+
+        class Params:
+            def __init__(self,**kwargs):
+                self.__dict__.update(kwargs)
+            def update(self,**kwargs):
+                self.__dict__.update(kwargs)
+            def __str__(self):
+                return '\n'.join( '%s = %s'%x for x in self.__dict__.items() )
+            def __repr__(self):
+                return 'Params(%s)'%(', '.join( '%s=%s'%x for x in self.__dict__.items() ),)
+            def default(self):
+                return self.__dict__
+
+        win = window.Window()
+        stim = Text(msg='Welcome to Movable Psychophysics.')
+
+        def update(dt):
+            win.clear()
+            glPushMatrix()
+            glTranslatef(320,240,0)
+            stim.draw()
+            glPopMatrix()
+        
+        clock.schedule_interval(update,1/60.0)
+        pyglet.app.run()
+
+
+Creating dynamic stimuli - Luminance grating example
+----------------------------------------------------
+
+
+
+Creating your own stimuli in MATLAB
+-----------------------------------
+
