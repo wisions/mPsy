@@ -18,9 +18,9 @@ The core of mPsy is written in Python.
 
 The core can be controlled using several languages. For example:
 
-* the flow of the experiment can be written in MATLAB
-* the stimulus in Python (or called from MATLAB without knowledge of Python)
-* and automatic plotting of the data could use R. 
+* the flow of the experiment can be written in MATLAB,
+* the stimulus in Python (or called from MATLAB without knowledge of Python),
+* and automatic plotting of the data could use R language. 
 
 Please see [documenation](http://wisions.github.io/mPsy/) at http://wisions.github.io/mPsy/ or contact Peter Jurica (juricap@gmail.com) and Sergei Gepshtein (sergei@salk.edu) for further detail.
 
