@@ -1,4 +1,9 @@
 
+# in case you run from "examples" directory
+# add main mPsy (stimuli.py) directory to the path
+import sys
+sys.path.append('..')
+
 from stimuli import *
 
 # create an object of which function '__call__' is called on all events like

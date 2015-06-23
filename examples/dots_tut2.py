@@ -1,4 +1,9 @@
 
+# in case you run from "examples" directory
+# add main mPsy (stimuli.py) directory to the path
+import sys
+sys.path.append('..')
+
 from stimuli import *
 
 # create a function that will be triggered by events TRIAL, MOUSE, KEY ...
