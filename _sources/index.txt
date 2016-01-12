@@ -64,7 +64,7 @@ These and other key features of mPsy are illustrated in a series of :doc:`tutori
 Acknowledgements
 ----------------
 
-We gratefully acknowledge the support from the National Science Foundation (Grant 1027259), the National Institutes of Health (Grant EY018613), and The Arthur Woodrow Foundation.
+We gratefully acknowledge the support from the National Science Foundation (Grant 1027259), the National Institutes of Health (Grant EY018613), and the Arthur and Dinah Woodrow Foundation.
 	
 	
 .. raw:: html
